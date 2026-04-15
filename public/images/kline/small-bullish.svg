@@ -1,0 +1,6 @@
+<svg width="720" height="420" viewBox="0 0 720 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="720" height="420" rx="32" fill="#F8FAFC"/>
+  <path d="M360 92V312" stroke="#0F172A" stroke-width="12" stroke-linecap="round"/>
+  <rect x="315" y="172" width="90" height="90" rx="18" fill="#FDBA74"/>
+  <text x="44" y="66" fill="#334155" font-size="28" font-family="sans-serif">小阳线</text>
+</svg>
