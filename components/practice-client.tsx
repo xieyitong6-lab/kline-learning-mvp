@@ -130,6 +130,9 @@ export function PracticeClient() {
 
             <div className="rounded-[28px] border border-slate-200 bg-slate-50 p-5">
               <p className="text-sm font-medium text-slate-500">题型 2：关键词辅助记忆</p>
+              <p className="mt-2 text-sm leading-7 text-slate-600">
+                这里的关键词不是“看涨/看跌”这种结果词，而是对当前形态的构成拆解，比如“大阳线、小阴线、上影线、下影线”。
+              </p>
               <div className="mt-4 flex flex-wrap gap-3">
                 {DEFAULT_KEYWORD_POOL.map((keyword) => (
                   <button
@@ -189,7 +192,7 @@ export function PracticeClient() {
             {submitted && keywordResult && (
               <SectionCard
                 title={titleCorrect && keywordResult.status === "correct" ? "回答正确" : "答题反馈"}
-                description="反馈包含名称判断和关键词匹配结果。"
+                description="这里只保留名称判断和关键词判定结果。"
               >
                 <div className="space-y-4 text-sm leading-7 text-slate-700">
                   <div>
@@ -211,24 +214,9 @@ export function PracticeClient() {
                     <p>漏掉关键词：{keywordResult.missed.join("、") || "无"}</p>
                   </div>
                   <div className="rounded-2xl bg-slate-50 p-4">
-                    <p className="font-semibold text-slate-900">解析说明</p>
-                    <p className="mt-2">{question.description}</p>
-                    {question.feature && question.feature.length > 0 && (
-                      <div className="mt-3 space-y-1 text-slate-700">
-                        {question.feature.map((point) => (
-                          <p key={point}>• {point}</p>
-                        ))}
-                      </div>
-                    )}
-                    <p className="mt-3 text-slate-800">
-                      技术含义：{question.meaning ?? "请结合前序趋势与后续确认K线综合判断。"}
-                    </p>
-                    <p className="mt-2 text-amber-800">
-                      记忆提示：{question.hint ?? "从实体与影线开始拆解。"}
-                    </p>
-                    <p className="mt-2 text-slate-600">
-                      备注：{question.note ?? "单独记住名字不够，最好把位置和确认方式一起记住。"}
-                    </p>
+                    <p className="font-semibold text-slate-900">拆解参考</p>
+                    <p className="mt-2">这个形态在当前题库中被拆成：{question.keywords.join("、")}。</p>
+                    <p className="mt-2 text-amber-800">记忆提示：{question.hint ?? "从实体与影线开始拆解。"}</p>
                   </div>
                 </div>
               </SectionCard>

@@ -300,39 +300,78 @@ def get_signal_and_category(title: str) -> tuple[str, str, list[str]]:
 
 
 def infer_keywords(title: str, tags: list[str]) -> list[str]:
-    keywords: list[str] = list(tags[:2])
+    exact_keywords = {
+        "大阳线": ["大阳线"],
+        "大阴线": ["大阴线"],
+        "小阳线": ["小阳线"],
+        "小阴线": ["小阴线"],
+        "十字": ["十字线"],
+        "长十字": ["十字线", "上影线", "下影线"],
+        "T字": ["十字线", "下影线", "长下影"],
+        "倒T字": ["十字线", "上影线", "长上影"],
+        "一字": ["十字线"],
+        "螺旋桨": ["十字线", "上影线", "下影线"],
+        "早晨十字星": ["大阴线", "十字线", "大阳线", "三K线"],
+        "早晨之星": ["大阴线", "小阴线", "大阳线", "三K线"],
+        "好友反攻": ["大阴线", "大阳线", "双K线"],
+        "曙光初现": ["大阴线", "大阳线", "双K线"],
+        "旭日东升": ["大阴线", "大阳线", "双K线"],
+        "锤头线": ["小阳线", "下影线", "长下影"],
+        "倒锤头线": ["小阳线", "上影线", "长上影"],
+        "平底钳子线": ["双K线", "并列", "下影线"],
+        "塔形底": ["大阴线", "小阳线", "大阳线", "多K线"],
+        "圆底": ["小阳线", "小阴线", "多K线"],
+        "红三兵": ["小阳线", "三K线"],
+        "三只乌鸦": ["大阴线", "三K线"],
+        "黄昏十字星": ["大阳线", "十字线", "大阴线", "三K线"],
+        "黄昏之星": ["大阳线", "小阳线", "大阴线", "三K线"],
+        "淡友反攻": ["大阳线", "大阴线", "双K线"],
+        "乌云盖顶": ["大阳线", "大阴线", "双K线"],
+        "倾盆大雨": ["大阳线", "大阴线", "双K线"],
+        "下降覆盖线": ["大阳线", "大阴线", "多K线"],
+        "平顶钳子线": ["双K线", "并列", "上影线"],
+        "塔形顶": ["大阳线", "小阴线", "大阴线", "多K线"],
+        "圆顶": ["小阳线", "小阴线", "多K线"],
+        "身怀六甲": ["双K线", "包容", "小阳线"],
+        "穿头破脚": ["双K线", "包容", "大阳线", "大阴线"],
+    }
+
+    if title in exact_keywords:
+        return exact_keywords[title]
+
+    keywords: list[str] = []
 
     if any(token in title for token in ["阳", "红三兵", "旭日", "曙光", "早晨", "多方"]):
-        keywords.append("阳线")
+        keywords.append("大阳线" if any(token in title for token in ["大", "旭日", "曙光"]) else "小阳线")
     if any(token in title for token in ["阴", "乌鸦", "乌云", "黄昏", "淡友", "空方"]):
-        keywords.append("阴线")
+        keywords.append("大阴线" if any(token in title for token in ["大", "乌云", "黄昏", "乌鸦"]) else "小阴线")
     if "十字" in title or title in {"T字", "倒T字"}:
-        keywords.append("十字星")
+        keywords.append("十字线")
     if any(token in title for token in ["跳空", "缺口", "并排"]):
         keywords.append("跳空缺口")
-    if any(token in title for token in ["反攻", "之星", "盖顶", "锤头", "倒锤头", "穿头破脚", "身怀六甲", "镊子", "塔形", "圆顶", "圆底"]):
-        keywords.append("反转形态")
     if any(token in title for token in ["三", "乌鸦", "三兵", "三部曲", "三颗星"]):
         keywords.append("三K线")
     if any(token in title for token in ["并排", "反攻", "镊子", "盖顶", "破脚", "六甲"]):
         keywords.append("双K线")
-    if any(token in title for token in ["盘旋", "步曲", "部曲", "冉冉", "徐缓", "稳步", "不止", "弧形", "连续", "加速度"]):
+    if any(token in title for token in ["盘旋", "步曲", "部曲", "冉冉", "徐缓", "稳步", "不止", "弧形", "连续", "加速度", "圆底", "圆顶", "塔形"]):
         keywords.append("多K线")
     if any(token in title for token in ["锤头", "T字"]):
         keywords.append("长下影")
+        keywords.append("下影线")
     if any(token in title for token in ["倒锤", "倒T", "上升抵抗", "上升受阻", "尽头"]):
         keywords.append("长上影")
-    if any(token in title for token in ["盘旋", "十字", "螺旋桨", "小阳", "小阴", "一字"]):
-        keywords.append("盘整")
-    if "加速度" in title:
-        keywords.append("加速")
+        keywords.append("上影线")
+    if any(token in title for token in ["镊子", "并排"]):
+        keywords.append("并列")
+    if any(token in title for token in ["六甲", "破脚"]):
+        keywords.append("包容")
 
     deduped: list[str] = []
     for keyword in keywords:
         if keyword not in deduped:
             deduped.append(keyword)
 
-    return deduped[:4] if deduped else ["整理形态"]
+    return deduped[:4] if deduped else ["多K线"]
 
 
 def infer_description(title: str, signal: str, category: str, tags: list[str]) -> str:
