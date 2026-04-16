@@ -157,9 +157,9 @@ export function PracticeClient() {
         </SectionCard>
 
         <SectionCard className="p-5 md:p-6">
-          <div className="min-h-[720px] rounded-[24px] border border-slate-200 bg-white p-5">
+          <div className="min-h-[360px] rounded-[24px] border border-slate-200 bg-white p-5 md:min-h-[420px]">
             {step === "name" && (
-              <div className="flex h-full flex-col">
+              <div className="space-y-5">
                 <div>
                   <p className="text-sm font-semibold text-slate-900">题目1：这是什么形态？</p>
                   <div className="mt-4 grid gap-3 sm:grid-cols-2">
@@ -179,20 +179,18 @@ export function PracticeClient() {
                   </div>
                 </div>
 
-                <div className="mt-auto pt-6">
-                  <button
-                    onClick={handleNextStep}
-                    disabled={!selectedTitle}
-                    className="rounded-2xl bg-slate-950 px-6 py-3 text-sm font-medium text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:bg-slate-300"
-                  >
-                    下一步
-                  </button>
-                </div>
+                <button
+                  onClick={handleNextStep}
+                  disabled={!selectedTitle}
+                  className="rounded-2xl bg-slate-950 px-6 py-3 text-sm font-medium text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:bg-slate-300"
+                >
+                  下一步
+                </button>
               </div>
             )}
 
             {step === "fill" && (
-              <div className="flex h-full flex-col">
+              <div className="space-y-5">
                 <div>
                   <p className="text-sm font-semibold text-slate-900">题目2：根据特征填空</p>
                   <p className="mt-3 text-sm leading-7 text-slate-600">
@@ -229,19 +227,17 @@ export function PracticeClient() {
                   </div>
                 </div>
 
-                <div className="mt-auto pt-6">
-                  <button
-                    onClick={handleSubmit}
-                    className="rounded-2xl bg-slate-950 px-6 py-3 text-sm font-medium text-white transition hover:bg-slate-800"
-                  >
-                    提交
-                  </button>
-                </div>
+                <button
+                  onClick={handleSubmit}
+                  className="rounded-2xl bg-slate-950 px-6 py-3 text-sm font-medium text-white transition hover:bg-slate-800"
+                >
+                  提交
+                </button>
               </div>
             )}
 
             {step === "result" && (
-              <div className="flex h-full flex-col">
+              <div className="space-y-5">
                 <div className="space-y-5">
                   <div>
                     <p className="text-sm font-semibold text-slate-900">反馈</p>
@@ -285,14 +281,12 @@ export function PracticeClient() {
                   </div>
                 </div>
 
-                <div className="mt-auto pt-6">
-                  <button
-                    onClick={handleNextQuestion}
-                    className="rounded-2xl bg-slate-950 px-5 py-3 text-sm font-medium text-white transition hover:bg-slate-800"
-                  >
-                    下一题
-                  </button>
-                </div>
+                <button
+                  onClick={handleNextQuestion}
+                  className="rounded-2xl bg-slate-950 px-5 py-3 text-sm font-medium text-white transition hover:bg-slate-800"
+                >
+                  下一题
+                </button>
               </div>
             )}
           </div>
