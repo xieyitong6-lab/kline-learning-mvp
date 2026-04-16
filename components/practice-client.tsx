@@ -41,7 +41,7 @@ function renderTemplate(template: string) {
       return (
         <span
           key={`${part}-${index}`}
-          className="mx-1 inline-flex min-w-10 justify-center rounded-md border-b-2 border-slate-400 px-2 py-0.5 text-sm font-medium text-slate-900"
+          className="mx-0.5 inline-flex min-w-8 items-center justify-center rounded border-b-2 border-zinc-400 px-1.5 py-0.5 text-xs font-medium text-zinc-500"
         >
           {part}
         </span>
@@ -126,51 +126,49 @@ export function PracticeClient() {
   };
 
   return (
-    <div className="space-y-5">
-      <div className="flex flex-wrap items-center justify-between gap-3 rounded-3xl border border-slate-200 bg-white px-4 py-3">
+    <div className="space-y-4">
+      <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-zinc-200 bg-white px-4 py-3 shadow-sm">
         <Link
           href="/"
-          className="rounded-full border border-slate-200 px-3 py-1.5 text-sm text-slate-600 transition hover:border-slate-300 hover:text-slate-900"
+          className="rounded-md border border-zinc-200 px-3 py-1.5 text-sm text-zinc-600 transition-colors hover:bg-zinc-50 hover:text-zinc-900"
         >
           返回
         </Link>
-        <p className="text-sm text-slate-600">当前题号 {questionNumber}</p>
-        <p className="text-sm text-slate-500">
+        <p className="text-sm font-semibold text-zinc-900">第 {questionNumber} 题</p>
+        <p className="text-sm text-zinc-400">
           进度 {questionNumber} / {allKlineItems.length}
         </p>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-[0.48fr_0.52fr] lg:items-start">
-        <SectionCard className="p-5 md:p-6">
-          <div className="rounded-[28px] border border-slate-200 bg-slate-50 p-4">
-            <div className="rounded-[24px] bg-white p-4 shadow-sm">
-              <Image
-                src={question.image}
-                alt={question.title}
-                width={760}
-                height={560}
-                priority
-                className="h-auto w-full rounded-2xl border border-slate-100"
-              />
-            </div>
+      <div className="grid gap-4 lg:grid-cols-[0.48fr_0.52fr] lg:items-start">
+        <SectionCard className="p-4 md:p-5">
+          <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-3">
+            <Image
+              src={question.image}
+              alt={question.title}
+              width={760}
+              height={560}
+              priority
+              className="h-auto w-full rounded-lg"
+            />
           </div>
         </SectionCard>
 
-        <SectionCard className="p-5 md:p-6">
-          <div className="min-h-[360px] rounded-[24px] border border-slate-200 bg-white p-5 md:min-h-[420px]">
+        <SectionCard className="p-4 md:p-5">
+          <div className="min-h-[360px] md:min-h-[420px]">
             {step === "name" && (
               <div className="space-y-5">
                 <div>
-                  <p className="text-sm font-semibold text-slate-900">题目1：这是什么形态？</p>
-                  <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                  <p className="text-sm font-semibold text-zinc-900">题目一：这是什么形态？</p>
+                  <div className="mt-3 grid gap-2 sm:grid-cols-2">
                     {titleOptions.map((option) => (
                       <button
                         key={option}
                         onClick={() => setSelectedTitle(option)}
-                        className={`rounded-2xl border px-4 py-3 text-left text-sm transition ${
+                        className={`rounded-lg border px-4 py-3 text-left text-sm transition-colors ${
                           selectedTitle === option
-                            ? "border-slate-900 bg-slate-950 text-white"
-                            : "border-slate-200 bg-white text-slate-700 hover:border-slate-300"
+                            ? "border-zinc-900 bg-zinc-900 text-white"
+                            : "border-zinc-200 bg-white text-zinc-700 hover:border-zinc-300 hover:bg-zinc-50"
                         }`}
                       >
                         {option}
@@ -182,7 +180,7 @@ export function PracticeClient() {
                 <button
                   onClick={handleNextStep}
                   disabled={!selectedTitle}
-                  className="rounded-2xl bg-slate-950 px-6 py-3 text-sm font-medium text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:bg-slate-300"
+                  className="rounded-lg bg-zinc-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-700 disabled:cursor-not-allowed disabled:opacity-40"
                 >
                   下一步
                 </button>
@@ -192,22 +190,22 @@ export function PracticeClient() {
             {step === "fill" && (
               <div className="space-y-5">
                 <div>
-                  <p className="text-sm font-semibold text-slate-900">题目2：根据特征填空</p>
-                  <p className="mt-3 text-sm leading-7 text-slate-600">
+                  <p className="text-sm font-semibold text-zinc-900">题目二：根据特征填空</p>
+                  <p className="mt-2 text-sm leading-7 text-zinc-500">
                     {fillBlankQuestion?.intro ?? "请根据该形态资料中的特征原文完成填空。"}
                   </p>
 
-                  <div className="mt-4 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4 text-sm leading-8 text-slate-800">
+                  <div className="mt-3 rounded-lg border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm leading-8 text-zinc-700">
                     {fillBlankQuestion?.template
                       ? renderTemplate(fillBlankQuestion.template)
                       : "当前资料尚未录入可用的填空模板。"}
                   </div>
 
-                  <div className="mt-5 space-y-4">
+                  <div className="mt-4 space-y-3">
                     {blanks.length > 0 ? (
                       blanks.map((blank) => (
                         <label key={blank.id} className="block">
-                          <p className="text-sm text-slate-700">{blank.label}</p>
+                          <p className="text-sm text-zinc-600">{blank.label}</p>
                           <input
                             value={blankAnswers[blank.id] ?? ""}
                             onChange={(event) =>
@@ -217,19 +215,19 @@ export function PracticeClient() {
                               }))
                             }
                             placeholder={blank.placeholder ?? `请输入${blank.label}`}
-                            className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-400"
+                            className="mt-1.5 w-full rounded-lg border border-zinc-200 bg-white px-3 py-2.5 text-sm text-zinc-900 outline-none transition focus:border-zinc-900 focus:ring-2 focus:ring-zinc-900/10"
                           />
                         </label>
                       ))
                     ) : (
-                      <p className="text-sm text-slate-400">当前资料尚未生成填空题。</p>
+                      <p className="text-sm text-zinc-400">当前资料尚未生成填空题。</p>
                     )}
                   </div>
                 </div>
 
                 <button
                   onClick={handleSubmit}
-                  className="rounded-2xl bg-slate-950 px-6 py-3 text-sm font-medium text-white transition hover:bg-slate-800"
+                  className="rounded-lg bg-zinc-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-700"
                 >
                   提交
                 </button>
@@ -238,44 +236,51 @@ export function PracticeClient() {
 
             {step === "result" && (
               <div className="space-y-5">
-                <div className="space-y-5">
+                <div className="space-y-4">
                   <div>
-                    <p className="text-sm font-semibold text-slate-900">反馈</p>
-                    <p className={`mt-2 text-sm ${titleCorrect ? "text-emerald-700" : "text-rose-700"}`}>
-                      {titleCorrect ? "名称识别正确" : "名称识别错误"}
+                    <p className="text-sm font-semibold text-zinc-900">名称识别</p>
+                    <p className={`mt-1.5 text-sm font-medium ${titleCorrect ? "text-emerald-600" : "text-rose-600"}`}>
+                      {titleCorrect ? "✓ 回答正确" : "✗ 回答错误"}
                     </p>
-                    <p className="mt-1 text-sm text-slate-600">正确答案：{question.title}</p>
+                    <p className="mt-1 text-sm text-zinc-500">正确答案：{question.title}</p>
                   </div>
 
                   <div>
-                    <p className="text-sm font-semibold text-slate-900">每个空是否正确</p>
-                    <div className="mt-3 space-y-3">
+                    <p className="text-sm font-semibold text-zinc-900">填空反馈</p>
+                    <div className="mt-2 space-y-2">
                       {blankFeedback.length > 0 ? (
                         blankFeedback.map((item) => (
-                          <div key={item.id} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                            <p className="text-sm font-medium text-slate-900">{item.label}</p>
-                            <p className="mt-2 text-sm text-slate-600">
+                          <div
+                            key={item.id}
+                            className={`rounded-lg border p-3.5 ${
+                              item.correct
+                                ? "border-emerald-200 bg-emerald-50"
+                                : "border-rose-200 bg-rose-50"
+                            }`}
+                          >
+                            <p className="text-xs font-medium text-zinc-700">{item.label}</p>
+                            <p className="mt-1.5 text-sm text-zinc-600">
                               你的答案：{item.userAnswer || "未填写"}
                             </p>
-                            <p className="mt-1 text-sm text-slate-600">
+                            <p className="mt-0.5 text-sm text-zinc-600">
                               正确答案：{item.correctAnswers.join(" / ")}
                             </p>
                             <p
-                              className={`mt-1 text-sm ${item.correct ? "text-emerald-700" : "text-rose-700"}`}
+                              className={`mt-1 text-xs font-medium ${item.correct ? "text-emerald-700" : "text-rose-700"}`}
                             >
                               {item.correct ? "判定：正确" : "判定：错误"}
                             </p>
                           </div>
                         ))
                       ) : (
-                        <p className="text-sm text-slate-400">当前题目没有填空反馈。</p>
+                        <p className="text-sm text-zinc-400">当前题目没有填空反馈。</p>
                       )}
                     </div>
                   </div>
 
                   <div>
-                    <p className="text-sm font-semibold text-slate-900">解析</p>
-                    <p className="mt-2 whitespace-pre-line text-sm leading-7 text-slate-700">
+                    <p className="text-sm font-semibold text-zinc-900">解析</p>
+                    <p className="mt-1.5 whitespace-pre-line text-sm leading-7 text-zinc-600">
                       {fillBlankQuestion?.explanation || "当前资料没有解析原文。"}
                     </p>
                   </div>
@@ -283,7 +288,7 @@ export function PracticeClient() {
 
                 <button
                   onClick={handleNextQuestion}
-                  className="rounded-2xl bg-slate-950 px-5 py-3 text-sm font-medium text-white transition hover:bg-slate-800"
+                  className="rounded-lg bg-zinc-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-700"
                 >
                   下一题
                 </button>

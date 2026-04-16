@@ -26,21 +26,21 @@ export function OverviewPanel() {
 
   return (
     <SectionCard title="今日学习概览">
-      <div className="grid gap-4 md:grid-cols-4">
+      <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-4">
         {metricLabels.map((metric) => (
           <div
             key={metric.key}
-            className="rounded-3xl border border-slate-200/80 bg-slate-50 px-4 py-5"
+            className="rounded-lg border border-zinc-100 bg-zinc-50 px-4 py-4"
           >
-            <p className="text-sm text-slate-500">{metric.label}</p>
-            <p className="mt-3 text-3xl font-semibold text-slate-900">
+            <p className="text-xs text-zinc-500">{metric.label}</p>
+            <p className="mt-2 text-2xl font-semibold text-zinc-900">
               {progress[metric.key]}
             </p>
           </div>
         ))}
-        <div className="rounded-3xl border border-amber-200 bg-amber-50 px-4 py-5">
-          <p className="text-sm text-amber-700">正确率</p>
-          <p className="mt-3 text-3xl font-semibold text-amber-900">{accuracy}%</p>
+        <div className="rounded-lg bg-zinc-900 px-4 py-4">
+          <p className="text-xs text-zinc-400">正确率</p>
+          <p className="mt-2 text-2xl font-semibold text-white">{accuracy}%</p>
         </div>
       </div>
     </SectionCard>

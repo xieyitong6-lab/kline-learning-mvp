@@ -7,47 +7,50 @@ const steps = ["先进入学习页看图认识形态", "再到练习页做名称
 
 export default function HomePage() {
   return (
-    <div className="space-y-8">
-      <section className="rounded-[32px] border border-slate-200 bg-white px-6 py-8 shadow-sm md:px-8 md:py-10">
-        <h1 className="font-display text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
+    <div className="space-y-6">
+      <section className="rounded-xl border border-zinc-200 bg-white px-6 py-8 shadow-sm md:px-8">
+        <h1 className="font-display text-3xl font-bold text-zinc-900 sm:text-4xl">
           {PRODUCT_NAME}
         </h1>
 
-        <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600">
+        <p className="mt-3 max-w-2xl text-sm leading-7 text-zinc-600">
           这是一个帮助你通过看图、识别和填空练习记住K线形态的学习工具。
         </p>
 
-        <p className="mt-2 max-w-3xl text-sm leading-7 text-slate-500">
+        <p className="mt-1 max-w-2xl text-sm text-zinc-400">
           适合刚开始学K线、看过资料但总记不住形态的人使用。
         </p>
 
-        <div className="mt-6 rounded-3xl border border-slate-200 bg-slate-50 px-5 py-5">
-          <p className="text-sm font-semibold text-slate-900">怎么使用</p>
-          <div className="mt-3 space-y-2 text-sm leading-7 text-slate-700">
+        <div className="mt-5 rounded-lg border border-zinc-100 bg-zinc-50 px-4 py-4">
+          <p className="text-xs font-semibold uppercase tracking-widest text-zinc-400">使用步骤</p>
+          <ol className="mt-3 space-y-2">
             {steps.map((step, index) => (
-              <p key={step}>
-                {index + 1}. {step}
-              </p>
+              <li key={step} className="flex items-start gap-3 text-sm text-zinc-600">
+                <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-zinc-200 text-xs font-semibold text-zinc-600">
+                  {index + 1}
+                </span>
+                {step}
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
 
-        <div className="mt-8 flex flex-wrap gap-3">
+        <div className="mt-6 flex flex-wrap gap-2.5">
           <Link
             href="/learn"
-            className="rounded-2xl bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+            className="rounded-lg bg-zinc-900 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-700"
           >
             开始学习
           </Link>
           <Link
             href="/practice"
-            className="rounded-2xl border border-teal-200 bg-teal-50 px-5 py-3 text-sm font-semibold text-teal-800 transition hover:bg-teal-100"
+            className="rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-2.5 text-sm font-medium text-emerald-700 transition-colors hover:bg-emerald-100"
           >
             开始练习
           </Link>
           <Link
             href="/mistakes"
-            className="rounded-2xl border border-amber-200 bg-amber-50 px-5 py-3 text-sm font-semibold text-amber-800 transition hover:bg-amber-100"
+            className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-2.5 text-sm font-medium text-amber-700 transition-colors hover:bg-amber-100"
           >
             错题复习
           </Link>
