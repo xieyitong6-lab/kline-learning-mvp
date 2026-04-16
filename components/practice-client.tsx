@@ -2,190 +2,185 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 
-import { Pill } from "@/components/pill";
 import { SectionCard } from "@/components/section-card";
 import { recordPracticeAttempt } from "@/lib/storage";
 import { allKlineItems, buildTitleOptions, getKlineById } from "@/lib/summary";
-import type { KlineItem } from "@/types/kline";
+import type { KlineItem, PracticeBlank } from "@/types/kline";
 
 type BlankFeedback = {
   id: number;
-  prompt: string;
+  label: string;
   userAnswer: string;
-  correctAnswer: string;
+  correctAnswers: string[];
   correct: boolean;
 };
 
-function getNextQuestion(forcedId?: string | null): KlineItem {
+function getRandomQuestion(forcedId?: string | null): KlineItem {
   if (forcedId) {
     const matched = getKlineById(forcedId);
-    if (matched) return matched;
+    if (matched) {
+      return matched;
+    }
   }
+
   return allKlineItems[Math.floor(Math.random() * allKlineItems.length)];
+}
+
+function normalizeAnswer(value: string) {
+  return value.trim().replace(/，/g, ",");
+}
+
+function renderTemplate(template: string) {
+  return template.split(/(\[\d+\])/g).map((part, index) => {
+    if (/^\[\d+\]$/.test(part)) {
+      return (
+        <span
+          key={`${part}-${index}`}
+          className="mx-1 inline-flex min-w-10 justify-center rounded-md border-b-2 border-slate-400 px-2 py-0.5 text-sm font-medium text-slate-900"
+        >
+          {part}
+        </span>
+      );
+    }
+
+    return <span key={`${part}-${index}`}>{part}</span>;
+  });
 }
 
 export function PracticeClient() {
   const searchParams = useSearchParams();
   const presetId = searchParams.get("id");
 
-  const [question, setQuestion] = useState<KlineItem>(() => getNextQuestion(presetId));
-  const [step, setStep] = useState<1 | 2>(1);
+  const [question, setQuestion] = useState<KlineItem>(() => getRandomQuestion(presetId));
+  const [questionNumber, setQuestionNumber] = useState(1);
   const [selectedTitle, setSelectedTitle] = useState("");
-  const [titleChecked, setTitleChecked] = useState(false);
-  const [titleCorrect, setTitleCorrect] = useState(false);
-  const [blankAnswers, setBlankAnswers] = useState<Record<string, string>>({});
+  const [blankAnswers, setBlankAnswers] = useState<Record<number, string>>({});
   const [submitted, setSubmitted] = useState(false);
+  const [titleCorrect, setTitleCorrect] = useState(false);
   const [blankFeedback, setBlankFeedback] = useState<BlankFeedback[]>([]);
 
-  const titleOptions = useMemo(
-    () => question.practice?.nameQuestion.options ?? buildTitleOptions(question.id),
-    [question.id, question.practice],
-  );
-  const blanks = question.practice?.fillBlankQuestion.blanks ?? [];
+  const nameQuestion = question.practice?.nameQuestion;
+  const fillBlankQuestion = question.practice?.fillBlankQuestion;
+  const titleOptions = nameQuestion?.options ?? buildTitleOptions(question.id);
+  const blanks: PracticeBlank[] = fillBlankQuestion?.blanks ?? [];
+  const progressLabel = `${questionNumber} / ${allKlineItems.length}`;
 
-  const resetForQuestion = (nextQuestion: KlineItem) => {
+  const resetQuestion = (nextQuestion: KlineItem) => {
     setQuestion(nextQuestion);
-    setStep(1);
     setSelectedTitle("");
-    setTitleChecked(false);
-    setTitleCorrect(false);
     setBlankAnswers({});
     setSubmitted(false);
+    setTitleCorrect(false);
     setBlankFeedback([]);
   };
 
-  const submitTitleStep = () => {
-    const correct = selectedTitle === question.title;
-    setTitleChecked(true);
-    setTitleCorrect(correct);
-    setStep(2);
-  };
-
-  const submitBlankStep = () => {
+  const handleSubmit = () => {
+    const isTitleCorrect = selectedTitle === question.title;
     const feedback = blanks.map((blank) => {
-      const userAnswer = (blankAnswers[blank.id] ?? "").trim();
-      const acceptedAnswers = blank.answer.map((answer) => answer.trim());
-      const correctAnswer = acceptedAnswers[0] ?? "";
+      const userAnswer = normalizeAnswer(blankAnswers[blank.id] ?? "");
+      const correctAnswers = blank.answer.map(normalizeAnswer);
+
       return {
         id: blank.id,
-        prompt: blank.prompt,
+        label: blank.label,
         userAnswer,
-        correctAnswer,
-        correct: acceptedAnswers.includes(userAnswer),
+        correctAnswers,
+        correct: correctAnswers.includes(userAnswer),
       };
     });
 
-    const blanksAllCorrect = feedback.every((item) => item.correct);
-    setBlankFeedback(feedback);
+    const allBlankCorrect = feedback.every((item) => item.correct);
+
     setSubmitted(true);
+    setTitleCorrect(isTitleCorrect);
+    setBlankFeedback(feedback);
 
     recordPracticeAttempt(
       {
         id: question.id,
         title: question.title,
         attemptedAt: new Date().toISOString(),
-        titleCorrect,
-        keywordStatus: blanksAllCorrect ? "correct" : feedback.some((item) => item.correct) ? "partial" : "wrong",
+        titleCorrect: isTitleCorrect,
+        keywordStatus: allBlankCorrect ? "correct" : feedback.some((item) => item.correct) ? "partial" : "wrong",
         selectedKeywords: feedback.map((item) => item.userAnswer).filter(Boolean),
       },
-      titleCorrect && blanksAllCorrect,
+      isTitleCorrect && allBlankCorrect,
     );
   };
 
   const handleNextQuestion = () => {
-    resetForQuestion(getNextQuestion(null));
+    setQuestionNumber((current) => current + 1);
+    resetQuestion(getRandomQuestion(null));
   };
-
-  const resultLabel = !submitted
-    ? ""
-    : blankFeedback.every((item) => item.correct)
-      ? "正确"
-      : blankFeedback.some((item) => item.correct)
-        ? "部分正确"
-        : "错误";
 
   return (
     <div className="space-y-5">
+      <div className="flex flex-wrap items-center justify-between gap-3 rounded-3xl border border-slate-200 bg-white px-4 py-3">
+        <Link
+          href="/"
+          className="rounded-full border border-slate-200 px-3 py-1.5 text-sm text-slate-600 transition hover:border-slate-300 hover:text-slate-900"
+        >
+          返回
+        </Link>
+        <p className="text-sm text-slate-600">当前题号 {questionNumber}</p>
+        <p className="text-sm text-slate-500">进度 {progressLabel}</p>
+      </div>
+
       <SectionCard className="p-5 md:p-6">
-        <div className="grid gap-6 lg:grid-cols-[minmax(340px,0.95fr)_minmax(360px,1.05fr)] lg:items-start">
-          <div className="space-y-4">
-            <div className="flex flex-wrap gap-2">
-              <Pill>{question.category ?? "练习题"}</Pill>
-              {question.difficulty && <Pill tone="warning">{question.difficulty}</Pill>}
-              <Pill>{step === 1 ? "步骤一" : "步骤二"}</Pill>
-            </div>
-            <div className="rounded-[28px] border border-slate-100 bg-[linear-gradient(180deg,#fff7ed_0%,#ffffff_100%)] p-4">
-              <div className="rounded-[24px] border border-slate-100 bg-white p-4 shadow-inner">
+        <div className="grid gap-6 lg:grid-cols-[0.55fr_0.45fr] lg:items-start">
+          <div className="space-y-5">
+            <div className="rounded-[28px] border border-slate-200 bg-slate-50 p-4">
+              <div className="rounded-[24px] bg-white p-4 shadow-sm">
                 <Image
                   src={question.image}
                   alt={question.title}
                   width={720}
-                  height={420}
+                  height={480}
                   className="h-auto w-full rounded-2xl border border-slate-100"
                 />
               </div>
             </div>
-          </div>
 
-          <div className="space-y-4">
-            {step === 1 && (
-              <SectionCard
-                title="第一步：看图识别形态名称"
-                description="先只做名称识别，不混入其他辅助模块。"
-              >
-                <div className="grid gap-3 sm:grid-cols-2">
-                  {titleOptions.map((option) => (
-                    <button
-                      key={option}
-                      onClick={() => setSelectedTitle(option)}
-                      className={`rounded-2xl border px-4 py-3 text-left text-sm transition ${
-                        selectedTitle === option
-                          ? "border-slate-900 bg-slate-950 text-white"
-                          : "border-slate-200 bg-white text-slate-700 hover:border-slate-300"
-                      }`}
-                    >
-                      {option}
-                    </button>
-                  ))}
-                </div>
+            <div className="rounded-[24px] border border-slate-200 bg-white p-5">
+              <p className="text-sm font-semibold text-slate-900">题目 1：这是什么形态？</p>
+              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                {titleOptions.map((option) => (
+                  <button
+                    key={option}
+                    onClick={() => setSelectedTitle(option)}
+                    disabled={submitted}
+                    className={`rounded-2xl border px-4 py-3 text-left text-sm transition ${
+                      selectedTitle === option
+                        ? "border-slate-900 bg-slate-950 text-white"
+                        : "border-slate-200 bg-white text-slate-700 hover:border-slate-300"
+                    } disabled:cursor-not-allowed disabled:opacity-80`}
+                  >
+                    {option}
+                  </button>
+                ))}
+              </div>
+            </div>
 
-                <button
-                  onClick={submitTitleStep}
-                  disabled={!selectedTitle}
-                  className="mt-5 rounded-2xl bg-slate-950 px-5 py-3 text-sm font-medium text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:bg-slate-300"
-                >
-                  提交名称答案
-                </button>
-              </SectionCard>
-            )}
+            <div className="rounded-[24px] border border-slate-200 bg-white p-5">
+              <p className="text-sm font-semibold text-slate-900">题目 2：根据该形态的结构描述完成填空</p>
+              <p className="mt-3 text-sm leading-7 text-slate-600">
+                {fillBlankQuestion?.intro ?? "请根据该形态资料中的特征原文完成填空。"}
+              </p>
 
-            {step === 2 && (
-              <SectionCard
-                title="第二步：结构化描述填空"
-                description="根据图形与资料内容完成字段填空，辅助记忆形态结构。"
-              >
-                <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700">
-                  名称判断：
-                  {titleChecked
-                    ? titleCorrect
-                      ? "正确"
-                      : `错误，正确答案是「${question.title}」`
-                    : "未提交"}
-                </div>
+              <div className="mt-4 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4 text-sm leading-8 text-slate-800">
+                {fillBlankQuestion?.template
+                  ? renderTemplate(fillBlankQuestion.template)
+                  : "当前资料尚未录入可用的填空模板。"}
+              </div>
 
-                <div className="mt-4 space-y-4">
-                    {question.practice?.fillBlankQuestion.intro && (
-                      <p className="text-sm leading-7 text-slate-600">
-                        {question.practice.fillBlankQuestion.intro}
-                      </p>
-                    )}
-
-                  {blanks.map((blank) => (
+              <div className="mt-5 space-y-4">
+                {blanks.length > 0 ? (
+                  blanks.map((blank) => (
                     <label key={blank.id} className="block">
-                      <p className="text-sm leading-7 text-slate-700">{blank.prompt}</p>
+                      <p className="text-sm text-slate-700">{blank.label}</p>
                       <input
                         value={blankAnswers[blank.id] ?? ""}
                         onChange={(event) =>
@@ -195,66 +190,86 @@ export function PracticeClient() {
                           }))
                         }
                         disabled={submitted}
-                        placeholder={blank.placeholder ?? "请输入"}
-                        className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-slate-400"
+                        placeholder={blank.placeholder ?? `请输入${blank.label}`}
+                        className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-400 disabled:bg-slate-50"
                       />
                     </label>
-                  ))}
-                </div>
+                  ))
+                ) : (
+                  <p className="text-sm text-slate-400">当前资料尚未生成填空题。</p>
+                )}
+              </div>
+            </div>
+          </div>
 
-                <div className="mt-5 flex flex-wrap gap-3">
-                  <button
-                    onClick={submitBlankStep}
-                    disabled={submitted}
-                    className="rounded-2xl bg-slate-950 px-5 py-3 text-sm font-medium text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:bg-slate-300"
-                  >
-                    提交填空答案
-                  </button>
-                  <button
-                    onClick={handleNextQuestion}
-                    className="rounded-2xl border border-slate-200 bg-white px-5 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
-                  >
-                    下一题
-                  </button>
-                  <Link
-                    href="/mistakes"
-                    className="rounded-2xl border border-amber-200 bg-amber-50 px-5 py-3 text-sm font-medium text-amber-800 transition hover:bg-amber-100"
-                  >
-                    错题本
-                  </Link>
-                </div>
-              </SectionCard>
-            )}
-
-            {submitted && (
-              <SectionCard title="答题反馈" description="只保留名称判断和填空判定结果。">
-                <div className="space-y-4 text-sm leading-7 text-slate-700">
-                  <p>
-                    名称判断：
-                    {titleCorrect ? "正确" : `错误，正确答案是「${question.title}」`}
+          <div className="rounded-[28px] border border-slate-200 bg-white p-5">
+            {!submitted ? (
+              <div className="space-y-3">
+                <p className="text-sm font-semibold text-slate-900">反馈区</p>
+                <p className="text-sm leading-7 text-slate-500">提交前不显示答案。</p>
+              </div>
+            ) : (
+              <div className="space-y-5">
+                <div>
+                  <p className="text-sm font-semibold text-slate-900">名称识别</p>
+                  <p className={`mt-2 text-sm ${titleCorrect ? "text-emerald-700" : "text-rose-700"}`}>
+                    {titleCorrect ? "名称识别正确" : "名称识别错误"}
                   </p>
-                  <p>填空结果：{resultLabel}</p>
-                  <p>解析：{question.practice?.fillBlankQuestion.explanation ?? "暂无解析。"}</p>
+                  <p className="mt-1 text-sm text-slate-600">正确答案：{question.title}</p>
+                </div>
 
-                  <div className="space-y-3">
-                    {blankFeedback.map((item, index) => (
-                      <div key={item.id} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                        <p className="font-medium text-slate-900">第 {index + 1} 空</p>
-                        <p className="mt-2 text-slate-700">{item.prompt}</p>
-                        <p className="mt-2">你的答案：{item.userAnswer || "未填写"}</p>
-                        <p>正确答案：{item.correctAnswer}</p>
-                        <p className={item.correct ? "text-emerald-700" : "text-rose-700"}>
-                          判定：{item.correct ? "正确" : "错误"}
-                        </p>
-                      </div>
-                    ))}
+                <div>
+                  <p className="text-sm font-semibold text-slate-900">填空反馈</p>
+                  <div className="mt-3 space-y-3">
+                    {blankFeedback.length > 0 ? (
+                      blankFeedback.map((item) => (
+                        <div key={item.id} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                          <p className="text-sm font-medium text-slate-900">{item.label}</p>
+                          <p className="mt-2 text-sm text-slate-600">
+                            你的答案：{item.userAnswer || "未填写"}
+                          </p>
+                          <p className="mt-1 text-sm text-slate-600">
+                            正确答案：{item.correctAnswers.join(" / ")}
+                          </p>
+                          <p className={`mt-1 text-sm ${item.correct ? "text-emerald-700" : "text-rose-700"}`}>
+                            {item.correct ? "判定：正确" : "判定：错误"}
+                          </p>
+                        </div>
+                      ))
+                    ) : (
+                      <p className="text-sm text-slate-400">当前题目没有填空反馈。</p>
+                    )}
                   </div>
                 </div>
-              </SectionCard>
+
+                <div>
+                  <p className="text-sm font-semibold text-slate-900">解析</p>
+                  <p className="mt-2 whitespace-pre-line text-sm leading-7 text-slate-700">
+                    {fillBlankQuestion?.explanation || "当前资料没有解析原文。"}
+                  </p>
+                </div>
+
+                <button
+                  onClick={handleNextQuestion}
+                  className="rounded-2xl bg-slate-950 px-5 py-3 text-sm font-medium text-white transition hover:bg-slate-800"
+                >
+                  下一题
+                </button>
+              </div>
             )}
           </div>
         </div>
       </SectionCard>
+
+      <div>
+        <button
+          onClick={handleSubmit}
+          disabled={submitted || !selectedTitle}
+          className="rounded-2xl bg-slate-950 px-6 py-3 text-sm font-medium text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:bg-slate-300"
+        >
+          提交答案
+        </button>
+      </div>
     </div>
   );
 }

@@ -1,373 +1,433 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
+
+from pypdf import PdfReader
 
 
 WORKSPACE = Path(__file__).resolve().parents[1]
 IMAGE_DIR = WORKSPACE / "public" / "images" / "kline"
 OUTPUT_FILE = WORKSPACE / "data" / "kline-data.json"
+PDF_PATH = Path(
+    r"D:\xwechat_files\wxid_c1ssdwjccvq822_a098\msg\file\2026-03\75K线组合名称表(彩版)(共12页)(4).pdf"
+)
 
 
-BULLISH_BOTTOM = {
+SOURCE_TITLES = [
     "早晨十字星",
     "早晨之星",
     "好友反攻",
     "曙光初现",
     "旭日东升",
-    "锤头线",
     "倒锤头线",
-    "平底钳子线",
+    "锤头线",
+    "平底钳子底",
     "塔形底",
     "圆底",
-    "跳空下降三颗星",
-    "连续跳空三阴线",
-}
-
-BULLISH_CONTINUATION = {
     "低位并排阳线",
     "低档五阳线",
+    "连续跳空三阴线",
     "红三兵",
     "冉冉上升形",
     "徐缓上升形",
-    "稳步上升形",
-    "上升三部曲",
-    "多方尖兵",
-    "下探上升形",
-    "上升两颗星",
-    "升势鹤鸦缺口",
-    "高位并排阳线",
+    "稳步上涨形",
     "上升抵抗形",
     "弧形线",
-}
-
-BEARISH_TOP = {
+    "下探上涨形",
+    "上涨二颗星",
+    "跳空上扬形",
+    "高位并排阳线",
+    "跳空下跌三颗星",
+    "上升三步曲",
+    "多方尖兵",
+    "两阳夹一阴",
     "黄昏十字星",
     "黄昏之星",
     "淡友反攻",
     "乌云盖顶",
     "倾盆大雨",
-    "三只乌鸦",
-    "高档五阴线",
-    "下降覆盖线",
-    "平顶钳子线",
+    "射击之星流星",
+    "上吊线绞刑线",
+    "平顶钳子顶",
     "塔形顶",
     "圆顶",
     "双飞乌鸦",
-    "高开出逃形",
-}
-
-BEARISH_CONTINUATION = {
-    "下降抵抗形",
-    "下跌三颗星",
+    "三乌鸦",
+    "高档五阴线",
+    "下降覆盖线",
     "低档盘旋形",
     "黑三兵",
     "绵绵阴跌形",
-    "徐缓下降形",
+    "徐缓下跌形",
     "下跌不止形",
-    "上升受阻形",
-    "上升停顿形",
-    "阳线跛脚",
-    "下降三部曲",
+    "下降抵抗形",
+    "高开出逃形",
+    "下跌三颗星",
+    "下降三步曲",
     "空方尖兵",
     "倒三阳",
     "连续跳空三阳线",
-    "连续三阴线",
+    "升势受阻",
+    "升势停顿",
+    "阳线跛脚",
+    "两阴夹一阳",
+    "大阳线",
+    "大阴线",
+    "小阳线",
+    "小阴线",
+    "十字线",
+    "长十字线",
+    "螺旋桨",
+    "一字线",
+    "T字线",
+    "倒T字线",
+    "搓揉线",
+    "尽头线",
+    "穿头破脚",
+    "身怀六甲",
+    "镊子线",
+    "上档盘旋形",
+    "加速度线",
+    "下跌三连阴",
+]
+
+
+IMAGE_TO_SOURCE_TITLE = {
+    "十字": "十字线",
+    "长十字": "长十字线",
+    "一字": "一字线",
+    "T字": "T字线",
+    "倒T字": "倒T字线",
+    "平底钳子线": "平底钳子底",
+    "平顶钳子线": "平顶钳子顶",
+    "三只乌鸦": "三乌鸦",
+    "稳步上升形": "稳步上涨形",
+    "上升停顿形": "升势停顿",
+    "上升受阻形": "升势受阻",
+    "上升两颗星": "上涨二颗星",
+    "上升三部曲": "上升三步曲",
+    "下探上升形": "下探上涨形",
+    "徐缓下降形": "徐缓下跌形",
+    "下降三部曲": "下降三步曲",
+    "跳空下降三颗星": "跳空下跌三颗星",
+    "升势鹤鸦缺口": "跳空上扬形",
+    "多方炮": "两阳夹一阴",
+    "空方炮": "两阴夹一阳",
+    "高档盘旋形": "上档盘旋形",
+    "连续三阴线": "下跌三连阴",
+    "揉搓线": "搓揉线",
 }
 
 
-EXACT_FEATURES = {
-    "T字": [
-        "开盘价、收盘价、最高价相同。",
-        "最低价与之有较大距离。",
-    ],
-    "倒T字": [
-        "开盘价、收盘价、最低价相同。",
-        "最高价与之有较大距离。",
-    ],
-    "十字": [
-        "开盘价和收盘价相同。",
-        "上下影线较短。",
-    ],
-    "长十字": [
-        "开盘价和收盘价相同。",
-        "上下影线较长。",
-    ],
-    "一字": [
-        "开盘价、收盘价、最高价、最低价几乎相同。",
-    ],
-    "锤头线": [
-        "出现在下跌途中。",
-        "阳线或阴线实体很小，下影线大于或等于实体的两倍。",
-        "一般无上影线，少数会略有一点上影线。",
-    ],
-    "倒锤头线": [
-        "出现在下跌途中。",
-        "阳线或阴线实体很小，上影线大于或等于实体的两倍。",
-        "一般无下影线，少数会有一点。",
-    ],
-    "早晨十字星": [
-        "出现在下跌途中。",
-        "由3根K线组成，第一根K线是阴线，第二根K线是十字线，第三根K线是阳线。",
-        "第三根K线实体深入到第一根K线实体之内。",
-    ],
-    "早晨之星": [
-        "出现在下跌途中。",
-        "由3根K线组成，第一根K线是阴线，第二根K线是小阴线或小阳线，第三根K线是阳线。",
-        "第三根K线实体深入到第一根K线实体之内。",
-    ],
-    "好友反攻": [
-        "出现在下跌行情中。",
-        "由一阴一阳两根K线组成。",
-        "先是一根大阴线，接着跳低开盘，结果收了一根中阳线或大阳线，并且收在前一根K线收盘价相同或相近的位置上。",
-    ],
-    "曙光初现": [
-        "出现在下跌趋势中。",
-        "由一阴一阳两根K线组成。",
-        "先是出现一根大阴线或中阴线，接着出现一根大阳线或中阳线。阳线的实体深入到阴线实体的二分之一以上处。",
-    ],
-    "旭日东升": [
-        "出现在下跌趋势中。",
-        "由一阴一阳两根K线组成。",
-        "先是一根大阴线或中阴线，接着出现一根高开的大阳线或中阳线。阳线的收盘价已高于前一根阴线的开盘价。",
-    ],
-    "黄昏十字星": [
-        "出现在涨势中。",
-        "由三根K线组成，第一根为阳线，第二根为十字线，第三根为阴线。",
-        "第三根K线实体深入到第一根K线实体之内。",
-    ],
-    "黄昏之星": [
-        "出现在涨势中。",
-        "与黄昏十字星相似，区别在于第二根K线是小阴线或小阳线。",
-        "第三根K线实体深入到第一根K线实体之内。",
-    ],
-    "淡友反攻": [
-        "出现在涨势中。",
-        "由一阳一阴两根K线组成。",
-        "先出现一根大阳线，接着跳高开盘，拉出一根中阴线或大阴线，其收盘价与前者相同或相近。",
-    ],
-    "乌云盖顶": [
-        "出现在涨势中。",
-        "由一根中阳线或大阳线和一根中阴线或大阴线组成。",
-        "阴线已深入到阳线实体二分之一以下处。",
-    ],
-    "倾盆大雨": [
-        "出现在涨势中。",
-        "先是一根大阳线或中阳线，接着出现一根低开的大阴线或中阴线。",
-        "收盘价低于阳线开盘价。",
-    ],
-    "三只乌鸦": [
-        "出现在涨势中。",
-        "由三根阴线组成，阴线多为大阴线或中阴线。",
-        "每次均以跳高开盘，最后以下跌收盘。",
-    ],
-    "平底钳子线": [
-        "在下跌趋势中出现。",
-        "由两根或两根以上的K线组成。",
-        "最低价处在同一水平位置上。",
-    ],
-    "平顶钳子线": [
-        "在上涨趋势中出现。",
-        "由两根或两根以上的K线组成。",
-        "最高价处于同一水平位置。",
-    ],
-}
-
-
-EXACT_NOTES = {
-    "早晨十字星": ["又称希望十字星。"],
-    "早晨之星": ["又称希望之星，信号不如早晨十字星强。"],
-    "好友反攻": ["转势信号不如曙光初现强。"],
-    "曙光初现": ["阳线实体深入到阴线实体的部分越多，转势信号越强。"],
-    "旭日东升": ["信号强于曙光初现；阳线实体高出阴线实体部分越多，转势信号越强。"],
-    "锤头线": ["实体与下影线的比例越悬殊，越有参考价值。如与早晨之星同时出现，见底信号更加可靠。"],
-    "倒锤头线": ["实体与上影线比例越悬殊，信号越强。如与早晨之星同时出现，见底信号更加可靠。"],
-    "黄昏之星": ["信号不如黄昏十字星强。"],
-    "乌云盖顶": ["阴线深入阳线实体部分越多，转势信号越强。"],
-    "倾盆大雨": ["强于乌云盖顶；实体低于阳线越多，信号越强。"],
-    "三只乌鸦": ["又称暴跌三杰。"],
-}
-
-
-PRACTICE_OVERRIDES = {
-    "T字": {
-        "template": "请根据图形和记忆内容完成填空。",
-        "blanks": [
-            {"id": 1, "label": "根数", "prompt": "该形态由 [ ] 根K线构成。", "type": "text", "answer": ["1"]},
-            {"id": 2, "label": "线型", "prompt": "该形态属于 [ ]。", "type": "text", "answer": ["十字线"]},
-            {"id": 3, "label": "重点", "prompt": "该形态重点观察 [ ]。", "type": "text", "answer": ["下影线"]},
-        ],
-        "explanation": "T字的核心不是方向词，而是结构词：单根K线、十字线、下影线明显。",
+ROW_OVERRIDES = {
+    "T字线": {
+        "feature": ["开盘价、收盘价、最高价相同，最低价与之有较大距离"],
+        "note": ["下影线越长，力度越大，信号越可靠"],
     },
-    "倒T字": {
-        "template": "请根据图形和记忆内容完成填空。",
-        "blanks": [
-            {"id": 1, "label": "根数", "prompt": "该形态由 [ ] 根K线构成。", "type": "text", "answer": ["1"]},
-            {"id": 2, "label": "线型", "prompt": "该形态属于 [ ]。", "type": "text", "answer": ["十字线"]},
-            {"id": 3, "label": "重点", "prompt": "该形态重点观察 [ ]。", "type": "text", "answer": ["上影线"]},
-        ],
-        "explanation": "倒T字和T字的关键差异在影线方向，记忆重点应放在上影线而不是结果判断。",
+    "倒T字线": {
+        "feature": ["开盘价、收盘价、最低价相同，最高价与之有较大距离"],
+        "note": ["上影线越长，信号越可靠。"],
     },
-    "早晨十字星": {
-        "template": "请根据图形和结构特征完成填空。",
-        "blanks": [
-            {"id": 1, "label": "根数", "prompt": "该形态由 [ ] 根K线组成。", "type": "text", "answer": ["3"]},
-            {"id": 2, "label": "第一根", "prompt": "第一根K线为 [ ]。", "type": "text", "answer": ["阴线"]},
-            {"id": 3, "label": "第二根", "prompt": "第二根K线为 [ ]。", "type": "text", "answer": ["十字线"]},
-            {"id": 4, "label": "第三根", "prompt": "第三根K线为 [ ]。", "type": "text", "answer": ["阳线"]},
-        ],
-        "explanation": "早晨十字星的训练重点是三根K线结构：阴线、十字线、阳线。",
+    "十字线": {
+        "feature": ["（1）既可出现在涨势中，也可出现在跌势中", "（2）开盘价和收盘价相同，上下影线较短"],
+        "note": ["信号可靠性不强。应结合其他K线一起分析"],
     },
-    "曙光初现": {
-        "template": "请根据图形和结构特征完成填空。",
-        "blanks": [
-            {"id": 1, "label": "根数", "prompt": "该形态由 [ ] 根K线组成。", "type": "text", "answer": ["2"]},
-            {"id": 2, "label": "第一根", "prompt": "第一根K线通常为 [ ]。", "type": "text", "answer": ["大阴线或中阴线"]},
-            {"id": 3, "label": "第二根", "prompt": "第二根K线通常为 [ ]。", "type": "text", "answer": ["大阳线或中阳线"]},
-            {"id": 4, "label": "深入程度", "prompt": "阳线实体深入阴线实体的 [ ] 以上。", "type": "text", "answer": ["二分之一"]},
-        ],
-        "explanation": "曙光初现不是关键词点选题，而是典型双K线结构填空题。",
+    "长十字线": {
+        "feature": ["（1）既可出现在涨势中，也可出现在跌势中", "（2）开盘价和收盘价相同，上下影线较长"],
+        "note": ["可靠程度高于十字线"],
     },
-    "乌云盖顶": {
-        "template": "请根据图形和结构特征完成填空。",
-        "blanks": [
-            {"id": 1, "label": "根数", "prompt": "该形态由 [ ] 根K线组成。", "type": "text", "answer": ["2"]},
-            {"id": 2, "label": "第一根", "prompt": "第一根K线通常为 [ ]。", "type": "text", "answer": ["中阳线或大阳线"]},
-            {"id": 3, "label": "第二根", "prompt": "第二根K线通常为 [ ]。", "type": "text", "answer": ["中阴线或大阴线"]},
-            {"id": 4, "label": "深入程度", "prompt": "阴线深入阳线实体 [ ] 以下。", "type": "text", "answer": ["二分之一"]},
+    "高位并排阳线": {
+        "feature": [
+            "（1）出现在涨势中",
+            "（2）由两根阳线组成",
+            "（3）第一根阳线跳空向上，其收盘时在前一根K线上方留下一个缺口。第二根阳线与之并排，开盘价与第一根阳线的开盘价基本相同",
         ],
-        "explanation": "乌云盖顶的训练重点是两根K线的先后关系和阴线深入程度。",
+        "note": ["缺口，这个缺口对日后股价走势有较强的支撑作用，但若日后股价跌破缺口则走势转弱"],
+    },
+    "两阳夹一阴": {
+        "note": [],
+    },
+    "两阴夹一阳": {
+        "note": [],
+    },
+    "旭日东升": {
+        "note": ["信号强于曙光初现；阳线实体高出阴线实体部分越多，转势信号越强"],
+    },
+    "红三兵": {
+        "note": ["若阳线收于最高或接近最高点时为三白武士，信号更强"],
+    },
+    "黄昏之星": {
+        "note": ["信号不如黄昏十字星强"],
+    },
+    "圆顶": {
+        "note": ["与形态理论圆形顶有一定的区别"],
+    },
+    "倒三阳": {
+        "note": ["下跌概率极大，投资者应趁早离场"],
+    },
+    "镊子线": {
+        "note": [],
+    },
+    "大阴线": {
+        "note": [],
+    },
+    "跳空上扬形": {
+        "note": ["又称升势鹤鸦缺口"],
     },
 }
 
 
-def build_keywords(title: str) -> list[str]:
-    mappings = {
-        "T字": ["十字线", "下影线"],
-        "倒T字": ["十字线", "上影线"],
-        "十字": ["十字线"],
-        "长十字": ["十字线", "上影线", "下影线"],
-        "一字": ["十字线"],
-        "锤头线": ["小阳线", "下影线"],
-        "倒锤头线": ["小阳线", "上影线"],
-        "早晨十字星": ["大阴线", "十字线", "大阳线", "三K线"],
-        "早晨之星": ["大阴线", "小阴线", "大阳线", "三K线"],
-        "好友反攻": ["大阴线", "大阳线", "双K线"],
-        "曙光初现": ["大阴线", "大阳线", "双K线"],
-        "旭日东升": ["大阴线", "大阳线", "双K线"],
-        "黄昏十字星": ["大阳线", "十字线", "大阴线", "三K线"],
-        "黄昏之星": ["大阳线", "小阳线", "大阴线", "三K线"],
-        "淡友反攻": ["大阳线", "大阴线", "双K线"],
-        "乌云盖顶": ["大阳线", "大阴线", "双K线"],
-        "倾盆大雨": ["大阳线", "大阴线", "双K线"],
-        "三只乌鸦": ["大阴线", "三K线"],
-        "平底钳子线": ["双K线", "并列", "下影线"],
-        "平顶钳子线": ["双K线", "并列", "上影线"],
+MEANING_MARKERS = [
+    "涨势中出现是见顶信号；跌势中出现，继续看跌",
+    "涨势中出现，卖出信号；跌势中出现，买进信号",
+    "涨势中，见顶信号；跌势中，见底信号",
+    "上涨时出现为头部信号，下跌时出现为底部信号",
+    "上档盘旋时间在5－14天之内，多数看涨；超过14天，多数看跌",
+    "涨势末端出现，卖出信号；跌势末端出现，买进信号；上涨途中出现，继续看涨；下跌途中出现，继续看跌",
+    "涨势末端出现，卖出信号；跌势末端出现，买进信号；上涨途中出现，继续看涨；下跌途中出现，继续看跌",
+    "涨势中出现，买进信号；跌势中出现，卖出信号",
+    "涨势末端出现，见顶信号；下跌末端出现，见底信号；上涨途中出现，继续看涨；下跌途中出现，继续看跌",
+    "涨势中出现，后市看跌；下跌途中出现，继续看跌；连续加速下跌行情中出现，有见底回升之意",
+    "上涨初期出现，后市看涨；上涨途中出现，继续看涨；连续加速行情中出现，见顶信号。连续下跌中出现，有见底回升之意",
+    "下跌初期出现，后市看跌；下跌途中出现，继续看跌；连续加速下跌中行情出现，有空头陷阱之嫌疑",
+    "涨势中出现，继续看涨；上涨末端出现，见顶信号",
+    "上涨途中出现，继续看涨；上涨末端出现，见顶信号",
+    "上涨时出现，后市看跌；下跌时出现，后市看涨",
+    "涨势中出现，卖出信号；跌势中出现，买进信号",
+    "涨势中出现，继续看涨；跌势中出现，见底信号",
+    "涨势中出现，卖出信号；跌势中出现，买进信号",
+    "涨势中出现，见顶信号；跌势中出现，买进信号",
+    "见底信号，后市看涨",
+    "见顶信号，后市看跌",
+    "买进信号，后市看涨",
+    "卖出信号，后市看跌",
+    "继续看涨",
+    "继续看跌",
+    "滞涨信号，后市看跌",
+]
+
+
+BLANK_PHRASES = [
+    "开盘价、收盘价、最高价、最低价几乎相同",
+    "开盘价、收盘价、最高价相同",
+    "开盘价、收盘价、最低价相同",
+    "开盘价和收盘价相同",
+    "连续跳空三阴线",
+    "连续跳空三阳线",
+    "第三根K线实体深入到第一根K线实体之内",
+    "阳线实体深入到阴线实体的二分之一以上处",
+    "阴线已深入到阳线实体二分之一以下处",
+    "由三根K线组成",
+    "由两根K线组成",
+    "由五根K线组成",
+    "由一阴一阳两根K线组成",
+    "由一阳一阴两根K线组成",
+    "由一大一小两根K线组成",
+    "由三根阴线组成",
+    "由三根阳线组成",
+    "由两根阳线组成",
+    "由五根阴线组成",
+    "上下影线较长",
+    "上下影线较短",
+    "上影线很长",
+    "下影线很长",
+    "上影线较长",
+    "下影线较长",
+    "上影线大于或等于实体的两倍",
+    "下影线大于或等于实体的两倍",
+    "实体较长",
+    "实体很小",
+    "大阳线",
+    "中阳线",
+    "小阳线",
+    "大阴线",
+    "中阴线",
+    "小阴线",
+    "十字线",
+    "阳线",
+    "阴线",
+    "上影线",
+    "下影线",
+    "最高价",
+    "最低价",
+    "同一水平位置",
+    "跳空缺口",
+]
+
+
+def compact_text(text: str) -> str:
+    return re.sub(r"\s+", "", text).replace("•", "")
+
+
+def split_feature_lines(feature_text: str) -> list[str]:
+    feature_text = feature_text.strip("；。")
+    if not feature_text:
+        return []
+
+    parts = re.split(r"(?=（\d+）)", feature_text)
+    cleaned = [part.strip("；。") for part in parts if part.strip("；。")]
+    return cleaned if cleaned else [feature_text]
+
+
+def clean_note_text(note_text: str) -> str:
+    return (
+        note_text.replace("精品资料........................................", "")
+        .replace("内容总结（1）K线组合名称表(彩版)", "")
+        .strip("；。")
+    )
+
+
+def parse_source_rows() -> dict[str, dict[str, list[str]]]:
+    reader = PdfReader(str(PDF_PATH))
+    content = "".join(page.extract_text() or "" for page in reader.pages[1:])
+    compacted = compact_text(content)
+    markers = [f"{index}{title}" for index, title in enumerate(SOURCE_TITLES, start=1)]
+
+    spans: list[tuple[str, int, int]] = []
+    for marker, title in zip(markers, SOURCE_TITLES):
+        start = compacted.find(marker)
+        if start == -1:
+            continue
+        spans.append((title, start, start + len(marker)))
+
+    spans.sort(key=lambda item: item[1])
+    rows: dict[str, dict[str, list[str]]] = {}
+
+    for index, (title, _start, content_start) in enumerate(spans):
+        block_end = spans[index + 1][1] if index + 1 < len(spans) else len(compacted)
+        block = compacted[content_start:block_end]
+
+        marker_positions = [(block.find(marker), marker) for marker in MEANING_MARKERS if block.find(marker) != -1]
+        if not marker_positions:
+            feature_lines = split_feature_lines(block)
+            rows[title] = {"feature": feature_lines, "note": []}
+            continue
+
+        meaning_index, meaning_marker = min(marker_positions, key=lambda item: item[0])
+        feature_text = block[:meaning_index]
+        note_text = block[meaning_index + len(meaning_marker) :]
+
+        cleaned_note = clean_note_text(note_text)
+        rows[title] = {
+            "feature": split_feature_lines(feature_text),
+            "note": [cleaned_note] if cleaned_note else [],
+        }
+
+    for title, override in ROW_OVERRIDES.items():
+        base = rows.get(title, {"feature": [], "note": []})
+        rows[title] = {
+            "feature": override.get("feature", base["feature"]),
+            "note": override.get("note", base["note"]),
+        }
+
+    return rows
+
+
+def pick_blank_targets(feature_lines: list[str]) -> list[tuple[int, str]]:
+    targets: list[tuple[int, str]] = []
+    for line_index, line in enumerate(feature_lines):
+        for phrase in BLANK_PHRASES:
+            if phrase in line and (line_index, phrase) not in targets:
+                targets.append((line_index, phrase))
+            if len(targets) >= 3:
+                return targets
+
+    if not targets and feature_lines:
+        fallback = re.split(r"[；，。]", feature_lines[0])[0]
+        if fallback:
+            targets.append((0, fallback))
+
+    return targets
+
+
+def build_fill_blank_question(feature_lines: list[str]) -> dict:
+    if not feature_lines:
+        return {
+            "sourceType": "feature",
+            "sourceIndexes": [],
+            "intro": "请根据该形态资料中的特征原文完成填空。",
+            "template": "",
+            "blanks": [],
+            "explanation": "",
+        }
+
+    targets = pick_blank_targets(feature_lines)
+    target_map: dict[tuple[int, str], int] = {}
+    blanks = []
+
+    for blank_id, (line_index, phrase) in enumerate(targets, start=1):
+        target_map[(line_index, phrase)] = blank_id
+        blanks.append(
+            {
+                "id": blank_id,
+                "label": f"第 {blank_id} 空",
+                "type": "text",
+                "answer": [phrase],
+                "placeholder": f"填写第 {blank_id} 空答案",
+            }
+        )
+
+    template_lines = []
+    used_indexes: list[int] = []
+    for line_index, line in enumerate(feature_lines):
+        current = line
+        replaced = False
+        for phrase in BLANK_PHRASES:
+            key = (line_index, phrase)
+            if key in target_map and phrase in current:
+                current = current.replace(phrase, f"[{target_map[key]}]", 1)
+                replaced = True
+        if not replaced and (line_index, line) in target_map:
+            current = current.replace(line, f"[{target_map[(line_index, line)]}]", 1)
+            replaced = True
+        if replaced:
+            used_indexes.append(line_index)
+        template_lines.append(current)
+
+    return {
+        "sourceType": "feature",
+        "sourceIndexes": used_indexes,
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "\n".join(template_lines),
+        "blanks": blanks,
+        "explanation": "\n".join(feature_lines),
     }
-    return mappings.get(title, ["多K线"])
 
 
-def build_feature(title: str) -> list[str]:
-    return EXACT_FEATURES.get(title, ["请根据原始资料补充该形态的特征。"])
+def infer_difficulty(title: str) -> str:
+    if title in {"T字", "倒T字", "十字", "长十字", "一字", "锤头线", "倒锤头线", "大阳线", "大阴线", "小阳线", "小阴线"}:
+        return "easy"
+    if title in {"早晨十字星", "早晨之星", "曙光初现", "乌云盖顶", "黄昏十字星", "黄昏之星", "穿头破脚", "身怀六甲"}:
+        return "medium"
+    return "hard"
 
 
-def build_note(title: str) -> list[str]:
-    return EXACT_NOTES.get(title, ["请根据原始资料补充该形态的备注。"])
-
-
-def build_name_options(title: str, all_titles: list[str]) -> list[str]:
-    base = {
-        "T字": ["T字", "一字", "倒T字", "十字"],
-        "倒T字": ["倒T字", "T字", "十字", "长十字"],
-        "锤头线": ["锤头线", "倒锤头线", "T字", "十字"],
-        "倒锤头线": ["倒锤头线", "锤头线", "倒T字", "十字"],
-        "早晨十字星": ["早晨十字星", "早晨之星", "黄昏十字星", "曙光初现"],
-        "黄昏十字星": ["黄昏十字星", "黄昏之星", "早晨十字星", "乌云盖顶"],
-        "曙光初现": ["曙光初现", "旭日东升", "好友反攻", "乌云盖顶"],
-        "乌云盖顶": ["乌云盖顶", "倾盆大雨", "淡友反攻", "曙光初现"],
-    }
-    if title in base:
-        return base[title]
+def build_title_options(title: str, all_titles: list[str]) -> list[str]:
     options = [title]
     for candidate in all_titles:
-        if candidate != title:
-            options.append(candidate)
+        if candidate == title:
+            continue
+        options.append(candidate)
         if len(options) == 4:
             break
     return options
 
 
-def build_practice(title: str, all_titles: list[str], feature: list[str]) -> dict:
-    if title in PRACTICE_OVERRIDES:
-        preset = PRACTICE_OVERRIDES[title]
-        return {
-            "nameQuestion": {
-                "type": "single_choice",
-                "options": build_name_options(title, all_titles),
-                "answer": title,
-            },
-            "fillBlankQuestion": {
-                "intro": preset["template"],
-                "template": preset["template"],
-                "blanks": preset["blanks"],
-                "explanation": preset["explanation"],
-            },
-        }
-
-    keywords = build_keywords(title)
-    blanks = []
-    if "三K线" in keywords:
-        blanks.append({"id": 1, "label": "根数", "prompt": "该形态由 [ ] 根K线组成。", "type": "text", "answer": ["3"]})
-    elif "双K线" in keywords:
-        blanks.append({"id": 1, "label": "根数", "prompt": "该形态由 [ ] 根K线组成。", "type": "text", "answer": ["2"]})
-    else:
-        blanks.append({"id": 1, "label": "根数", "prompt": "该形态由 [ ] 根K线组成。", "type": "text", "answer": ["1"]})
-
-    if keywords:
-        blanks.append({"id": 2, "label": "结构词", "prompt": "该形态的结构关键词是 [ ]。", "type": "text", "answer": [keywords[0]]})
-    if len(keywords) > 1:
-        blanks.append({"id": 3, "label": "第二结构词", "prompt": "图形还应关注 [ ]。", "type": "text", "answer": [keywords[1]]})
-
-    return {
-        "nameQuestion": {
-            "type": "single_choice",
-            "options": build_name_options(title, all_titles),
-            "answer": title,
-        },
-        "fillBlankQuestion": {
-            "intro": "请根据该形态的结构描述完成填空。",
-            "template": "请根据该形态的结构描述完成填空。",
-            "blanks": blanks,
-            "explanation": feature[0] if feature else "请结合该形态的特征完成记忆。",
-        },
-    }
-
-
-def infer_category(title: str) -> str:
-    if title in BULLISH_BOTTOM or title in BULLISH_CONTINUATION:
-        return "上升和见底"
-    if title in BEARISH_TOP or title in BEARISH_CONTINUATION:
-        return "下跌和滞涨"
-    return "整理"
-
-
-def infer_difficulty(title: str) -> str:
-    if title in {"T字", "倒T字", "十字", "长十字", "一字", "锤头线", "倒锤头线"}:
-        return "easy"
-    if title in {"早晨十字星", "早晨之星", "黄昏十字星", "黄昏之星", "乌云盖顶", "曙光初现"}:
-        return "medium"
-    return "hard"
-
-
 def main() -> None:
+    source_rows = parse_source_rows()
     image_paths = sorted(IMAGE_DIR.glob("*.png"), key=lambda item: item.stem)
     all_titles = [path.stem for path in image_paths]
     records = []
 
     for image_path in image_paths:
         title = image_path.stem
-        feature = build_feature(title)
-        note = build_note(title)
+        source_title = IMAGE_TO_SOURCE_TITLE.get(title, title)
+        source = source_rows.get(source_title, {"feature": [], "note": []})
+        feature = source["feature"]
+        note = source["note"]
+
         records.append(
             {
                 "id": title,
@@ -377,12 +437,19 @@ def main() -> None:
                 "feature": feature,
                 "note": note,
                 "meaning": "",
-                "keywords": build_keywords(title),
-                "practice": build_practice(title, all_titles, feature),
-                "tags": [infer_category(title)],
+                "keywords": [],
+                "practice": {
+                    "nameQuestion": {
+                        "type": "single_choice",
+                        "options": build_title_options(title, all_titles),
+                        "answer": title,
+                    },
+                    "fillBlankQuestion": build_fill_blank_question(feature),
+                },
+                "tags": [],
                 "difficulty": infer_difficulty(title),
                 "hint": "",
-                "category": infer_category(title),
+                "category": "",
                 "createdAt": "2026-04-16",
                 "updatedAt": "2026-04-16",
             }

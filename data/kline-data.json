@@ -5,69 +5,67 @@
     "image": "/images/kline/T字.png",
     "description": "",
     "feature": [
-      "开盘价、收盘价、最高价相同。",
-      "最低价与之有较大距离。"
+      "开盘价、收盘价、最高价相同，最低价与之有较大距离"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "下影线越长，力度越大，信号越可靠"
     ],
     "meaning": "",
-    "keywords": [
-      "十字线",
-      "下影线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
         "options": [
           "T字",
           "一字",
-          "倒T字",
-          "十字"
+          "三只乌鸦",
+          "上升三部曲"
         ],
         "answer": "T字"
       },
       "fillBlankQuestion": {
-        "intro": "请根据图形和记忆内容完成填空。",
-        "template": "请根据图形和记忆内容完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          0
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "[1]，[3]与之有较大距离",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线构成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "开盘价、收盘价、最高价相同"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "线型",
-            "prompt": "该形态属于 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "十字线"
-            ]
+              "最高价"
+            ],
+            "placeholder": "填写第 2 空答案"
           },
           {
             "id": 3,
-            "label": "重点",
-            "prompt": "该形态重点观察 [ ]。",
+            "label": "第 3 空",
             "type": "text",
             "answer": [
-              "下影线"
-            ]
+              "最低价"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "T字的核心不是方向词，而是结构词：单根K线、十字线、下影线明显。"
+        "explanation": "开盘价、收盘价、最高价相同，最低价与之有较大距离"
       }
     },
-    "tags": [
-      "整理"
-    ],
+    "tags": [],
     "difficulty": "easy",
     "hint": "",
-    "category": "整理",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -77,15 +75,12 @@
     "image": "/images/kline/一字.png",
     "description": "",
     "feature": [
-      "开盘价、收盘价、最高价、最低价几乎相同。"
+      "（1）既可出现在涨势中，也可出现在跌势中",
+      "（2）开盘价、收盘价、最高价、最低价几乎相同"
     ],
-    "note": [
-      "请根据原始资料补充该形态的备注。"
-    ],
+    "note": [],
     "meaning": "",
-    "keywords": [
-      "十字线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -98,37 +93,48 @@
         "answer": "一字"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）既可出现在涨势中，也可出现在跌势中\n（2）[1]",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "开盘价、收盘价、最高价、最低价几乎相同"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "十字线"
-            ]
+              "最高价"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "最低价"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "开盘价、收盘价、最高价、最低价几乎相同。"
+        "explanation": "（1）既可出现在涨势中，也可出现在跌势中\n（2）开盘价、收盘价、最高价、最低价几乎相同"
       }
     },
-    "tags": [
-      "整理"
-    ],
+    "tags": [],
     "difficulty": "easy",
     "hint": "",
-    "category": "整理",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -138,18 +144,15 @@
     "image": "/images/kline/三只乌鸦.png",
     "description": "",
     "feature": [
-      "出现在涨势中。",
-      "由三根阴线组成，阴线多为大阴线或中阴线。",
-      "每次均以跳高开盘，最后以下跌收盘。"
+      "（1）出现在涨势中",
+      "（2）由三根阴线组成，阴线多为大阴线或中阴线",
+      "（3）每次均以跳高开盘，最后以下跌收盘"
     ],
     "note": [
-      "又称暴跌三杰。"
+      "又称暴跌三杰"
     ],
     "meaning": "",
-    "keywords": [
-      "大阴线",
-      "三K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -162,46 +165,48 @@
         "answer": "三只乌鸦"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在涨势中\n（2）[1]，阴线多为[2]或[3]\n（3）每次均以跳高开盘，最后以下跌收盘",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "3"
-            ]
+              "由三根阴线组成"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
               "大阴线"
-            ]
+            ],
+            "placeholder": "填写第 2 空答案"
           },
           {
             "id": 3,
-            "label": "第二结构词",
-            "prompt": "图形还应关注 [ ]。",
+            "label": "第 3 空",
             "type": "text",
             "answer": [
-              "三K线"
-            ]
+              "中阴线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "出现在涨势中。"
+        "explanation": "（1）出现在涨势中\n（2）由三根阴线组成，阴线多为大阴线或中阴线\n（3）每次均以跳高开盘，最后以下跌收盘"
       }
     },
-    "tags": [
-      "下跌和滞涨"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "下跌和滞涨",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -211,15 +216,15 @@
     "image": "/images/kline/上升三部曲.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）出现在上涨途中",
+      "（2）由大小不等的五根K线组成",
+      "（3）先拉出一根大阳线或中阳线，接着连续出现三根小阴线，但都没有跌破前面阳线的开盘价，随后出现一根大阳线或中阳线，走势类似于“N”"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "又称升势三鸦"
     ],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -232,37 +237,48 @@
         "answer": "上升三部曲"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          2
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在上涨途中\n（2）由大小不等的五根K线组成\n（3）先拉出一根[1]或[2]，接着连续出现三根[3]，但都没有跌破前面阳线的开盘价，随后出现一根大阳线或中阳线，走势类似于“N”",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "大阳线"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "中阳线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "小阴线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）出现在上涨途中\n（2）由大小不等的五根K线组成\n（3）先拉出一根大阳线或中阳线，接着连续出现三根小阴线，但都没有跌破前面阳线的开盘价，随后出现一根大阳线或中阳线，走势类似于“N”"
       }
     },
-    "tags": [
-      "上升和见底"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "上升和见底",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -272,15 +288,15 @@
     "image": "/images/kline/上升两颗星.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）在涨势初期、中期内出现",
+      "（2）由一大二小三根K线组成",
+      "（3）在上涨时先出现一根大阳线或中阳线，随后就在这根阳线的上方出现两根小K线（可以是小十字线或实体很小的阳线或阴线）"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "有时会在一根大阳线的上方出现三根小K线，称为上涨三颗星"
     ],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -293,37 +309,48 @@
         "answer": "上升两颗星"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          2
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）在涨势初期、中期内出现\n（2）由一大二小三根K线组成\n（3）在上涨时先出现一根[2]或[3]，随后就在这根阳线的上方出现两根小K线（可以是小十字线或[1]的阳线或阴线）",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "实体很小"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "大阳线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "中阳线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）在涨势初期、中期内出现\n（2）由一大二小三根K线组成\n（3）在上涨时先出现一根大阳线或中阳线，随后就在这根阳线的上方出现两根小K线（可以是小十字线或实体很小的阳线或阴线）"
       }
     },
-    "tags": [
-      "上升和见底"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "上升和见底",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -333,15 +360,13 @@
     "image": "/images/kline/上升停顿形.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）出现在涨势中",
+      "（2）由三根阳线组成",
+      "（3）上升时先拉出两根大阳线或中阳线，第三根阳线实体很小"
     ],
-    "note": [
-      "请根据原始资料补充该形态的备注。"
-    ],
+    "note": [],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -354,37 +379,49 @@
         "answer": "上升停顿形"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1,
+          2
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在涨势中\n（2）[1]\n（3）上升时先拉出两根大阳线或中阳线，第三根阳线[3]",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "由三根阳线组成"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "阳线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "实体很小"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）出现在涨势中\n（2）由三根阳线组成\n（3）上升时先拉出两根大阳线或中阳线，第三根阳线实体很小"
       }
     },
-    "tags": [
-      "下跌和滞涨"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "下跌和滞涨",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -394,15 +431,13 @@
     "image": "/images/kline/上升受阻形.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）出现在涨势中",
+      "（2）由三根阳线组成",
+      "（3）三根阳线实体越来越小，最后一根阳线的上影线很长"
     ],
-    "note": [
-      "请根据原始资料补充该形态的备注。"
-    ],
+    "note": [],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -415,37 +450,49 @@
         "answer": "上升受阻形"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1,
+          2
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在涨势中\n（2）[1]\n（3）三根阳线实体越来越小，最后一根阳线的[3]",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "由三根阳线组成"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "阳线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "上影线很长"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）出现在涨势中\n（2）由三根阳线组成\n（3）三根阳线实体越来越小，最后一根阳线的上影线很长"
       }
     },
-    "tags": [
-      "下跌和滞涨"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "下跌和滞涨",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -455,15 +502,13 @@
     "image": "/images/kline/上升抵抗形.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）在上涨途中出现",
+      "（2）由若干根K线组成",
+      "（3）连续跳高开盘，即使中间收出阴线，但收盘价也比前一根K线的收盘价高"
     ],
-    "note": [
-      "请根据原始资料补充该形态的备注。"
-    ],
+    "note": [],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -476,37 +521,30 @@
         "answer": "上升抵抗形"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          2
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）在上涨途中出现\n（2）由若干根K线组成\n（3）连续跳高开盘，即使中间收出[1]，但收盘价也比前一根K线的收盘价高",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
-          },
-          {
-            "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
-            "type": "text",
-            "answer": [
-              "多K线"
-            ]
+              "阴线"
+            ],
+            "placeholder": "填写第 1 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）在上涨途中出现\n（2）由若干根K线组成\n（3）连续跳高开盘，即使中间收出阴线，但收盘价也比前一根K线的收盘价高"
       }
     },
-    "tags": [
-      "上升和见底"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "上升和见底",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -516,15 +554,13 @@
     "image": "/images/kline/下探上升形.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "在上涨途中突然跳低开盘（甚至以跌停板开盘），当日以涨势收盘收出一根大阳线（甚至以涨停板收盘）"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "多数为控盘庄家利用消息洗盘，一般后市将有一段较大升势"
     ],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -537,37 +573,39 @@
         "answer": "下探上升形"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          0
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "在上涨途中突然跳低开盘（甚至以跌停板开盘），当日以涨势收盘收出一根[1]（甚至以涨停板收盘）",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "大阳线"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "阳线"
+            ],
+            "placeholder": "填写第 2 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "在上涨途中突然跳低开盘（甚至以跌停板开盘），当日以涨势收盘收出一根大阳线（甚至以涨停板收盘）"
       }
     },
-    "tags": [
-      "上升和见底"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "上升和见底",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -577,15 +615,15 @@
     "image": "/images/kline/下跌三颗星.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）在下跌行情初期出现",
+      "（2）由一大三小四根K线组成",
+      "（3）在下跌时，先出现一根大阴线或中阴线，随后就在这根阴线的下方出现了三根小K线（既可以是小十字线，也可以是实体很小的阴线、阳线）"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "表明市场买方意愿不强，市场将以盘跌为主"
     ],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -598,37 +636,48 @@
         "answer": "下跌三颗星"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          2
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）在下跌行情初期出现\n（2）由一大三小四根K线组成\n（3）在下跌时，先出现一根[2]或[3]，随后就在这根阴线的下方出现了三根小K线（既可以是小十字线，也可以是[1]的阴线、阳线）",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "实体很小"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "大阴线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "中阴线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）在下跌行情初期出现\n（2）由一大三小四根K线组成\n（3）在下跌时，先出现一根大阴线或中阴线，随后就在这根阴线的下方出现了三根小K线（既可以是小十字线，也可以是实体很小的阴线、阳线）"
       }
     },
-    "tags": [
-      "下跌和滞涨"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "下跌和滞涨",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -638,15 +687,12 @@
     "image": "/images/kline/下跌不止形.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）出现在下跌途中",
+      "（2）众多的阴线中夹着较少的小阳线。整个K线排列呈向下倾斜状"
     ],
-    "note": [
-      "请根据原始资料补充该形态的备注。"
-    ],
+    "note": [],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -659,37 +705,48 @@
         "answer": "下跌不止形"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在下跌途中\n（2）众多的[3]中夹着较少的[1]。整个K线排列呈向下倾斜状",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "小阳线"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "阳线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "阴线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）出现在下跌途中\n（2）众多的阴线中夹着较少的小阳线。整个K线排列呈向下倾斜状"
       }
     },
-    "tags": [
-      "下跌和滞涨"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "下跌和滞涨",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -699,15 +756,15 @@
     "image": "/images/kline/下降三部曲.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）出现在下跌趋势中",
+      "（2）由五根大小不等的K线组成",
+      "（3）先出现一根大阴线或中阴线，接着出现三根向上爬升的小阳线，但这三根小阳线都没有冲破第一根阴线开盘价，最后又被一根大阴线或中阴线全部或大部分吞吃"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "又称降势三鹤"
     ],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -720,37 +777,48 @@
         "answer": "下降三部曲"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          2
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在下跌趋势中\n（2）由五根大小不等的K线组成\n（3）先出现一根[2]或[3]，接着出现三根向上爬升的[1]，但这三根小阳线都没有冲破第一根阴线开盘价，最后又被一根大阴线或中阴线全部或大部分吞吃",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "小阳线"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "大阴线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "中阴线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）出现在下跌趋势中\n（2）由五根大小不等的K线组成\n（3）先出现一根大阴线或中阴线，接着出现三根向上爬升的小阳线，但这三根小阳线都没有冲破第一根阴线开盘价，最后又被一根大阴线或中阴线全部或大部分吞吃"
       }
     },
-    "tags": [
-      "下跌和滞涨"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "下跌和滞涨",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -760,15 +828,13 @@
     "image": "/images/kline/下降抵抗形.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）出现在下跌途中",
+      "（2）由若干根阴线和阳线组成，但阴线大大多于阳线",
+      "（3）连续跳低开盘，即使中间收出阳线，但收盘价也要比前一根K线的收盘价低"
     ],
-    "note": [
-      "请根据原始资料补充该形态的备注。"
-    ],
+    "note": [],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -781,37 +847,49 @@
         "answer": "下降抵抗形"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1,
+          2
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在下跌途中\n（2）由若干根[2]和[1]组成，但阴线大大多于阳线\n（3）连续跳低开盘，即使中间收出[3]，但收盘价也要比前一根K线的收盘价低",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "阳线"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "阴线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "阳线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）出现在下跌途中\n（2）由若干根阴线和阳线组成，但阴线大大多于阳线\n（3）连续跳低开盘，即使中间收出阳线，但收盘价也要比前一根K线的收盘价低"
       }
     },
-    "tags": [
-      "下跌和滞涨"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "下跌和滞涨",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -821,15 +899,14 @@
     "image": "/images/kline/下降覆盖线.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）在上涨行情中出现",
+      "（2）由四根K线组成。前两根K线构成一个穿头破脚形态，第三根K线是一根中阳线或小阳线，但阳线实体通常要比前一根阴线要短，之后又出现一根中阴线或小阴线，阴线实体已深入到前一根阳线实体之中"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "见顶信号强于穿头破脚"
     ],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -842,37 +919,48 @@
         "answer": "下降覆盖线"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）在上涨行情中出现\n（2）由四根K线组成。前两根K线构成一个穿头破脚形态，第三根K线是一根[1]或[2]，但阳线实体通常要比前一根阴线要短，之后又出现一根[3]或小阴线，阴线实体已深入到前一根阳线实体之中",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "中阳线"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "小阳线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "中阴线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）在上涨行情中出现\n（2）由四根K线组成。前两根K线构成一个穿头破脚形态，第三根K线是一根中阳线或小阳线，但阳线实体通常要比前一根阴线要短，之后又出现一根中阴线或小阴线，阴线实体已深入到前一根阳线实体之中"
       }
     },
-    "tags": [
-      "下跌和滞涨"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "下跌和滞涨",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -882,80 +970,69 @@
     "image": "/images/kline/乌云盖顶.png",
     "description": "",
     "feature": [
-      "出现在涨势中。",
-      "由一根中阳线或大阳线和一根中阴线或大阴线组成。",
-      "阴线已深入到阳线实体二分之一以下处。"
+      "（1）出现在涨势中",
+      "（2）由一根中阳线或大阳线和一根中阴线或大阴线组成",
+      "（3）阴线已深入到阳线实体二分之一以下处"
     ],
     "note": [
-      "阴线深入阳线实体部分越多，转势信号越强。"
+      "阴线深入阳线实体部分越多，转势信号越强"
     ],
     "meaning": "",
-    "keywords": [
-      "大阳线",
-      "大阴线",
-      "双K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
         "options": [
           "乌云盖顶",
-          "倾盆大雨",
-          "淡友反攻",
-          "曙光初现"
+          "T字",
+          "一字",
+          "三只乌鸦"
         ],
         "answer": "乌云盖顶"
       },
       "fillBlankQuestion": {
-        "intro": "请根据图形和结构特征完成填空。",
-        "template": "请根据图形和结构特征完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在涨势中\n（2）由一根[2]或[1]和一根中阴线或[3]组成\n（3）阴线已深入到阳线实体二分之一以下处",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "2"
-            ]
+              "大阳线"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "第一根",
-            "prompt": "第一根K线通常为 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "中阳线或大阳线"
-            ]
+              "中阳线"
+            ],
+            "placeholder": "填写第 2 空答案"
           },
           {
             "id": 3,
-            "label": "第二根",
-            "prompt": "第二根K线通常为 [ ]。",
+            "label": "第 3 空",
             "type": "text",
             "answer": [
-              "中阴线或大阴线"
-            ]
-          },
-          {
-            "id": 4,
-            "label": "深入程度",
-            "prompt": "阴线深入阳线实体 [ ] 以下。",
-            "type": "text",
-            "answer": [
-              "二分之一"
-            ]
+              "大阴线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "乌云盖顶的训练重点是两根K线的先后关系和阴线深入程度。"
+        "explanation": "（1）出现在涨势中\n（2）由一根中阳线或大阳线和一根中阴线或大阴线组成\n（3）阴线已深入到阳线实体二分之一以下处"
       }
     },
-    "tags": [
-      "下跌和滞涨"
-    ],
+    "tags": [],
     "difficulty": "medium",
     "hint": "",
-    "category": "下跌和滞涨",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -965,15 +1042,13 @@
     "image": "/images/kline/低位并排阳线.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）出现在下跌趋势中",
+      "（2）由两根阳线组成",
+      "（3）第一根阳线跳空低开，其收盘时在前一根K线下方留下一个缺口，后面一根阳线与第一根阳线并排而立"
     ],
-    "note": [
-      "请根据原始资料补充该形态的备注。"
-    ],
+    "note": [],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -986,37 +1061,49 @@
         "answer": "低位并排阳线"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1,
+          2
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在下跌趋势中\n（2）[1]\n（3）第一根[3]跳空低开，其收盘时在前一根K线下方留下一个缺口，后面一根阳线与第一根阳线并排而立",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "由两根阳线组成"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "阳线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "阳线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）出现在下跌趋势中\n（2）由两根阳线组成\n（3）第一根阳线跳空低开，其收盘时在前一根K线下方留下一个缺口，后面一根阳线与第一根阳线并排而立"
       }
     },
-    "tags": [
-      "上升和见底"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "上升和见底",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -1026,15 +1113,14 @@
     "image": "/images/kline/低档五阳线.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）出现在下跌行情中",
+      "（2）连续拉出五根阳线，多为小阳线"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "也有可能是六、七根阳线"
     ],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -1047,37 +1133,39 @@
         "answer": "低档五阳线"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在下跌行情中\n（2）连续拉出五根[2]，多为[1]",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "小阳线"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "阳线"
+            ],
+            "placeholder": "填写第 2 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）出现在下跌行情中\n（2）连续拉出五根阳线，多为小阳线"
       }
     },
-    "tags": [
-      "上升和见底"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "上升和见底",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -1087,15 +1175,13 @@
     "image": "/images/kline/低档盘旋形.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）出现在下跌途中",
+      "（2）由若干根小阴小阳线组成",
+      "（3）先是小阴小阳线的横盘，后来出现一根跳空向下的阴线"
     ],
-    "note": [
-      "请根据原始资料补充该形态的备注。"
-    ],
+    "note": [],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -1108,37 +1194,49 @@
         "answer": "低档盘旋形"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1,
+          2
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在下跌途中\n（2）由若干根小阴[1]组成\n（3）先是小阴[3]的横盘，后来出现一根跳空向下的阴线",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "小阳线"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "阳线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "小阳线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）出现在下跌途中\n（2）由若干根小阴小阳线组成\n（3）先是小阴小阳线的横盘，后来出现一根跳空向下的阴线"
       }
     },
-    "tags": [
-      "下跌和滞涨"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "下跌和滞涨",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -1148,69 +1246,67 @@
     "image": "/images/kline/倒T字.png",
     "description": "",
     "feature": [
-      "开盘价、收盘价、最低价相同。",
-      "最高价与之有较大距离。"
+      "开盘价、收盘价、最低价相同，最高价与之有较大距离"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "上影线越长，信号越可靠。"
     ],
     "meaning": "",
-    "keywords": [
-      "十字线",
-      "上影线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
         "options": [
           "倒T字",
           "T字",
-          "十字",
-          "长十字"
+          "一字",
+          "三只乌鸦"
         ],
         "answer": "倒T字"
       },
       "fillBlankQuestion": {
-        "intro": "请根据图形和记忆内容完成填空。",
-        "template": "请根据图形和记忆内容完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          0
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "[1]，[2]与之有较大距离",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线构成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "开盘价、收盘价、最低价相同"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "线型",
-            "prompt": "该形态属于 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "十字线"
-            ]
+              "最高价"
+            ],
+            "placeholder": "填写第 2 空答案"
           },
           {
             "id": 3,
-            "label": "重点",
-            "prompt": "该形态重点观察 [ ]。",
+            "label": "第 3 空",
             "type": "text",
             "answer": [
-              "上影线"
-            ]
+              "最低价"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "倒T字和T字的关键差异在影线方向，记忆重点应放在上影线而不是结果判断。"
+        "explanation": "开盘价、收盘价、最低价相同，最高价与之有较大距离"
       }
     },
-    "tags": [
-      "整理"
-    ],
+    "tags": [],
     "difficulty": "easy",
     "hint": "",
-    "category": "整理",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -1220,15 +1316,15 @@
     "image": "/images/kline/倒三阳.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）出现在下跌初期",
+      "（2）由三根阳线组成",
+      "（3）每日都是低开高走，第一根K线以跌势收盘，后两根K线的收盘价低于或接近前一天的阳线开盘价。因此虽然连收了三根阳线，但图形上却出现了类似连续三根阴线的跌势"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "下跌概率极大，投资者应趁早离场"
     ],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -1241,37 +1337,49 @@
         "answer": "倒三阳"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1,
+          2
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在下跌初期\n（2）[1]\n（3）每日都是低开高走，第一根K线以跌势收盘，后两根K线的收盘价低于或接近前一天的[3]开盘价。因此虽然连收了三根阳线，但图形上却出现了类似连续三根阴线的跌势",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "由三根阳线组成"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "阳线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "阳线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）出现在下跌初期\n（2）由三根阳线组成\n（3）每日都是低开高走，第一根K线以跌势收盘，后两根K线的收盘价低于或接近前一天的阳线开盘价。因此虽然连收了三根阳线，但图形上却出现了类似连续三根阴线的跌势"
       }
     },
-    "tags": [
-      "下跌和滞涨"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "下跌和滞涨",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -1281,70 +1389,71 @@
     "image": "/images/kline/倒锤头线.png",
     "description": "",
     "feature": [
-      "出现在下跌途中。",
-      "阳线或阴线实体很小，上影线大于或等于实体的两倍。",
-      "一般无下影线，少数会有一点。"
+      "（1）出现在下跌途中",
+      "（2）与射击之星很相似，区别在于倒锤子线的上影线比射击之星的上影线要短",
+      "（3）阳线（或阴线）实体很小，上影线大于或等于实体的两倍",
+      "（4）一般无下影线，少数会有一点"
     ],
     "note": [
-      "实体与上影线比例越悬殊，信号越强。如与早晨之星同时出现，见底信号更加可靠。"
+      "实体与上影线比例越悬殊，信号越强。与早晨之星同时出现，见底信号更加可靠"
     ],
     "meaning": "",
-    "keywords": [
-      "小阳线",
-      "上影线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
         "options": [
           "倒锤头线",
-          "锤头线",
-          "倒T字",
-          "十字"
+          "T字",
+          "一字",
+          "三只乌鸦"
         ],
         "answer": "倒锤头线"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1,
+          2
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在下跌途中\n（2）与射击之星很相似，区别在于倒锤子线的[1]比射击之星的上影线要短\n（3）阳线（或阴线）[3]，[2]\n（4）一般无下影线，少数会有一点",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
-            "type": "text",
-            "answer": [
-              "1"
-            ]
-          },
-          {
-            "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
-            "type": "text",
-            "answer": [
-              "小阳线"
-            ]
-          },
-          {
-            "id": 3,
-            "label": "第二结构词",
-            "prompt": "图形还应关注 [ ]。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
               "上影线"
-            ]
+            ],
+            "placeholder": "填写第 1 空答案"
+          },
+          {
+            "id": 2,
+            "label": "第 2 空",
+            "type": "text",
+            "answer": [
+              "上影线大于或等于实体的两倍"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "实体很小"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "出现在下跌途中。"
+        "explanation": "（1）出现在下跌途中\n（2）与射击之星很相似，区别在于倒锤子线的上影线比射击之星的上影线要短\n（3）阳线（或阴线）实体很小，上影线大于或等于实体的两倍\n（4）一般无下影线，少数会有一点"
       }
     },
-    "tags": [
-      "上升和见底"
-    ],
+    "tags": [],
     "difficulty": "easy",
     "hint": "",
-    "category": "上升和见底",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -1354,19 +1463,15 @@
     "image": "/images/kline/倾盆大雨.png",
     "description": "",
     "feature": [
-      "出现在涨势中。",
-      "先是一根大阳线或中阳线，接着出现一根低开的大阴线或中阴线。",
-      "收盘价低于阳线开盘价。"
+      "（1）出现在涨势中",
+      "（2）由一阳一阴两根K线组成",
+      "（3）先是一根大阳线或中阳线，接着出现一根低开的大阴线或中阴线，收盘价低于阳线开盘价"
     ],
     "note": [
-      "强于乌云盖顶；实体低于阳线越多，信号越强。"
+      "强于乌云盖顶；实体低于阳线越多信号越强"
     ],
     "meaning": "",
-    "keywords": [
-      "大阳线",
-      "大阴线",
-      "双K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -1379,46 +1484,49 @@
         "answer": "倾盆大雨"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1,
+          2
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在涨势中\n（2）[1]\n（3）先是一根[2]或[3]，接着出现一根低开的大阴线或中阴线，收盘价低于阳线开盘价",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "2"
-            ]
+              "由一阳一阴两根K线组成"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
               "大阳线"
-            ]
+            ],
+            "placeholder": "填写第 2 空答案"
           },
           {
             "id": 3,
-            "label": "第二结构词",
-            "prompt": "图形还应关注 [ ]。",
+            "label": "第 3 空",
             "type": "text",
             "answer": [
-              "大阴线"
-            ]
+              "中阳线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "出现在涨势中。"
+        "explanation": "（1）出现在涨势中\n（2）由一阳一阴两根K线组成\n（3）先是一根大阳线或中阳线，接着出现一根低开的大阴线或中阴线，收盘价低于阳线开盘价"
       }
     },
-    "tags": [
-      "下跌和滞涨"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "下跌和滞涨",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -1428,15 +1536,15 @@
     "image": "/images/kline/冉冉上升形.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）在盘整后期出现",
+      "（2）由若干根小K线组成（一般不少于八根），其中以小阳线居多，中间也可以夹着小阴线、十字线",
+      "（3）整个K线排列呈略微向上倾斜状"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "它往往是股价大涨的前兆，如成交量同时放大，可能性更大"
     ],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -1449,37 +1557,48 @@
         "answer": "冉冉上升形"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）在盘整后期出现\n（2）由若干根小K线组成（一般不少于八根），其中以[1]居多，中间也可以夹着[2]、[3]\n（3）整个K线排列呈略微向上倾斜状",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "小阳线"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "小阴线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "十字线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）在盘整后期出现\n（2）由若干根小K线组成（一般不少于八根），其中以小阳线居多，中间也可以夹着小阴线、十字线\n（3）整个K线排列呈略微向上倾斜状"
       }
     },
-    "tags": [
-      "上升和见底"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "上升和见底",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -1489,15 +1608,13 @@
     "image": "/images/kline/加速度线.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）既可以在涨势中出现，也可以在跌势中出现",
+      "（2）上涨时出现，表现为开始缓慢爬升，后来攀升速度越来越快，接着连续拉出中阳线或大阳线",
+      "（3）下跌时出现，表现为开始缓慢下跌，后来下跌速度越来越快，接着连续拉出中阴线或大阴线"
     ],
-    "note": [
-      "请根据原始资料补充该形态的备注。"
-    ],
+    "note": [],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -1510,37 +1627,48 @@
         "answer": "加速度线"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）既可以在涨势中出现，也可以在跌势中出现\n（2）上涨时出现，表现为开始缓慢爬升，后来攀升速度越来越快，接着连续拉出[2]或[1]\n（3）下跌时出现，表现为开始缓慢下跌，后来下跌速度越来越快，接着连续拉出中阴线或大阴线",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "大阳线"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "中阳线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "阳线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）既可以在涨势中出现，也可以在跌势中出现\n（2）上涨时出现，表现为开始缓慢爬升，后来攀升速度越来越快，接着连续拉出中阳线或大阳线\n（3）下跌时出现，表现为开始缓慢下跌，后来下跌速度越来越快，接着连续拉出中阴线或大阴线"
       }
     },
-    "tags": [
-      "整理"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "整理",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -1550,16 +1678,14 @@
     "image": "/images/kline/十字.png",
     "description": "",
     "feature": [
-      "开盘价和收盘价相同。",
-      "上下影线较短。"
+      "（1）既可出现在涨势中，也可出现在跌势中",
+      "（2）开盘价和收盘价相同，上下影线较短"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "信号可靠性不强。应结合其他K线一起分析"
     ],
     "meaning": "",
-    "keywords": [
-      "十字线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -1572,37 +1698,48 @@
         "answer": "十字"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）既可出现在涨势中，也可出现在跌势中\n（2）[1]，[2]",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "开盘价和收盘价相同"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "十字线"
-            ]
+              "上下影线较短"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "下影线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "开盘价和收盘价相同。"
+        "explanation": "（1）既可出现在涨势中，也可出现在跌势中\n（2）开盘价和收盘价相同，上下影线较短"
       }
     },
-    "tags": [
-      "整理"
-    ],
+    "tags": [],
     "difficulty": "easy",
     "hint": "",
-    "category": "整理",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -1612,15 +1749,15 @@
     "image": "/images/kline/升势鹤鸦缺口.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）出现在涨势中",
+      "（2）由一阳一阴两根K线组成",
+      "（3）先是拉出一根跳空上扬的阳线留下一个缺口，接着出现一根低收的阴线收于缺口上方"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "又称升势鹤鸦缺口"
     ],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -1633,37 +1770,49 @@
         "answer": "升势鹤鸦缺口"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1,
+          2
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在涨势中\n（2）[1]\n（3）先是拉出一根跳空上扬的[2]留下一个缺口，接着出现一根低收的[3]收于缺口上方",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "由一阳一阴两根K线组成"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "阳线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "阴线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）出现在涨势中\n（2）由一阳一阴两根K线组成\n（3）先是拉出一根跳空上扬的阳线留下一个缺口，接着出现一根低收的阴线收于缺口上方"
       }
     },
-    "tags": [
-      "上升和见底"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "上升和见底",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -1673,15 +1822,13 @@
     "image": "/images/kline/双飞乌鸦.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）出现在涨势中",
+      "（2）由一大一小两根阴线组成",
+      "（3）第一根阴线的收盘价高于前一根阳线的收盘价，且第二根阴线完全包容了第一根阴线"
     ],
-    "note": [
-      "请根据原始资料补充该形态的备注。"
-    ],
+    "note": [],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -1694,37 +1841,49 @@
         "answer": "双飞乌鸦"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1,
+          2
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在涨势中\n（2）由一大一小两根[1]组成\n（3）第一根[3]的收盘价高于前一根[2]的收盘价，且第二根阴线完全包容了第一根阴线",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "阴线"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "阳线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "阴线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）出现在涨势中\n（2）由一大一小两根阴线组成\n（3）第一根阴线的收盘价高于前一根阳线的收盘价，且第二根阴线完全包容了第一根阴线"
       }
     },
-    "tags": [
-      "下跌和滞涨"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "下跌和滞涨",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -1734,15 +1893,15 @@
     "image": "/images/kline/圆底.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）在跌势中出现",
+      "（2）股价形成一个圆弧底",
+      "（3）圆弧内的K线多为小阴小阳线，最后是向上跳空缺口"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "与形态理论圆形底有区别"
     ],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -1755,37 +1914,48 @@
         "answer": "圆底"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          2
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）在跌势中出现\n（2）股价形成一个圆弧底\n（3）圆弧内的K线多为小阴[1]，最后是向上[3]",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "小阳线"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "阳线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "跳空缺口"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）在跌势中出现\n（2）股价形成一个圆弧底\n（3）圆弧内的K线多为小阴小阳线，最后是向上跳空缺口"
       }
     },
-    "tags": [
-      "上升和见底"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "上升和见底",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -1795,15 +1965,15 @@
     "image": "/images/kline/圆顶.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）在上涨趋势中出现",
+      "（2）股价形成一个圆弧顶",
+      "（3）圆弧内的K线多为小阳线或小阴线，最后以向下跳空缺口确认圆顶形态成立"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "与形态理论圆形顶有一定的区别"
     ],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -1816,37 +1986,48 @@
         "answer": "圆顶"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          2
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）在上涨趋势中出现\n（2）股价形成一个圆弧顶\n（3）圆弧内的K线多为[1]或[2]，最后以向下跳空缺口确认圆顶形态成立",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "小阳线"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "小阴线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "阳线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）在上涨趋势中出现\n（2）股价形成一个圆弧顶\n（3）圆弧内的K线多为小阳线或小阴线，最后以向下跳空缺口确认圆顶形态成立"
       }
     },
-    "tags": [
-      "下跌和滞涨"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "下跌和滞涨",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -1856,15 +2037,12 @@
     "image": "/images/kline/塔形底.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）出现在下跌途中",
+      "（2）先是一根大阴线或中阴线，后为一连串的小阴小阳线，最后出现一根大阳线或中阳线"
     ],
-    "note": [
-      "请根据原始资料补充该形态的备注。"
-    ],
+    "note": [],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -1877,37 +2055,48 @@
         "answer": "塔形底"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在下跌途中\n（2）先是一根大阴线或中阴线，后为一连串的小阴[3]，最后出现一根[1]或[2]",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "大阳线"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "中阳线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "小阳线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）出现在下跌途中\n（2）先是一根大阴线或中阴线，后为一连串的小阴小阳线，最后出现一根大阳线或中阳线"
       }
     },
-    "tags": [
-      "上升和见底"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "上升和见底",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -1917,15 +2106,12 @@
     "image": "/images/kline/塔形顶.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）出现在上涨趋势中",
+      "（2）先是一根大阳线或中阳线，后为一连串的小阳线或小阴线，最后出现一根大阴线或中阴线"
     ],
-    "note": [
-      "请根据原始资料补充该形态的备注。"
-    ],
+    "note": [],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -1938,37 +2124,48 @@
         "answer": "塔形顶"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在上涨趋势中\n（2）先是一根[1]或[2]，后为一连串的[3]或小阴线，最后出现一根大阴线或中阴线",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "大阳线"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "中阳线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "小阳线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）出现在上涨趋势中\n（2）先是一根大阳线或中阳线，后为一连串的小阳线或小阴线，最后出现一根大阴线或中阴线"
       }
     },
-    "tags": [
-      "下跌和滞涨"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "下跌和滞涨",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -1978,15 +2175,15 @@
     "image": "/images/kline/多方尖兵.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）出现在上涨行情中",
+      "（2）由若干根K线组成",
+      "（3）在拉出一根中阳线或大阳线时，留下了一根较长的上影线，然后股价回落，但不久股价又上涨到上影线的上方"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "实际上是多方主力发动全面进攻前的一次试盘"
     ],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -1999,37 +2196,48 @@
         "answer": "多方尖兵"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          2
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在上涨行情中\n（2）由若干根K线组成\n（3）在拉出一根[2]或[1]时，留下了一根较长的上影线，然后股价回落，但不久股价又上涨到上影线的上方",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "大阳线"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "中阳线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "阳线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）出现在上涨行情中\n（2）由若干根K线组成\n（3）在拉出一根中阳线或大阳线时，留下了一根较长的上影线，然后股价回落，但不久股价又上涨到上影线的上方"
       }
     },
-    "tags": [
-      "上升和见底"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "上升和见底",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -2039,15 +2247,12 @@
     "image": "/images/kline/多方炮.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）既可以出现在涨势中，也可以出现在跌势中",
+      "（2）由两根较长的阳线和一根较短的阴线组成，阴线夹在阳线之中"
     ],
-    "note": [
-      "请根据原始资料补充该形态的备注。"
-    ],
+    "note": [],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -2060,37 +2265,39 @@
         "answer": "多方炮"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）既可以出现在涨势中，也可以出现在跌势中\n（2）由两根较长的[1]和一根较短的[2]组成，阴线夹在阳线之中",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "阳线"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "阴线"
+            ],
+            "placeholder": "填写第 2 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）既可以出现在涨势中，也可以出现在跌势中\n（2）由两根较长的阳线和一根较短的阴线组成，阴线夹在阳线之中"
       }
     },
-    "tags": [
-      "整理"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "整理",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -2100,15 +2307,14 @@
     "image": "/images/kline/大阳线.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）可以在任何情况下出现",
+      "（2）实体较长，可略带上下影线"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "阳线实体越长，信号越可靠"
     ],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -2121,37 +2327,39 @@
         "answer": "大阳线"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）可以在任何情况下出现\n（2）[1]，可略带上[2]",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "实体较长"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "下影线"
+            ],
+            "placeholder": "填写第 2 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）可以在任何情况下出现\n（2）实体较长，可略带上下影线"
       }
     },
-    "tags": [
-      "整理"
-    ],
-    "difficulty": "hard",
+    "tags": [],
+    "difficulty": "easy",
     "hint": "",
-    "category": "整理",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -2161,15 +2369,12 @@
     "image": "/images/kline/大阴线.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）可以在任何情况下出现",
+      "（2）实体较长，可略带上下影线涨势中出现，见顶信号"
     ],
-    "note": [
-      "请根据原始资料补充该形态的备注。"
-    ],
+    "note": [],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -2182,37 +2387,39 @@
         "answer": "大阴线"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）可以在任何情况下出现\n（2）[1]，可略带上[2]涨势中出现，见顶信号",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "实体较长"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "下影线"
+            ],
+            "placeholder": "填写第 2 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）可以在任何情况下出现\n（2）实体较长，可略带上下影线涨势中出现，见顶信号"
       }
     },
-    "tags": [
-      "整理"
-    ],
-    "difficulty": "hard",
+    "tags": [],
+    "difficulty": "easy",
     "hint": "",
-    "category": "整理",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -2222,19 +2429,15 @@
     "image": "/images/kline/好友反攻.png",
     "description": "",
     "feature": [
-      "出现在下跌行情中。",
-      "由一阴一阳两根K线组成。",
-      "先是一根大阴线，接着跳低开盘，结果收了一根中阳线或大阳线，并且收在前一根K线收盘价相同或相近的位置上。"
+      "（1）出现在下跌行情中",
+      "（2）由一阴一阳两根K线组成",
+      "（3）先是一根大阴线，接着跳低开盘，结果收了一根中阳线或大阳线，并且收在前一根K线收盘价相同或相近的位置上"
     ],
     "note": [
-      "转势信号不如曙光初现强。"
+      "转势信号不如曙光初现强"
     ],
     "meaning": "",
-    "keywords": [
-      "大阴线",
-      "大阳线",
-      "双K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -2247,46 +2450,49 @@
         "answer": "好友反攻"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1,
+          2
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在下跌行情中\n（2）[1]\n（3）先是一根大阴线，接着跳低开盘，结果收了一根[3]或[2]，并且收在前一根K线收盘价相同或相近的位置上",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "2"
-            ]
+              "由一阴一阳两根K线组成"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
-            "type": "text",
-            "answer": [
-              "大阴线"
-            ]
-          },
-          {
-            "id": 3,
-            "label": "第二结构词",
-            "prompt": "图形还应关注 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
               "大阳线"
-            ]
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "中阳线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "出现在下跌行情中。"
+        "explanation": "（1）出现在下跌行情中\n（2）由一阴一阳两根K线组成\n（3）先是一根大阴线，接着跳低开盘，结果收了一根中阳线或大阳线，并且收在前一根K线收盘价相同或相近的位置上"
       }
     },
-    "tags": [
-      "上升和见底"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "上升和见底",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -2296,15 +2502,12 @@
     "image": "/images/kline/小阳线.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）在盘整行情中出现较多，也可在上涨和下跌行情中出现",
+      "（2）K线实体很小，可略带上下影线说明行情不明朗，多空双方小心接触，但多方略占上风单根小阳线意义不大，应结合其他K线分析"
     ],
-    "note": [
-      "请根据原始资料补充该形态的备注。"
-    ],
+    "note": [],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -2317,37 +2520,48 @@
         "answer": "小阳线"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）在盘整行情中出现较多，也可在上涨和下跌行情中出现\n（2）K线[1]，可略带上下影线说明行情不明朗，多空双方小心接触，但多方略占上风单根[2]意义不大，应结合其他K线分析",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "实体很小"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "小阳线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "阳线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）在盘整行情中出现较多，也可在上涨和下跌行情中出现\n（2）K线实体很小，可略带上下影线说明行情不明朗，多空双方小心接触，但多方略占上风单根小阳线意义不大，应结合其他K线分析"
       }
     },
-    "tags": [
-      "整理"
-    ],
-    "difficulty": "hard",
+    "tags": [],
+    "difficulty": "easy",
     "hint": "",
-    "category": "整理",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -2357,15 +2571,12 @@
     "image": "/images/kline/小阴线.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）在盘整行情中出现较多，也可在下跌和上涨行情中出现",
+      "（2）K线实体很小，可略带上下影线说明行情不明朗，多空双方小心接触，但空方略占上风单根小阴线意义不大，应结合其他K线分析"
     ],
-    "note": [
-      "请根据原始资料补充该形态的备注。"
-    ],
+    "note": [],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -2378,37 +2589,48 @@
         "answer": "小阴线"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）在盘整行情中出现较多，也可在下跌和上涨行情中出现\n（2）K线[1]，可略带上下影线说明行情不明朗，多空双方小心接触，但空方略占上风单根[2]意义不大，应结合其他K线分析",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "实体很小"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "小阴线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "阴线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）在盘整行情中出现较多，也可在下跌和上涨行情中出现\n（2）K线实体很小，可略带上下影线说明行情不明朗，多空双方小心接触，但空方略占上风单根小阴线意义不大，应结合其他K线分析"
       }
     },
-    "tags": [
-      "整理"
-    ],
-    "difficulty": "hard",
+    "tags": [],
+    "difficulty": "easy",
     "hint": "",
-    "category": "整理",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -2418,15 +2640,16 @@
     "image": "/images/kline/尽头线.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）既可以出现在涨势中，也可以出现在跌势中",
+      "（2）由一大一小两根K线组成",
+      "（3）出现在涨势中，第一根K线为大阳线和中阳线，并留有一根上影线，第二根K线为小十字线或小阳小阴线，依附在第一根K线的上影线之内",
+      "（4）跌势中相反"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "上影线或下影线的右方的K线实体越小（如小十字星），信号越强"
     ],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -2439,37 +2662,49 @@
         "answer": "尽头线"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1,
+          2
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）既可以出现在涨势中，也可以出现在跌势中\n（2）[1]\n（3）出现在涨势中，第一根K线为[2]和[3]，并留有一根上影线，第二根K线为小十字线或小阳小阴线，依附在第一根K线的上影线之内\n（4）跌势中相反",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "由一大一小两根K线组成"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "大阳线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "中阳线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）既可以出现在涨势中，也可以出现在跌势中\n（2）由一大一小两根K线组成\n（3）出现在涨势中，第一根K线为大阳线和中阳线，并留有一根上影线，第二根K线为小十字线或小阳小阴线，依附在第一根K线的上影线之内\n（4）跌势中相反"
       }
     },
-    "tags": [
-      "整理"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "整理",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -2479,19 +2714,13 @@
     "image": "/images/kline/平底钳子线.png",
     "description": "",
     "feature": [
-      "在下跌趋势中出现。",
-      "由两根或两根以上的K线组成。",
-      "最低价处在同一水平位置上。"
+      "（1）在下跌趋势中出现",
+      "（2）由两根或两根以上的K线组成",
+      "（3）最低价处在同一水平位置上"
     ],
-    "note": [
-      "请根据原始资料补充该形态的备注。"
-    ],
+    "note": [],
     "meaning": "",
-    "keywords": [
-      "双K线",
-      "并列",
-      "下影线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -2504,46 +2733,39 @@
         "answer": "平底钳子线"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          2
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）在下跌趋势中出现\n（2）由两根或两根以上的K线组成\n（3）[1]处在[2]上",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "2"
-            ]
+              "最低价"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "双K线"
-            ]
-          },
-          {
-            "id": 3,
-            "label": "第二结构词",
-            "prompt": "图形还应关注 [ ]。",
-            "type": "text",
-            "answer": [
-              "并列"
-            ]
+              "同一水平位置"
+            ],
+            "placeholder": "填写第 2 空答案"
           }
         ],
-        "explanation": "在下跌趋势中出现。"
+        "explanation": "（1）在下跌趋势中出现\n（2）由两根或两根以上的K线组成\n（3）最低价处在同一水平位置上"
       }
     },
-    "tags": [
-      "上升和见底"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "上升和见底",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -2553,19 +2775,13 @@
     "image": "/images/kline/平顶钳子线.png",
     "description": "",
     "feature": [
-      "在上涨趋势中出现。",
-      "由两根或两根以上的K线组成。",
-      "最高价处于同一水平位置。"
+      "（1）在上涨趋势中出现",
+      "（2）由两根或两根以上的K线组成",
+      "（3）最高价处于同一水平位置"
     ],
-    "note": [
-      "请根据原始资料补充该形态的备注。"
-    ],
+    "note": [],
     "meaning": "",
-    "keywords": [
-      "双K线",
-      "并列",
-      "上影线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -2578,46 +2794,39 @@
         "answer": "平顶钳子线"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          2
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）在上涨趋势中出现\n（2）由两根或两根以上的K线组成\n（3）[1]处于[2]",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "2"
-            ]
+              "最高价"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "双K线"
-            ]
-          },
-          {
-            "id": 3,
-            "label": "第二结构词",
-            "prompt": "图形还应关注 [ ]。",
-            "type": "text",
-            "answer": [
-              "并列"
-            ]
+              "同一水平位置"
+            ],
+            "placeholder": "填写第 2 空答案"
           }
         ],
-        "explanation": "在上涨趋势中出现。"
+        "explanation": "（1）在上涨趋势中出现\n（2）由两根或两根以上的K线组成\n（3）最高价处于同一水平位置"
       }
     },
-    "tags": [
-      "下跌和滞涨"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "下跌和滞涨",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -2627,15 +2836,15 @@
     "image": "/images/kline/弧形线.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）在涨势初期出现",
+      "（2）由若干根K线组成",
+      "（3）股价走势是一个向上的抛物线"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "一旦弧形线为市场认可，上涨周期就很长"
     ],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -2648,37 +2857,30 @@
         "answer": "弧形线"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          0
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "[1]\n（2）由若干根K线组成\n（3）股价走势是一个向上的抛物线",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
-          },
-          {
-            "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
-            "type": "text",
-            "answer": [
-              "多K线"
-            ]
+              "（1）在涨势初期出现"
+            ],
+            "placeholder": "填写第 1 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）在涨势初期出现\n（2）由若干根K线组成\n（3）股价走势是一个向上的抛物线"
       }
     },
-    "tags": [
-      "上升和见底"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "上升和见底",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -2688,15 +2890,12 @@
     "image": "/images/kline/徐缓上升形.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）多数出现在涨势初期",
+      "（2）先接连出现几根小阳线，然后才拉出中大阳线"
     ],
-    "note": [
-      "请根据原始资料补充该形态的备注。"
-    ],
+    "note": [],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -2709,37 +2908,48 @@
         "answer": "徐缓上升形"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）多数出现在涨势初期\n（2）先接连出现几根[2]，然后才拉出中[1]",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "大阳线"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "小阳线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "阳线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）多数出现在涨势初期\n（2）先接连出现几根小阳线，然后才拉出中大阳线"
       }
     },
-    "tags": [
-      "上升和见底"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "上升和见底",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -2749,15 +2959,12 @@
     "image": "/images/kline/徐缓下降形.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）多数出现在跌势初期",
+      "（2）先接连出现几根小阴线，然后拉出中大阴线"
     ],
-    "note": [
-      "请根据原始资料补充该形态的备注。"
-    ],
+    "note": [],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -2770,37 +2977,48 @@
         "answer": "徐缓下降形"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）多数出现在跌势初期\n（2）先接连出现几根[2]，然后拉出中[1]",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "大阴线"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "小阴线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "阴线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）多数出现在跌势初期\n（2）先接连出现几根小阴线，然后拉出中大阴线"
       }
     },
-    "tags": [
-      "下跌和滞涨"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "下跌和滞涨",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -2810,15 +3028,14 @@
     "image": "/images/kline/揉搓线.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）多数出现在涨势中",
+      "（2）由一正一反两根T字线组成"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "途中以小T字居多；末端以大T字居多"
     ],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -2831,37 +3048,30 @@
         "answer": "揉搓线"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          0
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "[1]\n（2）由一正一反两根T字线组成",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
-          },
-          {
-            "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
-            "type": "text",
-            "answer": [
-              "多K线"
-            ]
+              "（1）多数出现在涨势中"
+            ],
+            "placeholder": "填写第 1 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）多数出现在涨势中\n（2）由一正一反两根T字线组成"
       }
     },
-    "tags": [
-      "整理"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "整理",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -2871,20 +3081,13 @@
     "image": "/images/kline/早晨之星.png",
     "description": "",
     "feature": [
-      "出现在下跌途中。",
-      "由3根K线组成，第一根K线是阴线，第二根K线是小阴线或小阳线，第三根K线是阳线。",
-      "第三根K线实体深入到第一根K线实体之内。"
+      "和早晨十字星相似，区别之处在于早晨十字星的第二根K线是十字线，而早晨之星的第二根K线是小阴线或小阳线"
     ],
     "note": [
-      "又称希望之星，信号不如早晨十字星强。"
+      "又称希望之星，信号不如早晨十字星强"
     ],
     "meaning": "",
-    "keywords": [
-      "大阴线",
-      "小阴线",
-      "大阳线",
-      "三K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -2897,46 +3100,48 @@
         "answer": "早晨之星"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          0
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "和早晨十字星相似，区别之处在于早晨十字星的第二根K线是[3]，而早晨之星的第二根K线是[2]或[1]",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "3"
-            ]
+              "小阳线"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
-            "type": "text",
-            "answer": [
-              "大阴线"
-            ]
-          },
-          {
-            "id": 3,
-            "label": "第二结构词",
-            "prompt": "图形还应关注 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
               "小阴线"
-            ]
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "十字线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "出现在下跌途中。"
+        "explanation": "和早晨十字星相似，区别之处在于早晨十字星的第二根K线是十字线，而早晨之星的第二根K线是小阴线或小阳线"
       }
     },
-    "tags": [
-      "上升和见底"
-    ],
+    "tags": [],
     "difficulty": "medium",
     "hint": "",
-    "category": "上升和见底",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -2946,81 +3151,68 @@
     "image": "/images/kline/早晨十字星.png",
     "description": "",
     "feature": [
-      "出现在下跌途中。",
-      "由3根K线组成，第一根K线是阴线，第二根K线是十字线，第三根K线是阳线。",
-      "第三根K线实体深入到第一根K线实体之内。"
+      "（1）出现在下跌途中",
+      "（2）由3根K线组成，第一根K线是阴线，第二根K线是十字线，第三根K线是阳线。第三根K线实体深入到第一根K线实体之内"
     ],
     "note": [
-      "又称希望十字星。"
+      "又称希望十字星"
     ],
     "meaning": "",
-    "keywords": [
-      "大阴线",
-      "十字线",
-      "大阳线",
-      "三K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
         "options": [
           "早晨十字星",
-          "早晨之星",
-          "黄昏十字星",
-          "曙光初现"
+          "T字",
+          "一字",
+          "三只乌鸦"
         ],
         "answer": "早晨十字星"
       },
       "fillBlankQuestion": {
-        "intro": "请根据图形和结构特征完成填空。",
-        "template": "请根据图形和结构特征完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在下跌途中\n（2）由3根K线组成，第一根K线是阴线，第二根K线是[2]，第三根K线是[3]。[1]",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "3"
-            ]
+              "第三根K线实体深入到第一根K线实体之内"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "第一根",
-            "prompt": "第一根K线为 [ ]。",
-            "type": "text",
-            "answer": [
-              "阴线"
-            ]
-          },
-          {
-            "id": 3,
-            "label": "第二根",
-            "prompt": "第二根K线为 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
               "十字线"
-            ]
+            ],
+            "placeholder": "填写第 2 空答案"
           },
           {
-            "id": 4,
-            "label": "第三根",
-            "prompt": "第三根K线为 [ ]。",
+            "id": 3,
+            "label": "第 3 空",
             "type": "text",
             "answer": [
               "阳线"
-            ]
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "早晨十字星的训练重点是三根K线结构：阴线、十字线、阳线。"
+        "explanation": "（1）出现在下跌途中\n（2）由3根K线组成，第一根K线是阴线，第二根K线是十字线，第三根K线是阳线。第三根K线实体深入到第一根K线实体之内"
       }
     },
-    "tags": [
-      "上升和见底"
-    ],
+    "tags": [],
     "difficulty": "medium",
     "hint": "",
-    "category": "上升和见底",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -3030,19 +3222,15 @@
     "image": "/images/kline/旭日东升.png",
     "description": "",
     "feature": [
-      "出现在下跌趋势中。",
-      "由一阴一阳两根K线组成。",
-      "先是一根大阴线或中阴线，接着出现一根高开的大阳线或中阳线。阳线的收盘价已高于前一根阴线的开盘价。"
+      "（1）出现在下跌趋势中",
+      "（2）由一阴一阳两根K线组成",
+      "（3）先是一根大阴线或中阴线，接着出现一根高开的大阳线或中阳线。阳线的收盘价已高于前一根阴线的开盘价"
     ],
     "note": [
-      "信号强于曙光初现；阳线实体高出阴线实体部分越多，转势信号越强。"
+      "信号强于曙光初现；阳线实体高出阴线实体部分越多，转势信号越强"
     ],
     "meaning": "",
-    "keywords": [
-      "大阴线",
-      "大阳线",
-      "双K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -3055,46 +3243,49 @@
         "answer": "旭日东升"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1,
+          2
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在下跌趋势中\n（2）[1]\n（3）先是一根大阴线或中阴线，接着出现一根高开的[2]或[3]。阳线的收盘价已高于前一根阴线的开盘价",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "2"
-            ]
+              "由一阴一阳两根K线组成"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
-            "type": "text",
-            "answer": [
-              "大阴线"
-            ]
-          },
-          {
-            "id": 3,
-            "label": "第二结构词",
-            "prompt": "图形还应关注 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
               "大阳线"
-            ]
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "中阳线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "出现在下跌趋势中。"
+        "explanation": "（1）出现在下跌趋势中\n（2）由一阴一阳两根K线组成\n（3）先是一根大阴线或中阴线，接着出现一根高开的大阳线或中阳线。阳线的收盘价已高于前一根阴线的开盘价"
       }
     },
-    "tags": [
-      "上升和见底"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "上升和见底",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -3104,80 +3295,70 @@
     "image": "/images/kline/曙光初现.png",
     "description": "",
     "feature": [
-      "出现在下跌趋势中。",
-      "由一阴一阳两根K线组成。",
-      "先是出现一根大阴线或中阴线，接着出现一根大阳线或中阳线。阳线的实体深入到阴线实体的二分之一以上处。"
+      "（1）出现在下跌趋势中",
+      "（2）由一阴一阳两根K线组成",
+      "（3）先是出现一根大阴线或中阴线，接着出现一根大阳线或中阳线。阳线的实体深入到阴线实体的二分之一以上处"
     ],
     "note": [
-      "阳线实体深入到阴线实体的部分越多，转势信号越强。"
+      "阳线实体深入到阴线实体的部分越多，转势信号越强"
     ],
     "meaning": "",
-    "keywords": [
-      "大阴线",
-      "大阳线",
-      "双K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
         "options": [
           "曙光初现",
-          "旭日东升",
-          "好友反攻",
-          "乌云盖顶"
+          "T字",
+          "一字",
+          "三只乌鸦"
         ],
         "answer": "曙光初现"
       },
       "fillBlankQuestion": {
-        "intro": "请根据图形和结构特征完成填空。",
-        "template": "请根据图形和结构特征完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1,
+          2
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在下跌趋势中\n（2）[1]\n（3）先是出现一根大阴线或中阴线，接着出现一根[2]或[3]。阳线的实体深入到阴线实体的二分之一以上处",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "2"
-            ]
+              "由一阴一阳两根K线组成"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "第一根",
-            "prompt": "第一根K线通常为 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "大阴线或中阴线"
-            ]
+              "大阳线"
+            ],
+            "placeholder": "填写第 2 空答案"
           },
           {
             "id": 3,
-            "label": "第二根",
-            "prompt": "第二根K线通常为 [ ]。",
+            "label": "第 3 空",
             "type": "text",
             "answer": [
-              "大阳线或中阳线"
-            ]
-          },
-          {
-            "id": 4,
-            "label": "深入程度",
-            "prompt": "阳线实体深入阴线实体的 [ ] 以上。",
-            "type": "text",
-            "answer": [
-              "二分之一"
-            ]
+              "中阳线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "曙光初现不是关键词点选题，而是典型双K线结构填空题。"
+        "explanation": "（1）出现在下跌趋势中\n（2）由一阴一阳两根K线组成\n（3）先是出现一根大阴线或中阴线，接着出现一根大阳线或中阳线。阳线的实体深入到阴线实体的二分之一以上处"
       }
     },
-    "tags": [
-      "上升和见底"
-    ],
+    "tags": [],
     "difficulty": "medium",
     "hint": "",
-    "category": "上升和见底",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -3187,19 +3368,14 @@
     "image": "/images/kline/淡友反攻.png",
     "description": "",
     "feature": [
-      "出现在涨势中。",
-      "由一阳一阴两根K线组成。",
-      "先出现一根大阳线，接着跳高开盘，拉出一根中阴线或大阴线，其收盘价与前者相同或相近。"
+      "（1）出现在涨势中",
+      "（2）先出现一根大阳线，接着跳高开盘，拉出一根中阴线或大阴线，其收盘价与前者相同（近）"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "转势信号不如乌云盖顶强"
     ],
     "meaning": "",
-    "keywords": [
-      "大阳线",
-      "大阴线",
-      "双K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -3212,46 +3388,48 @@
         "answer": "淡友反攻"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在涨势中\n（2）先出现一根[1]，接着跳高开盘，拉出一根[3]或[2]，其收盘价与前者相同（近）",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
-            "type": "text",
-            "answer": [
-              "2"
-            ]
-          },
-          {
-            "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
               "大阳线"
-            ]
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
-            "id": 3,
-            "label": "第二结构词",
-            "prompt": "图形还应关注 [ ]。",
+            "id": 2,
+            "label": "第 2 空",
             "type": "text",
             "answer": [
               "大阴线"
-            ]
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "中阴线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "出现在涨势中。"
+        "explanation": "（1）出现在涨势中\n（2）先出现一根大阳线，接着跳高开盘，拉出一根中阴线或大阴线，其收盘价与前者相同（近）"
       }
     },
-    "tags": [
-      "下跌和滞涨"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "下跌和滞涨",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -3261,15 +3439,14 @@
     "image": "/images/kline/稳步上升形.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）出现在上涨行情中",
+      "（2）众多阳线中夹着较少的小阴线。整个K线排列呈向上倾斜状"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "后面的阳线对插入的阴线覆盖速度越快越有力，上升潜力越大"
     ],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -3282,37 +3459,48 @@
         "answer": "稳步上升形"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在上涨行情中\n（2）众多[2]中夹着较少的[1]。整个K线排列呈向上倾斜状",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "小阴线"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "阳线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "阴线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）出现在上涨行情中\n（2）众多阳线中夹着较少的小阴线。整个K线排列呈向上倾斜状"
       }
     },
-    "tags": [
-      "上升和见底"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "上升和见底",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -3322,15 +3510,15 @@
     "image": "/images/kline/空方尖兵.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）出现在下跌行情中",
+      "（2）由若干根K线组成",
+      "（3）在拉出一根中阴线或大阴线时，留下了一根较为长的下影线，然后股价反弹，但不久股价又跌至下影线下方"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "实际上是空方主力向多方进行全面扫荡前的一次试盘"
     ],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -3343,37 +3531,48 @@
         "answer": "空方尖兵"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          2
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在下跌行情中\n（2）由若干根K线组成\n（3）在拉出一根[2]或[1]时，留下了一根较为长的下影线，然后股价反弹，但不久股价又跌至下影线下方",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "大阴线"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "中阴线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "阴线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）出现在下跌行情中\n（2）由若干根K线组成\n（3）在拉出一根中阴线或大阴线时，留下了一根较为长的下影线，然后股价反弹，但不久股价又跌至下影线下方"
       }
     },
-    "tags": [
-      "下跌和滞涨"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "下跌和滞涨",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -3383,15 +3582,12 @@
     "image": "/images/kline/空方炮.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）既可以在涨势中出现，也可以在跌势中出现",
+      "（2）由两根较长的阴线和一根较短的阳线组成。阳线夹在阴线之中"
     ],
-    "note": [
-      "请根据原始资料补充该形态的备注。"
-    ],
+    "note": [],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -3404,37 +3600,39 @@
         "answer": "空方炮"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）既可以在涨势中出现，也可以在跌势中出现\n（2）由两根较长的[2]和一根较短的[1]组成。阳线夹在阴线之中",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "阳线"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "阴线"
+            ],
+            "placeholder": "填写第 2 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）既可以在涨势中出现，也可以在跌势中出现\n（2）由两根较长的阴线和一根较短的阳线组成。阳线夹在阴线之中"
       }
     },
-    "tags": [
-      "整理"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "整理",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -3444,15 +3642,15 @@
     "image": "/images/kline/穿头破脚.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）既可以在涨势中出现，也可以在跌势中出现",
+      "（2）由大小不等、阴阳相反的两根K线组成",
+      "（3）涨势中出现，前一根为阳线，后一根为阴线，后者将前者实体全部包容在内；跌势中相反"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "两根K线的长短悬殊或一根长K线包容前面的K线越多，信号越有参考价值"
     ],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -3465,37 +3663,39 @@
         "answer": "穿头破脚"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          2
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）既可以在涨势中出现，也可以在跌势中出现\n（2）由大小不等、阴阳相反的两根K线组成\n（3）涨势中出现，前一根为[1]，后一根为[2]，后者将前者实体全部包容在内；跌势中相反",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "阳线"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "阴线"
+            ],
+            "placeholder": "填写第 2 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）既可以在涨势中出现，也可以在跌势中出现\n（2）由大小不等、阴阳相反的两根K线组成\n（3）涨势中出现，前一根为阳线，后一根为阴线，后者将前者实体全部包容在内；跌势中相反"
       }
     },
-    "tags": [
-      "整理"
-    ],
-    "difficulty": "hard",
+    "tags": [],
+    "difficulty": "medium",
     "hint": "",
-    "category": "整理",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -3505,15 +3705,14 @@
     "image": "/images/kline/红三兵.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）出现在上涨行情初期",
+      "（2）由三根连续创新高的小阳线组成"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "若阳线收于最高或接近最高点时为三白武士，信号更强"
     ],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -3526,37 +3725,39 @@
         "answer": "红三兵"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在上涨行情初期\n（2）由三根连续创新高的[1]组成",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "小阳线"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "阳线"
+            ],
+            "placeholder": "填写第 2 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）出现在上涨行情初期\n（2）由三根连续创新高的小阳线组成"
       }
     },
-    "tags": [
-      "上升和见底"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "上升和见底",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -3566,15 +3767,15 @@
     "image": "/images/kline/绵绵阴跌形.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）在盘整后期出现",
+      "（2）由若干根小K线组成（一般不少于八根），其中以小阴线居多，也可以夹着一些小阳线、十字线",
+      "（3）整个K线排列呈微向下倾斜状"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "股价很可能就此长期走弱。应及早停损离场"
     ],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -3587,37 +3788,48 @@
         "answer": "绵绵阴跌形"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）在盘整后期出现\n（2）由若干根小K线组成（一般不少于八根），其中以[2]居多，也可以夹着一些[1]、[3]\n（3）整个K线排列呈微向下倾斜状",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "小阳线"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "小阴线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "十字线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）在盘整后期出现\n（2）由若干根小K线组成（一般不少于八根），其中以小阴线居多，也可以夹着一些小阳线、十字线\n（3）整个K线排列呈微向下倾斜状"
       }
     },
-    "tags": [
-      "下跌和滞涨"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "下跌和滞涨",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -3627,15 +3839,14 @@
     "image": "/images/kline/螺旋桨.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）既可出现在涨势中，也可出现在跌势中",
+      "（2）开盘价和收盘价相近，实体（可阴可阳）可以很小，但上下影线很长"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "转势信号比长十字线更强"
     ],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -3648,37 +3859,39 @@
         "answer": "螺旋桨"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）既可出现在涨势中，也可出现在跌势中\n（2）开盘价和收盘价相近，实体（可阴可阳）可以很小，但上[1]",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "下影线很长"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "下影线"
+            ],
+            "placeholder": "填写第 2 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）既可出现在涨势中，也可出现在跌势中\n（2）开盘价和收盘价相近，实体（可阴可阳）可以很小，但上下影线很长"
       }
     },
-    "tags": [
-      "整理"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "整理",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -3688,15 +3901,13 @@
     "image": "/images/kline/跳空下降三颗星.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）出现在连续下跌途中",
+      "（2）由三根小阴线组成",
+      "（3）三根小阴线与上面一根K线有明显的缺口见底信号如果在三根小阴线后出现一根大阳线，上涨可能性更大"
     ],
-    "note": [
-      "请根据原始资料补充该形态的备注。"
-    ],
+    "note": [],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -3709,37 +3920,49 @@
         "answer": "跳空下降三颗星"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1,
+          2
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在连续下跌途中\n（2）由三根[1]组成\n（3）三根小阴线与上面一根K线有明显的缺口见底信号如果在三根小阴线后出现一根[3]，上涨可能性更大",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "小阴线"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "阴线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "大阳线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）出现在连续下跌途中\n（2）由三根小阴线组成\n（3）三根小阴线与上面一根K线有明显的缺口见底信号如果在三根小阴线后出现一根大阳线，上涨可能性更大"
       }
     },
-    "tags": [
-      "上升和见底"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "上升和见底",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -3749,15 +3972,16 @@
     "image": "/images/kline/身怀六甲.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）既可以在涨势中出现，也可以在跌势中出现",
+      "（2）由大小不等的两根K线组成，可一阴一阳、也可两阳或两阴",
+      "（3）第一根K线实体要完全包容第二根K线实体",
+      "（4）第二根K线可以是小阴、小阳线或十字线"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "若第二根K线为十字线，称十字胎，是力度最大的K线形态之一"
     ],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -3770,37 +3994,48 @@
         "answer": "身怀六甲"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          3
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）既可以在涨势中出现，也可以在跌势中出现\n（2）由大小不等的两根K线组成，可一阴一阳、也可两阳或两阴\n（3）第一根K线实体要完全包容第二根K线实体\n（4）第二根K线可以是小阴、[1]或[2]",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "小阳线"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "十字线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "阳线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）既可以在涨势中出现，也可以在跌势中出现\n（2）由大小不等的两根K线组成，可一阴一阳、也可两阳或两阴\n（3）第一根K线实体要完全包容第二根K线实体\n（4）第二根K线可以是小阴、小阳线或十字线"
       }
     },
-    "tags": [
-      "整理"
-    ],
-    "difficulty": "hard",
+    "tags": [],
+    "difficulty": "medium",
     "hint": "",
-    "category": "整理",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -3810,15 +4045,15 @@
     "image": "/images/kline/连续三阴线.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）出现在跌势中",
+      "（2）由三根阴线组成，阴线多为大阴线或中阴线",
+      "（3）每根阴线都以最低价或次低价报收，最后一根阴线往往是大阴线跌势初期出现，"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "跌势后期出现，见底信号连续阴跌不止，且股价已有较大跌幅时，表明空方力量已用尽"
     ],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -3831,37 +4066,48 @@
         "answer": "连续三阴线"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在跌势中\n（2）[1]，阴线多为[2]或[3]\n（3）每根阴线都以最低价或次低价报收，最后一根阴线往往是大阴线跌势初期出现，",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "由三根阴线组成"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "大阴线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "中阴线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）出现在跌势中\n（2）由三根阴线组成，阴线多为大阴线或中阴线\n（3）每根阴线都以最低价或次低价报收，最后一根阴线往往是大阴线跌势初期出现，"
       }
     },
-    "tags": [
-      "下跌和滞涨"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "下跌和滞涨",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -3871,15 +4117,12 @@
     "image": "/images/kline/连续跳空三阳线.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）出现在上涨行情中",
+      "（2）连续出现三根向上跳空高开的阳线"
     ],
-    "note": [
-      "请根据原始资料补充该形态的备注。"
-    ],
+    "note": [],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -3892,37 +4135,30 @@
         "answer": "连续跳空三阳线"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在上涨行情中\n（2）连续出现三根向上跳空高开的[1]",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
-          },
-          {
-            "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
-            "type": "text",
-            "answer": [
-              "多K线"
-            ]
+              "阳线"
+            ],
+            "placeholder": "填写第 1 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）出现在上涨行情中\n（2）连续出现三根向上跳空高开的阳线"
       }
     },
-    "tags": [
-      "下跌和滞涨"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "下跌和滞涨",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -3932,15 +4168,14 @@
     "image": "/images/kline/连续跳空三阴线.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）出现在下跌趋势中",
+      "（2）连续出现三根向下跳空低开的阴线"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "如在股价已有大幅下挫的情况下出现，见底可能性更大"
     ],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -3953,37 +4188,30 @@
         "answer": "连续跳空三阴线"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在下跌趋势中\n（2）连续出现三根向下跳空低开的[1]",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
-          },
-          {
-            "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
-            "type": "text",
-            "answer": [
-              "多K线"
-            ]
+              "阴线"
+            ],
+            "placeholder": "填写第 1 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）出现在下跌趋势中\n（2）连续出现三根向下跳空低开的阴线"
       }
     },
-    "tags": [
-      "上升和见底"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "上升和见底",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -3993,70 +4221,71 @@
     "image": "/images/kline/锤头线.png",
     "description": "",
     "feature": [
-      "出现在下跌途中。",
-      "阳线或阴线实体很小，下影线大于或等于实体的两倍。",
-      "一般无上影线，少数会略有一点上影线。"
+      "（1）出现在下跌途中",
+      "（2）与上吊线很相似，区别在于锤子线的下影线比吊颈的下影线要短",
+      "（3）阳线（或阴线）实体很小，下影线大于或等于实体的两倍",
+      "（4）一般无上影线，少数会略有一点上影线"
     ],
     "note": [
-      "实体与下影线的比例越悬殊，越有参考价值。如与早晨之星同时出现，见底信号更加可靠。"
+      "实体与下影线的比例越悬殊，越有参考价值。如与早晨之星同时出现，见底信号更加可靠"
     ],
     "meaning": "",
-    "keywords": [
-      "小阳线",
-      "下影线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
         "options": [
           "锤头线",
-          "倒锤头线",
           "T字",
-          "十字"
+          "一字",
+          "三只乌鸦"
         ],
         "answer": "锤头线"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1,
+          2
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在下跌途中\n（2）与上吊线很相似，区别在于锤子线的[1]比吊颈的下影线要短\n（3）阳线（或阴线）[3]，[2]\n（4）一般无上影线，少数会略有一点上影线",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
-            "type": "text",
-            "answer": [
-              "1"
-            ]
-          },
-          {
-            "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
-            "type": "text",
-            "answer": [
-              "小阳线"
-            ]
-          },
-          {
-            "id": 3,
-            "label": "第二结构词",
-            "prompt": "图形还应关注 [ ]。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
               "下影线"
-            ]
+            ],
+            "placeholder": "填写第 1 空答案"
+          },
+          {
+            "id": 2,
+            "label": "第 2 空",
+            "type": "text",
+            "answer": [
+              "下影线大于或等于实体的两倍"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "实体很小"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "出现在下跌途中。"
+        "explanation": "（1）出现在下跌途中\n（2）与上吊线很相似，区别在于锤子线的下影线比吊颈的下影线要短\n（3）阳线（或阴线）实体很小，下影线大于或等于实体的两倍\n（4）一般无上影线，少数会略有一点上影线"
       }
     },
-    "tags": [
-      "上升和见底"
-    ],
+    "tags": [],
     "difficulty": "easy",
     "hint": "",
-    "category": "上升和见底",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -4066,15 +4295,13 @@
     "image": "/images/kline/镊子线.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）既可以在涨势中出现，也可以在跌势中出现",
+      "（2）由三根两大一小的K线组成",
+      "（3）三根K线的最高价几乎处于同一水平位置"
     ],
-    "note": [
-      "请根据原始资料补充该形态的备注。"
-    ],
+    "note": [],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -4087,37 +4314,39 @@
         "answer": "镊子线"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          2
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）既可以在涨势中出现，也可以在跌势中出现\n（2）由三根两大一小的K线组成\n（3）三根K线的[1]几乎处于[2]",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "最高价"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "同一水平位置"
+            ],
+            "placeholder": "填写第 2 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）既可以在涨势中出现，也可以在跌势中出现\n（2）由三根两大一小的K线组成\n（3）三根K线的最高价几乎处于同一水平位置"
       }
     },
-    "tags": [
-      "整理"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "整理",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -4127,18 +4356,14 @@
     "image": "/images/kline/长十字.png",
     "description": "",
     "feature": [
-      "开盘价和收盘价相同。",
-      "上下影线较长。"
+      "（1）既可出现在涨势中，也可出现在跌势中",
+      "（2）开盘价和收盘价相同，上下影线较长"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "可靠程度高于十字线"
     ],
     "meaning": "",
-    "keywords": [
-      "十字线",
-      "上影线",
-      "下影线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -4151,46 +4376,48 @@
         "answer": "长十字"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）既可出现在涨势中，也可出现在跌势中\n（2）[1]，[2]",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "开盘价和收盘价相同"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "十字线"
-            ]
+              "上下影线较长"
+            ],
+            "placeholder": "填写第 2 空答案"
           },
           {
             "id": 3,
-            "label": "第二结构词",
-            "prompt": "图形还应关注 [ ]。",
+            "label": "第 3 空",
             "type": "text",
             "answer": [
-              "上影线"
-            ]
+              "下影线较长"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "开盘价和收盘价相同。"
+        "explanation": "（1）既可出现在涨势中，也可出现在跌势中\n（2）开盘价和收盘价相同，上下影线较长"
       }
     },
-    "tags": [
-      "整理"
-    ],
+    "tags": [],
     "difficulty": "easy",
     "hint": "",
-    "category": "整理",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -4200,15 +4427,11 @@
     "image": "/images/kline/阳线跛脚.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "出现在涨势中；由三根或以上阳线组成；最后两根阳线都是低开，且最后一根阳线收盘价比前面阳线收盘价要低"
     ],
-    "note": [
-      "请根据原始资料补充该形态的备注。"
-    ],
+    "note": [],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -4221,37 +4444,30 @@
         "answer": "阳线跛脚"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          0
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "出现在涨势中；由三根或以上[1]组成；最后两根阳线都是低开，且最后一根阳线收盘价比前面阳线收盘价要低",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
-          },
-          {
-            "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
-            "type": "text",
-            "answer": [
-              "多K线"
-            ]
+              "阳线"
+            ],
+            "placeholder": "填写第 1 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "出现在涨势中；由三根或以上阳线组成；最后两根阳线都是低开，且最后一根阳线收盘价比前面阳线收盘价要低"
       }
     },
-    "tags": [
-      "下跌和滞涨"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "下跌和滞涨",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -4261,15 +4477,15 @@
     "image": "/images/kline/高位并排阳线.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）出现在涨势中",
+      "（2）由两根阳线组成",
+      "（3）第一根阳线跳空向上，其收盘时在前一根K线上方留下一个缺口。第二根阳线与之并排，开盘价与第一根阳线的开盘价基本相同"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "缺口，这个缺口对日后股价走势有较强的支撑作用，但若日后股价跌破缺口则走势转弱"
     ],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -4282,37 +4498,49 @@
         "answer": "高位并排阳线"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1,
+          2
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在涨势中\n（2）[1]\n（3）第一根[3]跳空向上，其收盘时在前一根K线上方留下一个缺口。第二根阳线与之并排，开盘价与第一根阳线的开盘价基本相同",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "由两根阳线组成"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "阳线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "阳线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）出现在涨势中\n（2）由两根阳线组成\n（3）第一根阳线跳空向上，其收盘时在前一根K线上方留下一个缺口。第二根阳线与之并排，开盘价与第一根阳线的开盘价基本相同"
       }
     },
-    "tags": [
-      "上升和见底"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "上升和见底",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -4322,15 +4550,13 @@
     "image": "/images/kline/高开出逃形.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "突然跳高开盘（甚至以涨停板开盘），然后一路下跌，最后收出一根大阴线（甚至以跌停板收盘）"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "一般后市将有一段大跌势"
     ],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -4343,37 +4569,39 @@
         "answer": "高开出逃形"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          0
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "突然跳高开盘（甚至以涨停板开盘），然后一路下跌，最后收出一根[1]（甚至以跌停板收盘）",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "大阴线"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "阴线"
+            ],
+            "placeholder": "填写第 2 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "突然跳高开盘（甚至以涨停板开盘），然后一路下跌，最后收出一根大阴线（甚至以跌停板收盘）"
       }
     },
-    "tags": [
-      "下跌和滞涨"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "下跌和滞涨",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -4383,15 +4611,15 @@
     "image": "/images/kline/高档五阴线.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）出现在涨势中",
+      "（2）由五根阴线组成，但多为小阴线",
+      "（3）先是拉出一根较为有力的阳线，接着出现5根并排阴线"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "有时也可能是六根、七根阴线"
     ],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -4404,37 +4632,48 @@
         "answer": "高档五阴线"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在涨势中\n（2）[1]，但多为[2]\n（3）先是拉出一根较为有力的阳线，接着出现5根并排阴线",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "由五根阴线组成"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "小阴线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "阴线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）出现在涨势中\n（2）由五根阴线组成，但多为小阴线\n（3）先是拉出一根较为有力的阳线，接着出现5根并排阴线"
       }
     },
-    "tags": [
-      "下跌和滞涨"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "下跌和滞涨",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -4444,15 +4683,15 @@
     "image": "/images/kline/高档盘旋形.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）出现在上涨途中",
+      "（2）由若干根或十几根K线组成",
+      "（3）首先拉出一根较有力度的阳线，接着出现阴阳交错、上下波动范围很小的横盘走势"
     ],
     "note": [
-      "请根据原始资料补充该形态的备注。"
+      "盘旋时间太久，说明多方上攻愿望不强，因而下跌的概率大"
     ],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -4465,37 +4704,30 @@
         "answer": "高档盘旋形"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          2
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在上涨途中\n（2）由若干根或十几根K线组成\n（3）首先拉出一根较有力度的[1]，接着出现阴阳交错、上下波动范围很小的横盘走势",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
-          },
-          {
-            "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
-            "type": "text",
-            "answer": [
-              "多K线"
-            ]
+              "阳线"
+            ],
+            "placeholder": "填写第 1 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）出现在上涨途中\n（2）由若干根或十几根K线组成\n（3）首先拉出一根较有力度的阳线，接着出现阴阳交错、上下波动范围很小的横盘走势"
       }
     },
-    "tags": [
-      "整理"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "整理",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -4505,20 +4737,13 @@
     "image": "/images/kline/黄昏之星.png",
     "description": "",
     "feature": [
-      "出现在涨势中。",
-      "与黄昏十字星相似，区别在于第二根K线是小阴线或小阳线。",
-      "第三根K线实体深入到第一根K线实体之内。"
+      "和黄昏十字星相似，区别在于第二根K线是小阴线或小阳线"
     ],
     "note": [
-      "信号不如黄昏十字星强。"
+      "信号不如黄昏十字星强"
     ],
     "meaning": "",
-    "keywords": [
-      "大阳线",
-      "小阳线",
-      "大阴线",
-      "三K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -4531,46 +4756,48 @@
         "answer": "黄昏之星"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          0
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "和黄昏十字星相似，区别在于第二根K线是[2]或[1]",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
-            "type": "text",
-            "answer": [
-              "3"
-            ]
-          },
-          {
-            "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
-            "type": "text",
-            "answer": [
-              "大阳线"
-            ]
-          },
-          {
-            "id": 3,
-            "label": "第二结构词",
-            "prompt": "图形还应关注 [ ]。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
               "小阳线"
-            ]
+            ],
+            "placeholder": "填写第 1 空答案"
+          },
+          {
+            "id": 2,
+            "label": "第 2 空",
+            "type": "text",
+            "answer": [
+              "小阴线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "阳线"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "出现在涨势中。"
+        "explanation": "和黄昏十字星相似，区别在于第二根K线是小阴线或小阳线"
       }
     },
-    "tags": [
-      "下跌和滞涨"
-    ],
+    "tags": [],
     "difficulty": "medium",
     "hint": "",
-    "category": "下跌和滞涨",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -4580,72 +4807,66 @@
     "image": "/images/kline/黄昏十字星.png",
     "description": "",
     "feature": [
-      "出现在涨势中。",
-      "由三根K线组成，第一根为阳线，第二根为十字线，第三根为阴线。",
-      "第三根K线实体深入到第一根K线实体之内。"
+      "（1）出现在涨势中",
+      "（2）由三根K线组成，第一根为阳线，第二根为十字线，第三根为阴线。第三根K线实体深入到第一根K线实体之内"
     ],
-    "note": [
-      "请根据原始资料补充该形态的备注。"
-    ],
+    "note": [],
     "meaning": "",
-    "keywords": [
-      "大阳线",
-      "十字线",
-      "大阴线",
-      "三K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
         "options": [
           "黄昏十字星",
-          "黄昏之星",
-          "早晨十字星",
-          "乌云盖顶"
+          "T字",
+          "一字",
+          "三只乌鸦"
         ],
         "answer": "黄昏十字星"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）出现在涨势中\n（2）[2]，第一根为阳线，第二根为[3]，第三根为阴线。[1]",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "3"
-            ]
+              "第三根K线实体深入到第一根K线实体之内"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "大阳线"
-            ]
+              "由三根K线组成"
+            ],
+            "placeholder": "填写第 2 空答案"
           },
           {
             "id": 3,
-            "label": "第二结构词",
-            "prompt": "图形还应关注 [ ]。",
+            "label": "第 3 空",
             "type": "text",
             "answer": [
               "十字线"
-            ]
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "出现在涨势中。"
+        "explanation": "（1）出现在涨势中\n（2）由三根K线组成，第一根为阳线，第二根为十字线，第三根为阴线。第三根K线实体深入到第一根K线实体之内"
       }
     },
-    "tags": [
-      "下跌和滞涨"
-    ],
+    "tags": [],
     "difficulty": "medium",
     "hint": "",
-    "category": "下跌和滞涨",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   },
@@ -4655,15 +4876,12 @@
     "image": "/images/kline/黑三兵.png",
     "description": "",
     "feature": [
-      "请根据原始资料补充该形态的特征。"
+      "（1）既可以在涨势中出现，也可以在跌势中出现",
+      "（2）由三根小阴线组成，最低价一根比一根低"
     ],
-    "note": [
-      "请根据原始资料补充该形态的备注。"
-    ],
+    "note": [],
     "meaning": "",
-    "keywords": [
-      "多K线"
-    ],
+    "keywords": [],
     "practice": {
       "nameQuestion": {
         "type": "single_choice",
@@ -4676,37 +4894,48 @@
         "answer": "黑三兵"
       },
       "fillBlankQuestion": {
-        "intro": "请根据该形态的结构描述完成填空。",
-        "template": "请根据该形态的结构描述完成填空。",
+        "sourceType": "feature",
+        "sourceIndexes": [
+          1
+        ],
+        "intro": "请根据该形态资料中的特征原文完成填空。",
+        "template": "（1）既可以在涨势中出现，也可以在跌势中出现\n（2）由三根[1]组成，[3]一根比一根低",
         "blanks": [
           {
             "id": 1,
-            "label": "根数",
-            "prompt": "该形态由 [ ] 根K线组成。",
+            "label": "第 1 空",
             "type": "text",
             "answer": [
-              "1"
-            ]
+              "小阴线"
+            ],
+            "placeholder": "填写第 1 空答案"
           },
           {
             "id": 2,
-            "label": "结构词",
-            "prompt": "该形态的结构关键词是 [ ]。",
+            "label": "第 2 空",
             "type": "text",
             "answer": [
-              "多K线"
-            ]
+              "阴线"
+            ],
+            "placeholder": "填写第 2 空答案"
+          },
+          {
+            "id": 3,
+            "label": "第 3 空",
+            "type": "text",
+            "answer": [
+              "最低价"
+            ],
+            "placeholder": "填写第 3 空答案"
           }
         ],
-        "explanation": "请根据原始资料补充该形态的特征。"
+        "explanation": "（1）既可以在涨势中出现，也可以在跌势中出现\n（2）由三根小阴线组成，最低价一根比一根低"
       }
     },
-    "tags": [
-      "下跌和滞涨"
-    ],
+    "tags": [],
     "difficulty": "hard",
     "hint": "",
-    "category": "下跌和滞涨",
+    "category": "",
     "createdAt": "2026-04-16",
     "updatedAt": "2026-04-16"
   }

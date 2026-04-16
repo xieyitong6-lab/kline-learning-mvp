@@ -7,9 +7,9 @@ export interface KlineItem {
   title: string;
   image: string;
   description: string;
-  feature?: string[];
+  feature: string[];
   meaning?: string;
-  note?: string[];
+  note: string[];
   keywords: string[];
   practice?: PracticeConfig;
   tags?: string[];
@@ -22,7 +22,6 @@ export interface KlineItem {
 
 export interface PracticeBlank {
   id: number;
-  prompt: string;
   label: string;
   type: "text";
   answer: string[];
@@ -36,6 +35,8 @@ export interface NameQuestion {
 }
 
 export interface FillBlankQuestion {
+  sourceType: "feature";
+  sourceIndexes: number[];
   intro: string;
   template: string;
   blanks: PracticeBlank[];
