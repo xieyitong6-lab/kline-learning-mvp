@@ -39,8 +39,8 @@ const addSteps = [
 const fieldDocs = [
   { field: "title", desc: "形态名称，会显示在学习页和练习页。" },
   { field: "image", desc: "图片路径，必须对应 public/images/kline/ 里的真实文件。" },
-  { field: "feature", desc: "必须填写资料里的"特征"原文，不要改写。" },
-  { field: "note", desc: "必须填写"备注"原文，没有可留空数组 []。" },
+  { field: "feature", desc: '必须填写资料里的"特征"原文，不要改写。' },
+  { field: "note", desc: '必须填写"备注"原文，没有可留空数组 []。' },
   {
     field: "fillBlankQuestion.template",
     desc: "必须基于该条资料的 feature 原文挖空，不要另写新句子。",
