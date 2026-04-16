@@ -34,10 +34,13 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-screen bg-zinc-100 text-zinc-900 antialiased">
-        <header className="sticky top-0 z-20 border-b border-zinc-200 bg-white/95 backdrop-blur-sm">
-          <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-            <Link href="/" className="font-display text-base font-semibold tracking-tight text-zinc-900">
+      <body className="min-h-screen bg-[#F7F7F7] text-[#111111] antialiased">
+        <header className="sticky top-0 z-20 border-b border-[#EBEBEB] bg-white">
+          <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-3.5 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+            <Link
+              href="/"
+              className="font-display text-sm font-semibold tracking-tight text-[#111111]"
+            >
               {PRODUCT_NAME}
             </Link>
             <nav className="flex flex-wrap items-center gap-0.5">
@@ -45,7 +48,7 @@ export default function RootLayout({
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="rounded-md px-3 py-1.5 text-sm text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900"
+                  className="rounded-md px-3 py-1.5 text-sm text-[#888888] transition-colors hover:bg-[#F7F7F7] hover:text-[#111111]"
                 >
                   {item.label}
                 </Link>
@@ -53,7 +56,7 @@ export default function RootLayout({
             </nav>
           </div>
         </header>
-        <div className="mx-auto max-w-7xl px-4 pb-12 pt-8 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-5 pb-16 pt-8 sm:px-6 lg:px-8">
           <main>{children}</main>
         </div>
       </body>
