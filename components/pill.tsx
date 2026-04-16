@@ -11,11 +11,15 @@ export function Pill({ children, tone = "default" }: PillProps) {
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium",
-        tone === "default" && "border-[#A8D5B8]/60 bg-white/60 text-[#3D6B5E]",
-        tone === "success" && "border-[#A8D5B8]/60 bg-[#4A8C6A]/10 text-[#2D5A40]",
-        tone === "warning" && "border-amber-200/70 bg-amber-50/80 text-amber-700",
-        tone === "danger" && "border-rose-200/70 bg-rose-50/80 text-rose-600",
+        "inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium",
+        tone === "default" &&
+          "border border-[rgba(255,255,255,0.55)] bg-[rgba(255,255,255,0.42)] text-[#2d5a40]",
+        tone === "success" &&
+          "border border-[rgba(74,140,106,0.25)] bg-[rgba(74,140,106,0.12)] text-[#2d5a40]",
+        tone === "warning" &&
+          "border border-[rgba(196,168,50,0.35)] bg-[rgba(250,240,180,0.50)] text-[#7a5c10]",
+        tone === "danger" &&
+          "border border-[rgba(252,165,165,0.50)] bg-[rgba(254,226,226,0.55)] text-rose-700",
       )}
     >
       {children}

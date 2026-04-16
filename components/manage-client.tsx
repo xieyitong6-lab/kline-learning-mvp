@@ -54,17 +54,13 @@ export function ManageClient() {
       {/* 路径说明 */}
       <SectionCard title="你需要修改的两个位置">
         <div className="grid gap-3 md:grid-cols-2">
-          <div className="rounded-xl border border-white/50 bg-white/40 px-4 py-4 backdrop-blur-sm">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-[#6AB88A]">
-              图片目录
-            </p>
-            <p className="mt-2 font-mono text-sm text-[#2D5A40]">public/images/kline/</p>
+          <div className="glass-inner px-4 py-4">
+            <p className="label-tag">图片目录</p>
+            <p className="mt-2 font-mono text-sm text-[#2d5a40]">public/images/kline/</p>
           </div>
-          <div className="rounded-xl border border-white/50 bg-white/40 px-4 py-4 backdrop-blur-sm">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-[#6AB88A]">
-              数据文件
-            </p>
-            <p className="mt-2 font-mono text-sm text-[#2D5A40]">data/kline-data.json</p>
+          <div className="glass-inner px-4 py-4">
+            <p className="label-tag">数据文件</p>
+            <p className="mt-2 font-mono text-sm text-[#2d5a40]">data/kline-data.json</p>
           </div>
         </div>
       </SectionCard>
@@ -73,8 +69,14 @@ export function ManageClient() {
       <SectionCard title="新增一条资料的步骤">
         <ol className="space-y-3.5">
           {addSteps.map((step, index) => (
-            <li key={step} className="flex items-start gap-3 text-sm text-[#3D5A46]">
-              <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-white/60 bg-white/60 text-[11px] font-semibold text-[#4A8C6A]">
+            <li key={step} className="flex items-start gap-3 text-sm text-[#3d5a46]">
+              <span
+                className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[11px] font-semibold text-white"
+                style={{
+                  background: "linear-gradient(145deg, #52996e, #3a7352)",
+                  boxShadow: "0 1px 4px rgba(74,140,106,0.30)",
+                }}
+              >
                 {index + 1}
               </span>
               {step}
@@ -85,20 +87,37 @@ export function ManageClient() {
 
       {/* 模板 */}
       <SectionCard title="可直接复制的资料模板">
-        <pre className="overflow-x-auto rounded-xl bg-[#1A2E28] p-5 text-sm leading-7 text-[#A8D5C8]">
+        <pre
+          className="overflow-x-auto rounded-xl p-5 text-sm leading-7"
+          style={{
+            background:
+              "linear-gradient(145deg, rgba(20,42,32,0.95) 0%, rgba(16,36,26,0.98) 100%)",
+            color: "#9dd5c0",
+            boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06)",
+          }}
+        >
           {template}
         </pre>
       </SectionCard>
 
       {/* 字段说明 */}
       <SectionCard title="字段填写说明">
-        <div className="divide-y divide-white/40">
+        <div className="divide-y divide-[rgba(255,255,255,0.30)]">
           {fieldDocs.map(({ field, desc }) => (
-            <div key={field} className="flex flex-col gap-2 py-3.5 sm:flex-row sm:items-start sm:gap-6">
-              <code className="shrink-0 rounded-lg border border-white/50 bg-white/50 px-2.5 py-1 font-mono text-xs text-[#2D5A40] sm:w-60">
+            <div
+              key={field}
+              className="flex flex-col gap-2 py-3.5 sm:flex-row sm:items-start sm:gap-6"
+            >
+              <code
+                className="shrink-0 rounded-lg px-2.5 py-1 font-mono text-xs text-[#2d5a40] sm:w-60"
+                style={{
+                  background: "rgba(255,255,255,0.42)",
+                  border: "1px solid rgba(255,255,255,0.55)",
+                }}
+              >
                 {field}
               </code>
-              <p className="text-sm text-[#3D5A46]">{desc}</p>
+              <p className="text-sm text-[#3d5a46]">{desc}</p>
             </div>
           ))}
         </div>
@@ -112,31 +131,24 @@ export function ManageClient() {
         <div className="overflow-x-auto">
           <table className="min-w-full text-left text-sm">
             <thead>
-              <tr className="border-b border-white/40">
-                <th className="px-3 py-2.5 text-[10px] font-semibold uppercase tracking-[0.08em] text-[#6AB88A]">
-                  标题
-                </th>
-                <th className="px-3 py-2.5 text-[10px] font-semibold uppercase tracking-[0.08em] text-[#6AB88A]">
-                  图片路径
-                </th>
-                <th className="px-3 py-2.5 text-[10px] font-semibold uppercase tracking-[0.08em] text-[#6AB88A]">
-                  特征
-                </th>
-                <th className="px-3 py-2.5 text-[10px] font-semibold uppercase tracking-[0.08em] text-[#6AB88A]">
-                  备注
-                </th>
+              <tr className="border-b border-[rgba(255,255,255,0.30)]">
+                {["标题", "图片路径", "特征", "备注"].map((h) => (
+                  <th key={h} className="px-3 py-2.5">
+                    <span className="label-tag">{h}</span>
+                  </th>
+                ))}
               </tr>
             </thead>
             <tbody>
               {allKlineItems.map((item) => (
                 <tr
                   key={item.id}
-                  className="border-b border-white/30 align-top transition-colors hover:bg-white/30"
+                  className="border-b border-[rgba(255,255,255,0.22)] align-top transition-colors hover:bg-[rgba(255,255,255,0.18)]"
                 >
-                  <td className="px-3 py-3 font-medium text-[#1A2C1E]">{item.title}</td>
-                  <td className="px-3 py-3 font-mono text-xs text-[#6AB88A]">{item.image}</td>
-                  <td className="px-3 py-3 text-[#3D5A46]">{item.feature.length}</td>
-                  <td className="px-3 py-3 text-[#3D5A46]">{item.note.length}</td>
+                  <td className="px-3 py-3 font-medium text-[#1a2c1e]">{item.title}</td>
+                  <td className="px-3 py-3 font-mono text-xs text-[#5a9e78]">{item.image}</td>
+                  <td className="px-3 py-3 text-[#3d5a46]">{item.feature.length}</td>
+                  <td className="px-3 py-3 text-[#3d5a46]">{item.note.length}</td>
                 </tr>
               ))}
             </tbody>

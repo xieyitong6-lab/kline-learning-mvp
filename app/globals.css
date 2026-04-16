@@ -15,9 +15,9 @@ html {
 
 body {
   margin: 0;
-  color: #1a2018;
+  color: #1a2c1e;
   font-family: var(--font-sans), sans-serif;
-  background: linear-gradient(135deg, #c2e8d0 0%, #e6f5ec 26%, #faf8e2 62%, #ede9c0 100%);
+  background: linear-gradient(135deg, #b8e0c8 0%, #daf0e4 22%, #f5f2d8 60%, #e8e0aa 100%);
   background-attachment: fixed;
   min-height: 100vh;
 }
@@ -34,4 +34,168 @@ a {
 button,
 input {
   font: inherit;
+}
+
+/* ─── Glass Design System ─────────────────────────────────────── */
+
+/*
+ * 真正的毛玻璃：
+ * - 背景透明度 20-30%（不是 78%）
+ * - 上边框比其他三边亮（模拟光线从上方打来）
+ * - inset 顶部高光线（玻璃内折射）
+ * - saturate(1.4) 让背景渐变颜色透过玻璃更鲜艳
+ */
+.glass-card {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.32) 0%,
+    rgba(255, 255, 255, 0.16) 100%
+  );
+  backdrop-filter: blur(20px) saturate(1.5);
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-top-color: rgba(255, 255, 255, 0.72);
+  border-left-color: rgba(255, 255, 255, 0.55);
+  box-shadow:
+    0 8px 40px rgba(45, 90, 60, 0.10),
+    0 2px 8px rgba(45, 90, 60, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.62);
+  border-radius: 1rem;
+}
+
+/* 嵌套在 glass-card 内部的小面板 */
+.glass-inner {
+  background: rgba(255, 255, 255, 0.24);
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-top-color: rgba(255, 255, 255, 0.58);
+  border-radius: 0.75rem;
+}
+
+/* 图片容器 / 浅色背景区 */
+.glass-surface {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-top-color: rgba(255, 255, 255, 0.88);
+  border-radius: 0.75rem;
+}
+
+/* 输入框：必须接近不透明，保证可读性 */
+.glass-input {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-bottom-color: rgba(180, 220, 200, 0.70);
+  transition: background 0.15s, border-color 0.15s, box-shadow 0.15s;
+}
+
+.glass-input:focus {
+  background: rgba(255, 255, 255, 0.97);
+  border-color: #4a8c6a;
+  box-shadow: 0 0 0 3px rgba(74, 140, 106, 0.14);
+  outline: none;
+}
+
+/* 主按钮：渐变绿 + 内高光 + hover 上浮 */
+.btn-primary {
+  background: linear-gradient(155deg, #52996e 0%, #3d7a58 100%);
+  box-shadow:
+    0 2px 14px rgba(74, 140, 106, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  color: #fff;
+  border: 1px solid rgba(74, 140, 106, 0.40);
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(155deg, #459060 0%, #2d644a 100%);
+  box-shadow:
+    0 5px 22px rgba(74, 140, 106, 0.46),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(74, 140, 106, 0.35), inset 0 1px 0 rgba(255,255,255,0.22);
+}
+
+.btn-primary:disabled {
+  opacity: 0.42;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* 次要按钮：玻璃质感 */
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.40);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-top-color: rgba(255, 255, 255, 0.82);
+  color: #2d5a40;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  transition: all 0.18s ease;
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.60);
+  border-color: rgba(255, 255, 255, 0.80);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.70);
+}
+
+/* 危险按钮 */
+.btn-danger {
+  background: rgba(255, 245, 245, 0.70);
+  border: 1px solid rgba(252, 165, 165, 0.50);
+  color: #dc2626;
+  transition: background 0.15s;
+}
+
+.btn-danger:hover {
+  background: rgba(254, 226, 226, 0.80);
+}
+
+/* 选项按钮（练习页名称识别） */
+.option-btn {
+  background: rgba(255, 255, 255, 0.40);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  color: #3d5a46;
+  text-align: left;
+  transition: all 0.15s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.option-btn:hover {
+  background: rgba(255, 255, 255, 0.62);
+  border-color: rgba(180, 220, 200, 0.70);
+}
+
+.option-btn.selected {
+  background: linear-gradient(135deg, #52996e 0%, #3d7a58 100%);
+  border-color: rgba(74, 140, 106, 0.40);
+  color: #fff;
+  box-shadow: 0 2px 12px rgba(74, 140, 106, 0.32), inset 0 1px 0 rgba(255,255,255,0.20);
+}
+
+/* 标签 label 统一样式 */
+.label-tag {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #5a9e78;
+}
+
+/* 分隔线 */
+.glass-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.55) 30%,
+    rgba(255, 255, 255, 0.55) 70%,
+    transparent 100%
+  );
+  margin: 1.25rem 0;
 }

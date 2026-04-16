@@ -16,19 +16,14 @@ export function SectionCard({
   className,
 }: SectionCardProps) {
   return (
-    <section
-      className={cn(
-        "rounded-2xl border border-white/55 bg-white/78 p-6 shadow-[0_4px_24px_rgba(45,90,60,0.08)] backdrop-blur",
-        className,
-      )}
-    >
+    <section className={cn("glass-card p-6", className)}>
       {(title || description) && (
         <div className="mb-5">
           {title && (
-            <h2 className="text-sm font-semibold text-[#1A2C1E]">{title}</h2>
+            <h2 className="font-display text-base font-semibold text-[#1a2c1e]">{title}</h2>
           )}
           {description && (
-            <p className="mt-1.5 text-sm text-[#6A9A7A]">{description}</p>
+            <p className="mt-1.5 text-sm text-[#6a9a7a]">{description}</p>
           )}
         </div>
       )}
