@@ -34,12 +34,12 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-screen bg-[#F7F7F7] text-[#111111] antialiased">
-        <header className="sticky top-0 z-20 border-b border-[#EBEBEB] bg-white">
+      <body className="min-h-screen bg-[#F8FAF9] text-[#1A1A1A] antialiased">
+        <header className="sticky top-0 z-20 border-b border-[#E2EBE8] bg-white">
           <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-3.5 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
             <Link
               href="/"
-              className="font-display text-sm font-semibold tracking-tight text-[#111111]"
+              className="font-display text-sm font-semibold tracking-tight text-[#2D5A4E]"
             >
               {PRODUCT_NAME}
             </Link>
@@ -48,7 +48,7 @@ export default function RootLayout({
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="rounded-md px-3 py-1.5 text-sm text-[#888888] transition-colors hover:bg-[#F7F7F7] hover:text-[#111111]"
+                  className="rounded-md px-3 py-1.5 text-sm text-[#7A9D95] transition-colors hover:bg-[#EBF4F1] hover:text-[#3D6B5E]"
                 >
                   {item.label}
                 </Link>

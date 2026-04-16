@@ -30,7 +30,7 @@ export function MistakesClient() {
           </button>
           <Link
             href="/practice"
-            className="rounded-lg bg-[#111111] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#333333]"
+            className="rounded-lg bg-[#5B9080] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#4A7A6C]"
           >
             继续练习
           </Link>
@@ -39,8 +39,8 @@ export function MistakesClient() {
 
       {mistakeItems.length === 0 ? (
         <SectionCard className="py-14 text-center">
-          <p className="text-sm font-semibold text-[#111111]">当前没有错题</p>
-          <p className="mt-2 text-sm text-[#888888]">
+          <p className="text-sm font-semibold text-[#1A1A1A]">当前没有错题</p>
+          <p className="mt-2 text-sm text-[#7A9D95]">
             完成几轮练习后，这里会自动沉淀需要复习的形态。
           </p>
         </SectionCard>
@@ -52,7 +52,7 @@ export function MistakesClient() {
             return (
               <SectionCard key={item.id}>
                 <div className="grid gap-5 lg:grid-cols-[220px_minmax(0,1fr)]">
-                  <div className="overflow-hidden rounded-xl bg-[#F7F7F7]">
+                  <div className="overflow-hidden rounded-xl bg-[#EBF4F1]">
                     <Image
                       src={item.image}
                       alt={item.title}
@@ -63,17 +63,17 @@ export function MistakesClient() {
                   </div>
                   <div>
                     <div className="flex flex-wrap items-center gap-2.5">
-                      <h2 className="text-lg font-semibold text-[#111111]">{item.title}</h2>
+                      <h2 className="text-lg font-semibold text-[#1A1A1A]">{item.title}</h2>
                       <Pill tone="danger">待复习</Pill>
                     </div>
-                    <p className="mt-2.5 text-sm leading-7 text-[#666666]">{item.description}</p>
+                    <p className="mt-2.5 text-sm leading-7 text-[#4A5568]">{item.description}</p>
                     <div className="mt-3 flex flex-wrap gap-1.5">
                       {item.keywords.map((keyword) => (
                         <Pill key={keyword}>{keyword}</Pill>
                       ))}
                     </div>
                     {lastAttempt && (
-                      <div className="mt-4 space-y-0.5 rounded-lg bg-[#F7F7F7] px-3.5 py-3 text-sm text-[#777777]">
+                      <div className="mt-4 space-y-0.5 rounded-xl bg-[#EBF4F1] px-4 py-3 text-sm text-[#7A9D95]">
                         <p>最近作答：{formatDateTime(lastAttempt.attemptedAt)}</p>
                         <p>名称判断：{lastAttempt.titleCorrect ? "正确" : "错误"}</p>
                         <p>关键词结果：{lastAttempt.keywordStatus}</p>
@@ -82,13 +82,13 @@ export function MistakesClient() {
                     <div className="mt-4 flex flex-wrap gap-2.5">
                       <Link
                         href={`/practice?id=${item.id}`}
-                        className="rounded-lg bg-[#111111] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#333333]"
+                        className="rounded-lg bg-[#5B9080] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#4A7A6C]"
                       >
                         重新练习
                       </Link>
                       <button
                         onClick={() => setProgress(markMistakeMastered(item.id))}
-                        className="rounded-lg border border-emerald-200 bg-white px-4 py-2.5 text-sm font-medium text-emerald-700 transition-colors hover:bg-emerald-50"
+                        className="rounded-lg border border-[#C5DDD7] bg-white px-4 py-2.5 text-sm font-medium text-[#3D6B5E] transition-colors hover:bg-[#EBF4F1]"
                       >
                         标记为已掌握
                       </button>
