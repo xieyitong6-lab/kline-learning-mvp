@@ -12,92 +12,106 @@ import { formatDateTime } from "@/lib/utils";
 
 export function MistakesClient() {
   const [progress, setProgress] = useState(loadProgress);
-
   const mistakeItems = allKlineItems.filter((item) => progress.mistakes.includes(item.id));
 
   return (
-    <div className="space-y-5">
-      <SectionCard
-        title="错题本"
-        description="自动记录未完全答对的题目，你可以重新练习、标记已掌握，或直接清空错题集合。"
-      >
-        <div className="flex flex-wrap gap-2.5">
+    <div className="space-y-4">
+      {/* 操作栏 */}
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="font-display text-[28px] font-bold text-[#111210]">错题本</h1>
+          <p className="mt-1 text-[13px] text-[#8a8a82]">
+            {mistakeItems.length > 0
+              ? `共 ${mistakeItems.length} 条待复习`
+              : "当前没有错题"}
+          </p>
+        </div>
+        <div className="flex gap-2.5">
           <button
             onClick={() => setProgress(clearMistakes())}
-            className="btn-danger rounded-lg px-4 py-2.5 text-sm font-medium"
+            className="btn-danger px-4 py-2 text-[13px]"
           >
             清空错题
           </button>
-          <Link
-            href="/practice"
-            className="btn-primary rounded-lg px-4 py-2.5 text-sm font-medium"
-          >
+          <Link href="/practice" className="btn-primary px-4 py-2 text-[13px]">
             继续练习
           </Link>
         </div>
-      </SectionCard>
+      </div>
 
+      {/* 空状态 */}
       {mistakeItems.length === 0 ? (
-        <SectionCard className="py-14 text-center">
-          <p className="font-display text-sm font-semibold text-[#1a2c1e]">当前没有错题</p>
-          <p className="mt-2 text-sm text-[#6a9a7a]">
-            完成几轮练习后，这里会自动沉淀需要复习的形态。
+        <div className="card py-16 text-center">
+          <p className="text-[15px] font-semibold text-[#3d3d3a]">暂无错题</p>
+          <p className="mt-2 text-[13px] text-[#9a9690]">
+            完成几轮练习后，这里会自动记录需要复习的形态。
           </p>
-        </SectionCard>
+        </div>
       ) : (
-        <div className="grid gap-4">
+        <div className="space-y-3">
           {mistakeItems.map((item) => {
-            const lastAttempt = progress.recentAttempts.find((entry) => entry.id === item.id);
+            const lastAttempt = progress.recentAttempts.find((e) => e.id === item.id);
 
             return (
-              <SectionCard key={item.id}>
-                <div className="grid gap-5 lg:grid-cols-[220px_minmax(0,1fr)]">
-                  <div className="glass-surface overflow-hidden">
+              <div key={item.id} className="card overflow-hidden">
+                <div className="grid lg:grid-cols-[200px_1fr]">
+                  {/* 图片 */}
+                  <div className="flex items-center justify-center border-b border-[#ede9e2] bg-[#f7f5f0] p-4 lg:border-b-0 lg:border-r">
                     <Image
                       src={item.image}
                       alt={item.title}
-                      width={240}
+                      width={200}
                       height={140}
-                      className="h-auto w-full"
+                      className="h-auto w-full rounded-md"
                     />
                   </div>
-                  <div>
+
+                  {/* 内容 */}
+                  <div className="p-6">
                     <div className="flex flex-wrap items-center gap-2.5">
-                      <h2 className="font-display text-lg font-semibold text-[#1a2c1e]">
+                      <h2 className="font-display text-[22px] font-bold text-[#111210]">
                         {item.title}
                       </h2>
                       <Pill tone="danger">待复习</Pill>
                     </div>
-                    <p className="mt-2.5 text-sm leading-7 text-[#3d5a46]">{item.description}</p>
-                    <div className="mt-3 flex flex-wrap gap-1.5">
-                      {item.keywords.map((keyword) => (
-                        <Pill key={keyword}>{keyword}</Pill>
-                      ))}
-                    </div>
-                    {lastAttempt && (
-                      <div className="glass-inner mt-4 space-y-0.5 px-4 py-3 text-sm text-[#6a9a7a]">
-                        <p>最近作答：{formatDateTime(lastAttempt.attemptedAt)}</p>
-                        <p>名称判断：{lastAttempt.titleCorrect ? "正确" : "错误"}</p>
-                        <p>关键词结果：{lastAttempt.keywordStatus}</p>
+
+                    {item.keywords && item.keywords.length > 0 && (
+                      <div className="mt-3 flex flex-wrap gap-1.5">
+                        {item.keywords.map((kw) => (
+                          <Pill key={kw}>{kw}</Pill>
+                        ))}
                       </div>
                     )}
-                    <div className="mt-4 flex flex-wrap gap-2.5">
+
+                    {lastAttempt && (
+                      <div className="inset mt-4 px-4 py-3">
+                        <p className="text-[12px] text-[#9a9690]">
+                          最近作答：{formatDateTime(lastAttempt.attemptedAt)}
+                        </p>
+                        <p className="text-[12px] text-[#9a9690]">
+                          名称判断：{lastAttempt.titleCorrect ? "正确" : "错误"} ·
+                          关键词：{lastAttempt.keywordStatus}
+                        </p>
+                      </div>
+                    )}
+
+                    <div className="mt-4 flex gap-2.5">
                       <Link
                         href={`/practice?id=${item.id}`}
-                        className="btn-primary rounded-lg px-4 py-2.5 text-sm font-medium"
+                        className="btn-primary px-5 py-2.5 text-[13px]"
                       >
                         重新练习
                       </Link>
                       <button
                         onClick={() => setProgress(markMistakeMastered(item.id))}
-                        className="btn-ghost rounded-lg px-4 py-2.5 text-sm font-medium"
+                        className="btn-secondary px-5 py-2.5 text-[13px]"
                       >
-                        标记为已掌握
+                        标记已掌握
                       </button>
                     </div>
                   </div>
                 </div>
-              </SectionCard>
+              </div>
             );
           })}
         </div>

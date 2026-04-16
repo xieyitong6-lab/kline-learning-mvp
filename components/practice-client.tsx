@@ -38,7 +38,7 @@ function renderTemplate(template: string) {
       return (
         <span
           key={`${part}-${index}`}
-          className="mx-0.5 inline-flex min-w-8 items-center justify-center rounded border-b-2 border-[#5a9e78] px-1.5 py-0.5 text-xs font-semibold text-[#3d7a58]"
+          className="mx-0.5 inline-flex min-w-[2rem] items-center justify-center rounded border-b-2 border-[#1a3828] px-1 py-0.5 text-[12px] font-semibold text-[#1a3828]"
         >
           {part}
         </span>
@@ -65,8 +65,8 @@ export function PracticeClient() {
   const titleOptions = nameQuestion?.options ?? buildTitleOptions(question.id);
   const blanks: PracticeBlank[] = fillBlankQuestion?.blanks ?? [];
 
-  const resetQuestion = (nextQuestion: KlineItem) => {
-    setQuestion(nextQuestion);
+  const resetQuestion = (next: KlineItem) => {
+    setQuestion(next);
     setStep("name");
     setSelectedTitle("");
     setBlankAnswers({});
@@ -79,16 +79,10 @@ export function PracticeClient() {
     const feedback = blanks.map((blank) => {
       const userAnswer = normalizeAnswer(blankAnswers[blank.id] ?? "");
       const correctAnswers = blank.answer.map(normalizeAnswer);
-      return {
-        id: blank.id,
-        label: blank.label,
-        userAnswer,
-        correctAnswers,
-        correct: correctAnswers.includes(userAnswer),
-      };
+      return { id: blank.id, label: blank.label, userAnswer, correctAnswers, correct: correctAnswers.includes(userAnswer) };
     });
 
-    const allBlankCorrect = feedback.every((item) => item.correct);
+    const allBlankCorrect = feedback.every((f) => f.correct);
     setTitleCorrect(isTitleCorrect);
     setBlankFeedback(feedback);
     setStep("result");
@@ -99,176 +93,196 @@ export function PracticeClient() {
         title: question.title,
         attemptedAt: new Date().toISOString(),
         titleCorrect: isTitleCorrect,
-        keywordStatus: allBlankCorrect
-          ? "correct"
-          : feedback.some((item) => item.correct)
-            ? "partial"
-            : "wrong",
-        selectedKeywords: feedback.map((item) => item.userAnswer).filter(Boolean),
+        keywordStatus: allBlankCorrect ? "correct" : feedback.some((f) => f.correct) ? "partial" : "wrong",
+        selectedKeywords: feedback.map((f) => f.userAnswer).filter(Boolean),
       },
       isTitleCorrect && allBlankCorrect,
     );
   };
 
   const handleNextQuestion = () => {
-    setQuestionNumber((current) => current + 1);
+    setQuestionNumber((n) => n + 1);
     resetQuestion(getRandomQuestion(null));
   };
 
   return (
     <div className="space-y-4">
-      {/* 顶部栏 */}
-      <div className="glass-card flex flex-wrap items-center justify-between gap-3 px-5 py-3">
-        <Link href="/" className="btn-ghost rounded-lg px-3 py-1.5 text-xs font-medium">
+      {/* 顶部 */}
+      <div className="flex items-center justify-between">
+        <Link href="/" className="btn-secondary px-4 py-2 text-[13px]">
           ← 返回
         </Link>
-        <p className="font-display text-sm font-semibold text-[#1a2c1e]">第 {questionNumber} 题</p>
-        <p className="text-xs text-[#6a9a7a]">
-          {questionNumber} / {allKlineItems.length}
-        </p>
+        <p className="text-[13px] font-medium text-[#111210]">第 {questionNumber} 题</p>
+        <p className="text-[13px] text-[#9a9690]">{questionNumber} / {allKlineItems.length}</p>
       </div>
 
-      {/* 主内容区 */}
-      <div className="grid gap-4 lg:grid-cols-[0.48fr_0.52fr] lg:items-start">
+      {/* 主体 */}
+      <div className="grid gap-4 lg:grid-cols-[1fr_1fr] lg:items-start">
+
         {/* 左：图片 */}
-        <div className="glass-surface overflow-hidden">
+        <div className="card flex items-center justify-center bg-[#f7f5f0] p-6">
           <Image
             src={question.image}
             alt={question.title}
-            width={760}
-            height={560}
+            width={480}
+            height={400}
             priority
-            className="h-auto w-full"
+            className="h-auto w-full max-w-sm rounded-lg"
           />
         </div>
 
         {/* 右：题目 */}
         <SectionCard className="p-6">
-          <div className="min-h-[360px] md:min-h-[420px]">
+          <div className="min-h-[380px]">
 
+            {/* ── 步骤一：名称识别 ── */}
             {step === "name" && (
-              <div className="space-y-5">
+              <div className="space-y-6">
                 <div>
-                  <p className="label-tag">题目一</p>
-                  <p className="mt-1.5 text-sm font-medium text-[#1a2c1e]">这是什么形态？</p>
-                  <div className="mt-4 grid gap-2 sm:grid-cols-2">
-                    {titleOptions.map((option) => (
-                      <button
-                        key={option}
-                        onClick={() => setSelectedTitle(option)}
-                        className={`option-btn rounded-lg px-4 py-3 text-sm${selectedTitle === option ? " selected" : ""}`}
-                      >
-                        {option}
-                      </button>
-                    ))}
-                  </div>
+                  <p className="label">题目一 · 名称识别</p>
+                  <p className="mt-2 text-[18px] font-semibold text-[#111210]">
+                    这是什么K线形态？
+                  </p>
                 </div>
+
+                <div className="grid grid-cols-2 gap-2">
+                  {titleOptions.map((option) => (
+                    <button
+                      key={option}
+                      onClick={() => setSelectedTitle(option)}
+                      className={`option-btn${selectedTitle === option ? " selected" : ""}`}
+                    >
+                      {option}
+                    </button>
+                  ))}
+                </div>
+
                 <button
                   onClick={() => setStep("fill")}
                   disabled={!selectedTitle}
-                  className="btn-primary rounded-lg px-5 py-2.5 text-sm font-medium"
+                  className="btn-primary w-full py-3 text-[14px]"
                 >
                   下一步
                 </button>
               </div>
             )}
 
+            {/* ── 步骤二：填空 ── */}
             {step === "fill" && (
               <div className="space-y-5">
                 <div>
-                  <p className="label-tag">题目二</p>
-                  <p className="mt-1.5 text-sm font-medium text-[#1a2c1e]">根据特征填空</p>
-                  <p className="mt-2 text-sm leading-6 text-[#6a9a7a]">
+                  <p className="label">题目二 · 特征填空</p>
+                  <p className="mt-2 text-[18px] font-semibold text-[#111210]">
+                    根据特征原文完成填空
+                  </p>
+                  <p className="mt-1 text-[13px] text-[#8a8a82]">
                     {fillBlankQuestion?.intro ?? "请根据该形态资料中的特征原文完成填空。"}
                   </p>
+                </div>
 
-                  <div className="glass-inner mt-3 px-4 py-3.5 text-sm leading-8 text-[#3d5a46]">
-                    {fillBlankQuestion?.template
-                      ? renderTemplate(fillBlankQuestion.template)
-                      : "当前资料尚未录入可用的填空模板。"}
-                  </div>
+                {/* 模板句 */}
+                <div className="inset px-4 py-3.5 text-[14px] leading-8 text-[#3d3d3a]">
+                  {fillBlankQuestion?.template
+                    ? renderTemplate(fillBlankQuestion.template)
+                    : "当前资料尚未录入填空模板。"}
+                </div>
 
-                  <div className="mt-4 space-y-3">
-                    {blanks.length > 0 ? (
-                      blanks.map((blank) => (
-                        <label key={blank.id} className="block">
-                          <p className="text-xs text-[#6a9a7a]">{blank.label}</p>
-                          <input
-                            value={blankAnswers[blank.id] ?? ""}
-                            onChange={(e) =>
-                              setBlankAnswers((cur) => ({ ...cur, [blank.id]: e.target.value }))
-                            }
-                            placeholder={blank.placeholder ?? `请输入${blank.label}`}
-                            className="glass-input mt-1.5 w-full rounded-lg px-3.5 py-2.5 text-sm text-[#1a2c1e] placeholder:text-[#a8c8b4]"
-                          />
-                        </label>
+                {/* 输入框 */}
+                <div className="space-y-3">
+                  {blanks.length > 0 ? (
+                    blanks.map((blank) => (
+                      <label key={blank.id} className="block">
+                        <p className="mb-1.5 text-[12px] text-[#8a8a82]">{blank.label}</p>
+                        <input
+                          value={blankAnswers[blank.id] ?? ""}
+                          onChange={(e) =>
+                            setBlankAnswers((cur) => ({ ...cur, [blank.id]: e.target.value }))
+                          }
+                          placeholder={blank.placeholder ?? `请输入${blank.label}`}
+                          className="text-input"
+                        />
+                      </label>
+                    ))
+                  ) : (
+                    <p className="text-[14px] text-[#b8b4ac]">当前资料尚未生成填空题。</p>
+                  )}
+                </div>
+
+                <button onClick={handleSubmit} className="btn-primary w-full py-3 text-[14px]">
+                  提交答案
+                </button>
+              </div>
+            )}
+
+            {/* ── 步骤三：结果 ── */}
+            {step === "result" && (
+              <div className="space-y-5">
+                {/* 名称判断 */}
+                <div>
+                  <p className="label">名称识别结果</p>
+                  <p className={`mt-2 text-[15px] font-semibold ${titleCorrect ? "text-[#15803d]" : "text-[#dc2626]"}`}>
+                    {titleCorrect ? "✓ 回答正确" : "✗ 回答错误"}
+                  </p>
+                  <p className="mt-0.5 text-[13px] text-[#8a8a82]">
+                    正确答案：{question.title}
+                  </p>
+                </div>
+
+                <div className="divider" />
+
+                {/* 填空反馈 */}
+                <div>
+                  <p className="label">填空反馈</p>
+                  <div className="mt-3 space-y-2">
+                    {blankFeedback.length > 0 ? (
+                      blankFeedback.map((item) => (
+                        <div
+                          key={item.id}
+                          className={`rounded-lg border p-3.5 ${
+                            item.correct
+                              ? "border-[#bbf7d0] bg-[#f0fdf4]"
+                              : "border-[#fecaca] bg-[#fef2f2]"
+                          }`}
+                        >
+                          <p className="text-[11px] font-semibold uppercase tracking-wide text-[#9a9690]">
+                            {item.label}
+                          </p>
+                          <p className="mt-1.5 text-[13px] text-[#3d3d3a]">
+                            你的答案：{item.userAnswer || "（未填写）"}
+                          </p>
+                          <p className="text-[13px] text-[#3d3d3a]">
+                            正确答案：{item.correctAnswers.join(" / ")}
+                          </p>
+                          <p className={`mt-1 text-[12px] font-semibold ${item.correct ? "text-[#15803d]" : "text-[#dc2626]"}`}>
+                            {item.correct ? "正确" : "错误"}
+                          </p>
+                        </div>
                       ))
                     ) : (
-                      <p className="text-sm text-[#8abca0]">当前资料尚未生成填空题。</p>
+                      <p className="text-[14px] text-[#b8b4ac]">当前题目没有填空反馈。</p>
                     )}
                   </div>
                 </div>
-                <button onClick={handleSubmit} className="btn-primary rounded-lg px-5 py-2.5 text-sm font-medium">
-                  提交
-                </button>
-              </div>
-            )}
 
-            {step === "result" && (
-              <div className="space-y-5">
-                <div className="space-y-4">
-                  <div>
-                    <p className="label-tag">名称识别</p>
-                    <p className={`mt-1.5 text-sm font-medium ${titleCorrect ? "text-[#2d6444]" : "text-rose-600"}`}>
-                      {titleCorrect ? "✓ 回答正确" : "✗ 回答错误"}
-                    </p>
-                    <p className="mt-0.5 text-sm text-[#6a9a7a]">正确答案：{question.title}</p>
-                  </div>
-
-                  <div>
-                    <p className="label-tag">填空反馈</p>
-                    <div className="mt-2 space-y-2">
-                      {blankFeedback.length > 0 ? (
-                        blankFeedback.map((item) => (
-                          <div
-                            key={item.id}
-                            className={`rounded-xl border p-3.5 ${
-                              item.correct
-                                ? "border-[rgba(74,140,106,0.22)] bg-[rgba(74,140,106,0.08)]"
-                                : "border-[rgba(252,165,165,0.45)] bg-[rgba(254,226,226,0.45)]"
-                            }`}
-                          >
-                            <p className="text-xs font-medium text-[#3d5a46]">{item.label}</p>
-                            <p className="mt-1.5 text-sm text-[#3d5a46]">
-                              你的答案：{item.userAnswer || "未填写"}
-                            </p>
-                            <p className="mt-0.5 text-sm text-[#3d5a46]">
-                              正确答案：{item.correctAnswers.join(" / ")}
-                            </p>
-                            <p className={`mt-1 text-xs font-semibold ${item.correct ? "text-[#2d6444]" : "text-rose-700"}`}>
-                              {item.correct ? "判定：正确" : "判定：错误"}
-                            </p>
-                          </div>
-                        ))
-                      ) : (
-                        <p className="text-sm text-[#8abca0]">当前题目没有填空反馈。</p>
-                      )}
+                {/* 解析 */}
+                {fillBlankQuestion?.explanation && (
+                  <>
+                    <div className="divider" />
+                    <div>
+                      <p className="label">解析</p>
+                      <p className="mt-2 whitespace-pre-line text-[14px] leading-7 text-[#3d3d3a]">
+                        {fillBlankQuestion.explanation}
+                      </p>
                     </div>
-                  </div>
+                  </>
+                )}
 
-                  <div>
-                    <p className="label-tag">解析</p>
-                    <p className="mt-1.5 whitespace-pre-line text-sm leading-7 text-[#3d5a46]">
-                      {fillBlankQuestion?.explanation || "当前资料没有解析原文。"}
-                    </p>
-                  </div>
-                </div>
-
-                <button onClick={handleNextQuestion} className="btn-primary rounded-lg px-5 py-2.5 text-sm font-medium">
-                  下一题
+                <button onClick={handleNextQuestion} className="btn-primary w-full py-3 text-[14px]">
+                  下一题 →
                 </button>
               </div>
             )}
+
           </div>
         </SectionCard>
       </div>
