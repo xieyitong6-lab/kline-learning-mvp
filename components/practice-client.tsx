@@ -12,7 +12,7 @@ import { allKlineItems, buildTitleOptions, getKlineById } from "@/lib/summary";
 import type { KlineItem } from "@/types/kline";
 
 type BlankFeedback = {
-  id: string;
+  id: number;
   prompt: string;
   userAnswer: string;
   correctAnswer: string;
@@ -40,8 +40,11 @@ export function PracticeClient() {
   const [submitted, setSubmitted] = useState(false);
   const [blankFeedback, setBlankFeedback] = useState<BlankFeedback[]>([]);
 
-  const titleOptions = useMemo(() => buildTitleOptions(question.id), [question.id]);
-  const blanks = question.blanks ?? [];
+  const titleOptions = useMemo(
+    () => question.practice?.nameQuestion.options ?? buildTitleOptions(question.id),
+    [question.id, question.practice],
+  );
+  const blanks = question.practice?.fillBlankQuestion.blanks ?? [];
 
   const resetForQuestion = (nextQuestion: KlineItem) => {
     setQuestion(nextQuestion);
@@ -64,13 +67,14 @@ export function PracticeClient() {
   const submitBlankStep = () => {
     const feedback = blanks.map((blank) => {
       const userAnswer = (blankAnswers[blank.id] ?? "").trim();
-      const correctAnswer = blank.answer.trim();
+      const acceptedAnswers = blank.answer.map((answer) => answer.trim());
+      const correctAnswer = acceptedAnswers[0] ?? "";
       return {
         id: blank.id,
         prompt: blank.prompt,
         userAnswer,
         correctAnswer,
-        correct: userAnswer === correctAnswer,
+        correct: acceptedAnswers.includes(userAnswer),
       };
     });
 
@@ -173,9 +177,11 @@ export function PracticeClient() {
                 </div>
 
                 <div className="mt-4 space-y-4">
-                  {question.practiceTemplate && (
-                    <p className="text-sm leading-7 text-slate-600">{question.practiceTemplate}</p>
-                  )}
+                    {question.practice?.fillBlankQuestion.intro && (
+                      <p className="text-sm leading-7 text-slate-600">
+                        {question.practice.fillBlankQuestion.intro}
+                      </p>
+                    )}
 
                   {blanks.map((blank) => (
                     <label key={blank.id} className="block">
@@ -228,6 +234,7 @@ export function PracticeClient() {
                     {titleCorrect ? "正确" : `错误，正确答案是「${question.title}」`}
                   </p>
                   <p>填空结果：{resultLabel}</p>
+                  <p>解析：{question.practice?.fillBlankQuestion.explanation ?? "暂无解析。"}</p>
 
                   <div className="space-y-3">
                     {blankFeedback.map((item, index) => (

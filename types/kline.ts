@@ -9,10 +9,9 @@ export interface KlineItem {
   description: string;
   feature?: string[];
   meaning?: string;
-  note?: string;
+  note?: string[];
   keywords: string[];
-  practiceTemplate?: string;
-  blanks?: PracticeBlank[];
+  practice?: PracticeConfig;
   tags?: string[];
   difficulty?: Difficulty;
   hint?: string;
@@ -22,10 +21,30 @@ export interface KlineItem {
 }
 
 export interface PracticeBlank {
-  id: string;
+  id: number;
   prompt: string;
-  answer: string;
+  label: string;
+  type: "text";
+  answer: string[];
   placeholder?: string;
+}
+
+export interface NameQuestion {
+  type: "single_choice";
+  options: string[];
+  answer: string;
+}
+
+export interface FillBlankQuestion {
+  intro: string;
+  template: string;
+  blanks: PracticeBlank[];
+  explanation: string;
+}
+
+export interface PracticeConfig {
+  nameQuestion: NameQuestion;
+  fillBlankQuestion: FillBlankQuestion;
 }
 
 export interface PracticeRecord {
