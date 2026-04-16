@@ -10,6 +10,8 @@ import { recordPracticeAttempt } from "@/lib/storage";
 import { allKlineItems, buildTitleOptions, getKlineById } from "@/lib/summary";
 import type { KlineItem, PracticeBlank } from "@/types/kline";
 
+type Step = "name" | "fill" | "result";
+
 type BlankFeedback = {
   id: number;
   label: string;
@@ -56,9 +58,9 @@ export function PracticeClient() {
 
   const [question, setQuestion] = useState<KlineItem>(() => getRandomQuestion(presetId));
   const [questionNumber, setQuestionNumber] = useState(1);
+  const [step, setStep] = useState<Step>("name");
   const [selectedTitle, setSelectedTitle] = useState("");
   const [blankAnswers, setBlankAnswers] = useState<Record<number, string>>({});
-  const [submitted, setSubmitted] = useState(false);
   const [titleCorrect, setTitleCorrect] = useState(false);
   const [blankFeedback, setBlankFeedback] = useState<BlankFeedback[]>([]);
 
@@ -69,11 +71,15 @@ export function PracticeClient() {
 
   const resetQuestion = (nextQuestion: KlineItem) => {
     setQuestion(nextQuestion);
+    setStep("name");
     setSelectedTitle("");
     setBlankAnswers({});
-    setSubmitted(false);
     setTitleCorrect(false);
     setBlankFeedback([]);
+  };
+
+  const handleNextStep = () => {
+    setStep("fill");
   };
 
   const handleSubmit = () => {
@@ -93,9 +99,9 @@ export function PracticeClient() {
 
     const allBlankCorrect = feedback.every((item) => item.correct);
 
-    setSubmitted(true);
     setTitleCorrect(isTitleCorrect);
     setBlankFeedback(feedback);
+    setStep("result");
 
     recordPracticeAttempt(
       {
@@ -151,91 +157,102 @@ export function PracticeClient() {
         </SectionCard>
 
         <SectionCard className="p-5 md:p-6">
-          <div className="space-y-5">
-            <div className="rounded-[24px] border border-slate-200 bg-white p-5">
-              <p className="text-sm font-semibold text-slate-900">题目1：这是什么形态？</p>
-              <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                {titleOptions.map((option) => (
+          <div className="min-h-[720px] rounded-[24px] border border-slate-200 bg-white p-5">
+            {step === "name" && (
+              <div className="flex h-full flex-col">
+                <div>
+                  <p className="text-sm font-semibold text-slate-900">题目1：这是什么形态？</p>
+                  <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                    {titleOptions.map((option) => (
+                      <button
+                        key={option}
+                        onClick={() => setSelectedTitle(option)}
+                        className={`rounded-2xl border px-4 py-3 text-left text-sm transition ${
+                          selectedTitle === option
+                            ? "border-slate-900 bg-slate-950 text-white"
+                            : "border-slate-200 bg-white text-slate-700 hover:border-slate-300"
+                        }`}
+                      >
+                        {option}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-auto pt-6">
                   <button
-                    key={option}
-                    onClick={() => setSelectedTitle(option)}
-                    disabled={submitted}
-                    className={`rounded-2xl border px-4 py-3 text-left text-sm transition ${
-                      selectedTitle === option
-                        ? "border-slate-900 bg-slate-950 text-white"
-                        : "border-slate-200 bg-white text-slate-700 hover:border-slate-300"
-                    } disabled:cursor-not-allowed disabled:opacity-80`}
+                    onClick={handleNextStep}
+                    disabled={!selectedTitle}
+                    className="rounded-2xl bg-slate-950 px-6 py-3 text-sm font-medium text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:bg-slate-300"
                   >
-                    {option}
+                    下一步
                   </button>
-                ))}
+                </div>
               </div>
-            </div>
+            )}
 
-            <div className="rounded-[24px] border border-slate-200 bg-white p-5">
-              <p className="text-sm font-semibold text-slate-900">
-                题目2：基于该形态资料中的 feature 原文完成填空
-              </p>
-              <p className="mt-3 text-sm leading-7 text-slate-600">
-                {fillBlankQuestion?.intro ?? "请根据该形态资料中的特征原文完成填空。"}
-              </p>
+            {step === "fill" && (
+              <div className="flex h-full flex-col">
+                <div>
+                  <p className="text-sm font-semibold text-slate-900">题目2：根据特征填空</p>
+                  <p className="mt-3 text-sm leading-7 text-slate-600">
+                    {fillBlankQuestion?.intro ?? "请根据该形态资料中的特征原文完成填空。"}
+                  </p>
 
-              <div className="mt-4 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4 text-sm leading-8 text-slate-800">
-                {fillBlankQuestion?.template
-                  ? renderTemplate(fillBlankQuestion.template)
-                  : "当前资料尚未录入可用的填空模板。"}
+                  <div className="mt-4 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4 text-sm leading-8 text-slate-800">
+                    {fillBlankQuestion?.template
+                      ? renderTemplate(fillBlankQuestion.template)
+                      : "当前资料尚未录入可用的填空模板。"}
+                  </div>
+
+                  <div className="mt-5 space-y-4">
+                    {blanks.length > 0 ? (
+                      blanks.map((blank) => (
+                        <label key={blank.id} className="block">
+                          <p className="text-sm text-slate-700">{blank.label}</p>
+                          <input
+                            value={blankAnswers[blank.id] ?? ""}
+                            onChange={(event) =>
+                              setBlankAnswers((current) => ({
+                                ...current,
+                                [blank.id]: event.target.value,
+                              }))
+                            }
+                            placeholder={blank.placeholder ?? `请输入${blank.label}`}
+                            className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-400"
+                          />
+                        </label>
+                      ))
+                    ) : (
+                      <p className="text-sm text-slate-400">当前资料尚未生成填空题。</p>
+                    )}
+                  </div>
+                </div>
+
+                <div className="mt-auto pt-6">
+                  <button
+                    onClick={handleSubmit}
+                    className="rounded-2xl bg-slate-950 px-6 py-3 text-sm font-medium text-white transition hover:bg-slate-800"
+                  >
+                    提交
+                  </button>
+                </div>
               </div>
+            )}
 
-              <div className="mt-5 space-y-4">
-                {blanks.length > 0 ? (
-                  blanks.map((blank) => (
-                    <label key={blank.id} className="block">
-                      <p className="text-sm text-slate-700">{blank.label}</p>
-                      <input
-                        value={blankAnswers[blank.id] ?? ""}
-                        onChange={(event) =>
-                          setBlankAnswers((current) => ({
-                            ...current,
-                            [blank.id]: event.target.value,
-                          }))
-                        }
-                        disabled={submitted}
-                        placeholder={blank.placeholder ?? `请输入${blank.label}`}
-                        className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-slate-400 disabled:bg-slate-50"
-                      />
-                    </label>
-                  ))
-                ) : (
-                  <p className="text-sm text-slate-400">当前资料尚未生成填空题。</p>
-                )}
-              </div>
-            </div>
-
-            <div>
-              <button
-                onClick={handleSubmit}
-                disabled={submitted || !selectedTitle}
-                className="rounded-2xl bg-slate-950 px-6 py-3 text-sm font-medium text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:bg-slate-300"
-              >
-                提交答案
-              </button>
-            </div>
-
-            {submitted && (
-              <div className="rounded-[24px] border border-slate-200 bg-white p-5">
+            {step === "result" && (
+              <div className="flex h-full flex-col">
                 <div className="space-y-5">
                   <div>
                     <p className="text-sm font-semibold text-slate-900">反馈</p>
-                    <p
-                      className={`mt-2 text-sm ${titleCorrect ? "text-emerald-700" : "text-rose-700"}`}
-                    >
+                    <p className={`mt-2 text-sm ${titleCorrect ? "text-emerald-700" : "text-rose-700"}`}>
                       {titleCorrect ? "名称识别正确" : "名称识别错误"}
                     </p>
                     <p className="mt-1 text-sm text-slate-600">正确答案：{question.title}</p>
                   </div>
 
                   <div>
-                    <p className="text-sm font-semibold text-slate-900">每个填空的判定</p>
+                    <p className="text-sm font-semibold text-slate-900">每个空是否正确</p>
                     <div className="mt-3 space-y-3">
                       {blankFeedback.length > 0 ? (
                         blankFeedback.map((item) => (
@@ -266,7 +283,9 @@ export function PracticeClient() {
                       {fillBlankQuestion?.explanation || "当前资料没有解析原文。"}
                     </p>
                   </div>
+                </div>
 
+                <div className="mt-auto pt-6">
                   <button
                     onClick={handleNextQuestion}
                     className="rounded-2xl bg-slate-950 px-5 py-3 text-sm font-medium text-white transition hover:bg-slate-800"
