@@ -1,132 +1,1473 @@
 [
   {
-    "id": "long-bullish",
-    "title": "大阳线",
-    "image": "/images/kline/long-bullish.svg",
-    "description": "实体较长，收盘明显高于开盘，说明买方在当日交易中占据主动，常见于上涨动能较强的场景。",
-    "keywords": ["大阳线", "下影线"],
-    "tags": ["基础", "多头"],
+    "id": "T字",
+    "title": "T字",
+    "image": "/images/kline/T字.png",
+    "description": "T字线下影明显、收盘回到高位附近，若出现在跌势末端，通常有止跌观察价值。",
+    "keywords": [
+      "整理形态",
+      "十字星",
+      "长下影"
+    ],
+    "tags": [
+      "整理形态"
+    ],
     "difficulty": "easy",
-    "hint": "优先记忆长实体和收盘位置。",
-    "category": "单根K线",
-    "createdAt": "2026-04-01",
-    "updatedAt": "2026-04-10"
+    "hint": "核心不是方向，而是开收接近与影线长短。",
+    "category": "整理",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
   },
   {
-    "id": "medium-bullish",
-    "title": "中阳线",
-    "image": "/images/kline/medium-bullish.svg",
-    "description": "阳线实体适中，价格整体向上推进，但力度弱于大阳线，适合与小阳线进行对比记忆。",
-    "keywords": ["中阳线", "上影线", "下影线"],
-    "tags": ["基础", "多头"],
+    "id": "一字",
+    "title": "一字",
+    "image": "/images/kline/一字.png",
+    "description": "开盘、收盘、最高、最低几乎重合，通常意味着价格被强力锁定，常见于极端强弱状态。",
+    "keywords": [
+      "整理形态",
+      "盘整"
+    ],
+    "tags": [
+      "整理形态"
+    ],
     "difficulty": "easy",
-    "hint": "注意实体长度中等，上下影线都不夸张。",
-    "category": "单根K线",
-    "createdAt": "2026-04-01",
-    "updatedAt": "2026-04-10"
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "整理",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
   },
   {
-    "id": "small-bullish",
-    "title": "小阳线",
-    "image": "/images/kline/small-bullish.svg",
-    "description": "实体较短但仍为阳线，表示上涨存在但力度有限，常用于识别趋势中的犹豫推进。",
-    "keywords": ["小阳线", "上影线", "下影线"],
-    "tags": ["基础", "多头"],
-    "difficulty": "easy",
-    "hint": "把它和中阳线、大阳线按实体大小分层记忆。",
-    "category": "单根K线",
-    "createdAt": "2026-04-01",
-    "updatedAt": "2026-04-10"
-  },
-  {
-    "id": "long-bearish",
-    "title": "大阴线",
-    "image": "/images/kline/long-bearish.svg",
-    "description": "实体较长，收盘显著低于开盘，说明卖方力量强，通常代表较明显的下跌压力。",
-    "keywords": ["大阴线", "上影线"],
-    "tags": ["基础", "空头"],
-    "difficulty": "easy",
-    "hint": "先看长实体方向，再看上影线的存在。",
-    "category": "单根K线",
-    "createdAt": "2026-04-01",
-    "updatedAt": "2026-04-10"
-  },
-  {
-    "id": "medium-bearish",
-    "title": "中阴线",
-    "image": "/images/kline/medium-bearish.svg",
-    "description": "阴线实体适中，跌势明显但不极端，适合和大阴线、小阴线做并列区分。",
-    "keywords": ["中阴线", "上影线", "下影线"],
-    "tags": ["基础", "空头"],
-    "difficulty": "easy",
-    "hint": "实体中等，阴线方向明确，但整体波动不算夸张。",
-    "category": "单根K线",
-    "createdAt": "2026-04-01",
-    "updatedAt": "2026-04-10"
-  },
-  {
-    "id": "small-bearish",
-    "title": "小阴线",
-    "image": "/images/kline/small-bearish.svg",
-    "description": "实体较短的阴线，表示卖压存在但力度有限，常和盘整或短暂回调有关。",
-    "keywords": ["小阴线", "下影线"],
-    "tags": ["基础", "空头"],
-    "difficulty": "easy",
-    "hint": "从短实体切入，再看它是收跌而不是收涨。",
-    "category": "单根K线",
-    "createdAt": "2026-04-01",
-    "updatedAt": "2026-04-10"
-  },
-  {
-    "id": "hammer",
-    "title": "锤头线",
-    "image": "/images/kline/hammer.svg",
-    "description": "下影线较长、实体较小，上影线很短或没有，常被视为下跌后的潜在止跌信号。",
-    "keywords": ["小阳线", "下影线"],
-    "tags": ["反转", "多头信号"],
+    "id": "三只乌鸦",
+    "title": "三只乌鸦",
+    "image": "/images/kline/三只乌鸦.png",
+    "description": "三只乌鸦被原始资料归入“下跌和滞涨”类，常见于涨势末端或高位滞涨区域，通常提示见顶或后市转弱。",
+    "keywords": [
+      "看跌信号",
+      "见顶信号",
+      "阴线",
+      "三K线"
+    ],
+    "tags": [
+      "看跌信号",
+      "见顶信号",
+      "反转形态"
+    ],
     "difficulty": "medium",
-    "hint": "长下影线是第一识别点，实体大小是第二识别点。",
-    "category": "反转形态",
-    "createdAt": "2026-04-01",
-    "updatedAt": "2026-04-10"
+    "hint": "记忆点是三根连续走低的阴线，多出现在涨后转弱阶段。",
+    "category": "下跌和滞涨",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
   },
   {
-    "id": "shooting-star",
-    "title": "射击之星",
-    "image": "/images/kline/shooting-star.svg",
-    "description": "上影线较长、实体较小、下影线短，常出现在上涨后，提示上方抛压增强。",
-    "keywords": ["小阴线", "上影线"],
-    "tags": ["反转", "空头信号"],
-    "difficulty": "medium",
-    "hint": "记住是长上影而不是长下影。",
-    "category": "反转形态",
-    "createdAt": "2026-04-01",
-    "updatedAt": "2026-04-10"
-  },
-  {
-    "id": "doji",
-    "title": "十字星",
-    "image": "/images/kline/doji.svg",
-    "description": "开盘价和收盘价接近，实体非常短，通常说明多空暂时均衡，后续需要结合位置观察。",
-    "keywords": ["上影线", "下影线"],
-    "tags": ["平衡", "观察"],
-    "difficulty": "medium",
-    "hint": "核心不是涨跌，而是实体极短接近十字。",
-    "category": "特殊形态",
-    "createdAt": "2026-04-01",
-    "updatedAt": "2026-04-10"
-  },
-  {
-    "id": "marubozu-bullish",
-    "title": "光头光脚阳线",
-    "image": "/images/kline/marubozu-bullish.svg",
-    "description": "几乎没有上下影线的强势阳线，表示从开盘到收盘买方持续主导。",
-    "keywords": ["大阳线"],
-    "tags": ["强趋势", "多头"],
+    "id": "上升三部曲",
+    "title": "上升三部曲",
+    "image": "/images/kline/上升三部曲.png",
+    "description": "上升三部曲被原始资料归入“上升和见底”类，更多出现在上涨过程中的整理或续涨阶段，通常用于观察后市继续看涨的概率。",
+    "keywords": [
+      "看涨信号",
+      "持续形态",
+      "三K线",
+      "多K线"
+    ],
+    "tags": [
+      "看涨信号",
+      "持续形态"
+    ],
     "difficulty": "hard",
-    "hint": "没有影线是记忆重点。",
-    "category": "单根K线",
-    "createdAt": "2026-04-01",
-    "updatedAt": "2026-04-10"
+    "hint": "先数清楚K线根数，再看中间过渡K线和最后确认K线。",
+    "category": "上升和见底",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "上升两颗星",
+    "title": "上升两颗星",
+    "image": "/images/kline/上升两颗星.png",
+    "description": "上升两颗星被原始资料归入“上升和见底”类，更多出现在上涨过程中的整理或续涨阶段，通常用于观察后市继续看涨的概率。",
+    "keywords": [
+      "看涨信号",
+      "持续形态"
+    ],
+    "tags": [
+      "看涨信号",
+      "持续形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "上升和见底",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "上升停顿形",
+    "title": "上升停顿形",
+    "image": "/images/kline/上升停顿形.png",
+    "description": "上升停顿形被原始资料归入“下跌和滞涨”类，更多出现在下跌延续或涨后转弱阶段，用于判断后市继续看跌的概率。",
+    "keywords": [
+      "看跌信号",
+      "持续形态"
+    ],
+    "tags": [
+      "看跌信号",
+      "持续形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "下跌和滞涨",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "上升受阻形",
+    "title": "上升受阻形",
+    "image": "/images/kline/上升受阻形.png",
+    "description": "上升受阻形被原始资料归入“下跌和滞涨”类，更多出现在下跌延续或涨后转弱阶段，用于判断后市继续看跌的概率。",
+    "keywords": [
+      "看跌信号",
+      "持续形态",
+      "长上影"
+    ],
+    "tags": [
+      "看跌信号",
+      "持续形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "下跌和滞涨",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "上升抵抗形",
+    "title": "上升抵抗形",
+    "image": "/images/kline/上升抵抗形.png",
+    "description": "上升抵抗形被原始资料归入“上升和见底”类，更多出现在上涨过程中的整理或续涨阶段，通常用于观察后市继续看涨的概率。",
+    "keywords": [
+      "看涨信号",
+      "持续形态",
+      "长上影"
+    ],
+    "tags": [
+      "看涨信号",
+      "持续形态"
+    ],
+    "difficulty": "hard",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "上升和见底",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "下探上升形",
+    "title": "下探上升形",
+    "image": "/images/kline/下探上升形.png",
+    "description": "下探上升形被原始资料归入“上升和见底”类，更多出现在上涨过程中的整理或续涨阶段，通常用于观察后市继续看涨的概率。",
+    "keywords": [
+      "看涨信号",
+      "持续形态"
+    ],
+    "tags": [
+      "看涨信号",
+      "持续形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "上升和见底",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "下跌三颗星",
+    "title": "下跌三颗星",
+    "image": "/images/kline/下跌三颗星.png",
+    "description": "下跌三颗星被原始资料归入“下跌和滞涨”类，更多出现在下跌延续或涨后转弱阶段，用于判断后市继续看跌的概率。",
+    "keywords": [
+      "看跌信号",
+      "持续形态",
+      "三K线"
+    ],
+    "tags": [
+      "看跌信号",
+      "持续形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先数清楚K线根数，再看中间过渡K线和最后确认K线。",
+    "category": "下跌和滞涨",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "下跌不止形",
+    "title": "下跌不止形",
+    "image": "/images/kline/下跌不止形.png",
+    "description": "下跌不止形被原始资料归入“下跌和滞涨”类，更多出现在下跌延续或涨后转弱阶段，用于判断后市继续看跌的概率。",
+    "keywords": [
+      "看跌信号",
+      "持续形态",
+      "多K线"
+    ],
+    "tags": [
+      "看跌信号",
+      "持续形态"
+    ],
+    "difficulty": "hard",
+    "hint": "先抓整体排列方向，再看是否有跳空、盘旋或加速。",
+    "category": "下跌和滞涨",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "下降三部曲",
+    "title": "下降三部曲",
+    "image": "/images/kline/下降三部曲.png",
+    "description": "下降三部曲被原始资料归入“下跌和滞涨”类，更多出现在下跌延续或涨后转弱阶段，用于判断后市继续看跌的概率。",
+    "keywords": [
+      "看跌信号",
+      "持续形态",
+      "三K线",
+      "多K线"
+    ],
+    "tags": [
+      "看跌信号",
+      "持续形态"
+    ],
+    "difficulty": "hard",
+    "hint": "先数清楚K线根数，再看中间过渡K线和最后确认K线。",
+    "category": "下跌和滞涨",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "下降抵抗形",
+    "title": "下降抵抗形",
+    "image": "/images/kline/下降抵抗形.png",
+    "description": "下降抵抗形被原始资料归入“下跌和滞涨”类，更多出现在下跌延续或涨后转弱阶段，用于判断后市继续看跌的概率。",
+    "keywords": [
+      "看跌信号",
+      "持续形态"
+    ],
+    "tags": [
+      "看跌信号",
+      "持续形态"
+    ],
+    "difficulty": "hard",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "下跌和滞涨",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "下降覆盖线",
+    "title": "下降覆盖线",
+    "image": "/images/kline/下降覆盖线.png",
+    "description": "下降覆盖线被原始资料归入“下跌和滞涨”类，常见于涨势末端或高位滞涨区域，通常提示见顶或后市转弱。",
+    "keywords": [
+      "看跌信号",
+      "见顶信号"
+    ],
+    "tags": [
+      "看跌信号",
+      "见顶信号",
+      "反转形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "下跌和滞涨",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "乌云盖顶",
+    "title": "乌云盖顶",
+    "image": "/images/kline/乌云盖顶.png",
+    "description": "乌云盖顶被原始资料归入“下跌和滞涨”类，常见于涨势末端或高位滞涨区域，通常提示见顶或后市转弱。",
+    "keywords": [
+      "看跌信号",
+      "见顶信号",
+      "阴线",
+      "反转形态"
+    ],
+    "tags": [
+      "看跌信号",
+      "见顶信号",
+      "反转形态"
+    ],
+    "difficulty": "medium",
+    "hint": "看第二根阴线是否深入前一根阳线实体内部。",
+    "category": "下跌和滞涨",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "低位并排阳线",
+    "title": "低位并排阳线",
+    "image": "/images/kline/低位并排阳线.png",
+    "description": "低位并排阳线被原始资料归入“上升和见底”类，更多出现在上涨过程中的整理或续涨阶段，通常用于观察后市继续看涨的概率。",
+    "keywords": [
+      "看涨信号",
+      "持续形态",
+      "阳线",
+      "跳空缺口"
+    ],
+    "tags": [
+      "看涨信号",
+      "持续形态"
+    ],
+    "difficulty": "hard",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "上升和见底",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "低档五阳线",
+    "title": "低档五阳线",
+    "image": "/images/kline/低档五阳线.png",
+    "description": "低档五阳线被原始资料归入“上升和见底”类，更多出现在上涨过程中的整理或续涨阶段，通常用于观察后市继续看涨的概率。",
+    "keywords": [
+      "看涨信号",
+      "持续形态",
+      "阳线"
+    ],
+    "tags": [
+      "看涨信号",
+      "持续形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "上升和见底",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "低档盘旋形",
+    "title": "低档盘旋形",
+    "image": "/images/kline/低档盘旋形.png",
+    "description": "低档盘旋形被原始资料归入“下跌和滞涨”类，更多出现在下跌延续或涨后转弱阶段，用于判断后市继续看跌的概率。",
+    "keywords": [
+      "看跌信号",
+      "持续形态",
+      "多K线",
+      "盘整"
+    ],
+    "tags": [
+      "看跌信号",
+      "持续形态"
+    ],
+    "difficulty": "hard",
+    "hint": "先抓整体排列方向，再看是否有跳空、盘旋或加速。",
+    "category": "下跌和滞涨",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "倒T字",
+    "title": "倒T字",
+    "image": "/images/kline/倒T字.png",
+    "description": "倒T字线上影明显、收盘回到低位附近，若出现在涨势末端，往往提示上方抛压。",
+    "keywords": [
+      "整理形态",
+      "十字星",
+      "长下影",
+      "长上影"
+    ],
+    "tags": [
+      "整理形态"
+    ],
+    "difficulty": "easy",
+    "hint": "核心不是方向，而是开收接近与影线长短。",
+    "category": "整理",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "倒三阳",
+    "title": "倒三阳",
+    "image": "/images/kline/倒三阳.png",
+    "description": "倒三阳被原始资料归入“下跌和滞涨”类，更多出现在下跌延续或涨后转弱阶段，用于判断后市继续看跌的概率。",
+    "keywords": [
+      "看跌信号",
+      "持续形态",
+      "阳线",
+      "三K线"
+    ],
+    "tags": [
+      "看跌信号",
+      "持续形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先数清楚K线根数，再看中间过渡K线和最后确认K线。",
+    "category": "下跌和滞涨",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "倒锤头线",
+    "title": "倒锤头线",
+    "image": "/images/kline/倒锤头线.png",
+    "description": "倒锤头线被原始资料归入“上升和见底”类，常见于下跌末端、止跌区域或上涨初期，用于观察见底或后市转强的概率。",
+    "keywords": [
+      "看涨信号",
+      "见底信号",
+      "反转形态",
+      "长下影"
+    ],
+    "tags": [
+      "看涨信号",
+      "见底信号",
+      "反转形态"
+    ],
+    "difficulty": "easy",
+    "hint": "重点区分长上影和小实体，位置在跌势末端时更有参考价值。",
+    "category": "上升和见底",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "倾盆大雨",
+    "title": "倾盆大雨",
+    "image": "/images/kline/倾盆大雨.png",
+    "description": "倾盆大雨被原始资料归入“下跌和滞涨”类，常见于涨势末端或高位滞涨区域，通常提示见顶或后市转弱。",
+    "keywords": [
+      "看跌信号",
+      "见顶信号"
+    ],
+    "tags": [
+      "看跌信号",
+      "见顶信号",
+      "反转形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "下跌和滞涨",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "冉冉上升形",
+    "title": "冉冉上升形",
+    "image": "/images/kline/冉冉上升形.png",
+    "description": "冉冉上升形被原始资料归入“上升和见底”类，更多出现在上涨过程中的整理或续涨阶段，通常用于观察后市继续看涨的概率。",
+    "keywords": [
+      "看涨信号",
+      "持续形态",
+      "多K线"
+    ],
+    "tags": [
+      "看涨信号",
+      "持续形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先抓整体排列方向，再看是否有跳空、盘旋或加速。",
+    "category": "上升和见底",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "加速度线",
+    "title": "加速度线",
+    "image": "/images/kline/加速度线.png",
+    "description": "价格运行速度明显加快，往往意味着趋势进入末端冲刺或恐慌阶段，需要警惕反向波动。",
+    "keywords": [
+      "整理形态",
+      "多K线",
+      "加速"
+    ],
+    "tags": [
+      "整理形态"
+    ],
+    "difficulty": "hard",
+    "hint": "先抓整体排列方向，再看是否有跳空、盘旋或加速。",
+    "category": "整理",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "十字",
+    "title": "十字",
+    "image": "/images/kline/十字.png",
+    "description": "开盘价与收盘价接近，代表多空短暂平衡，出现在不同位置时可能对应不同方向的转折。",
+    "keywords": [
+      "整理形态",
+      "十字星",
+      "盘整"
+    ],
+    "tags": [
+      "整理形态"
+    ],
+    "difficulty": "easy",
+    "hint": "核心不是方向，而是开收接近与影线长短。",
+    "category": "整理",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "升势鹤鸦缺口",
+    "title": "升势鹤鸦缺口",
+    "image": "/images/kline/升势鹤鸦缺口.png",
+    "description": "升势鹤鸦缺口被原始资料归入“上升和见底”类，更多出现在上涨过程中的整理或续涨阶段，通常用于观察后市继续看涨的概率。",
+    "keywords": [
+      "看涨信号",
+      "持续形态",
+      "跳空缺口"
+    ],
+    "tags": [
+      "看涨信号",
+      "持续形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "上升和见底",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "双飞乌鸦",
+    "title": "双飞乌鸦",
+    "image": "/images/kline/双飞乌鸦.png",
+    "description": "双飞乌鸦被原始资料归入“下跌和滞涨”类，常见于涨势末端或高位滞涨区域，通常提示见顶或后市转弱。",
+    "keywords": [
+      "看跌信号",
+      "见顶信号",
+      "阴线",
+      "三K线"
+    ],
+    "tags": [
+      "看跌信号",
+      "见顶信号",
+      "反转形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先数清楚K线根数，再看中间过渡K线和最后确认K线。",
+    "category": "下跌和滞涨",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "圆底",
+    "title": "圆底",
+    "image": "/images/kline/圆底.png",
+    "description": "圆底被原始资料归入“上升和见底”类，常见于下跌末端、止跌区域或上涨初期，用于观察见底或后市转强的概率。",
+    "keywords": [
+      "看涨信号",
+      "见底信号",
+      "反转形态"
+    ],
+    "tags": [
+      "看涨信号",
+      "见底信号",
+      "反转形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "上升和见底",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "圆顶",
+    "title": "圆顶",
+    "image": "/images/kline/圆顶.png",
+    "description": "圆顶被原始资料归入“下跌和滞涨”类，常见于涨势末端或高位滞涨区域，通常提示见顶或后市转弱。",
+    "keywords": [
+      "看跌信号",
+      "见顶信号",
+      "反转形态"
+    ],
+    "tags": [
+      "看跌信号",
+      "见顶信号",
+      "反转形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "下跌和滞涨",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "塔形底",
+    "title": "塔形底",
+    "image": "/images/kline/塔形底.png",
+    "description": "塔形底被原始资料归入“上升和见底”类，常见于下跌末端、止跌区域或上涨初期，用于观察见底或后市转强的概率。",
+    "keywords": [
+      "看涨信号",
+      "见底信号",
+      "反转形态"
+    ],
+    "tags": [
+      "看涨信号",
+      "见底信号",
+      "反转形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "上升和见底",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "塔形顶",
+    "title": "塔形顶",
+    "image": "/images/kline/塔形顶.png",
+    "description": "塔形顶被原始资料归入“下跌和滞涨”类，常见于涨势末端或高位滞涨区域，通常提示见顶或后市转弱。",
+    "keywords": [
+      "看跌信号",
+      "见顶信号",
+      "反转形态"
+    ],
+    "tags": [
+      "看跌信号",
+      "见顶信号",
+      "反转形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "下跌和滞涨",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "多方尖兵",
+    "title": "多方尖兵",
+    "image": "/images/kline/多方尖兵.png",
+    "description": "多方尖兵被原始资料归入“上升和见底”类，更多出现在上涨过程中的整理或续涨阶段，通常用于观察后市继续看涨的概率。",
+    "keywords": [
+      "看涨信号",
+      "持续形态",
+      "阳线"
+    ],
+    "tags": [
+      "看涨信号",
+      "持续形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "上升和见底",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "多方炮",
+    "title": "多方炮",
+    "image": "/images/kline/多方炮.png",
+    "description": "多方炮被原始资料归入“整理”类，方向需要结合出现位置、前后K线和趋势环境一起判断。",
+    "keywords": [
+      "整理形态",
+      "阳线"
+    ],
+    "tags": [
+      "整理形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "整理",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "大阳线",
+    "title": "大阳线",
+    "image": "/images/kline/大阳线.png",
+    "description": "实体较长的单根阳线，可出现在上涨、整理或止跌后的启动阶段，通常代表买方力量较强。",
+    "keywords": [
+      "整理形态",
+      "阳线"
+    ],
+    "tags": [
+      "整理形态"
+    ],
+    "difficulty": "easy",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "整理",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "大阴线",
+    "title": "大阴线",
+    "image": "/images/kline/大阴线.png",
+    "description": "实体较长的单根阴线，可出现在下跌启动、跌势延续或上涨后的转弱阶段，通常代表卖方力量较强。",
+    "keywords": [
+      "整理形态",
+      "阴线"
+    ],
+    "tags": [
+      "整理形态"
+    ],
+    "difficulty": "easy",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "整理",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "好友反攻",
+    "title": "好友反攻",
+    "image": "/images/kline/好友反攻.png",
+    "description": "好友反攻被原始资料归入“上升和见底”类，常见于下跌末端、止跌区域或上涨初期，用于观察见底或后市转强的概率。",
+    "keywords": [
+      "看涨信号",
+      "见底信号",
+      "反转形态",
+      "双K线"
+    ],
+    "tags": [
+      "看涨信号",
+      "见底信号",
+      "反转形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先比较两根K线的实体包容、并列或反包关系。",
+    "category": "上升和见底",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "小阳线",
+    "title": "小阳线",
+    "image": "/images/kline/小阳线.png",
+    "description": "实体较小的阳线，单独出现时信号有限，更适合结合前后K线位置和组合关系一起判断。",
+    "keywords": [
+      "整理形态",
+      "阳线",
+      "盘整"
+    ],
+    "tags": [
+      "整理形态"
+    ],
+    "difficulty": "easy",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "整理",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "小阴线",
+    "title": "小阴线",
+    "image": "/images/kline/小阴线.png",
+    "description": "实体较小的阴线，常出现在整理或趋势中的短暂回撤阶段，需要结合整体走势判断强弱。",
+    "keywords": [
+      "整理形态",
+      "阴线",
+      "盘整"
+    ],
+    "tags": [
+      "整理形态"
+    ],
+    "difficulty": "easy",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "整理",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "尽头线",
+    "title": "尽头线",
+    "image": "/images/kline/尽头线.png",
+    "description": "大K线后跟随很小的实体，常出现在趋势尾声，提示原趋势动能衰减。",
+    "keywords": [
+      "整理形态",
+      "长上影"
+    ],
+    "tags": [
+      "整理形态"
+    ],
+    "difficulty": "hard",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "整理",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "平底钳子线",
+    "title": "平底钳子线",
+    "image": "/images/kline/平底钳子线.png",
+    "description": "平底钳子线被原始资料归入“上升和见底”类，常见于下跌末端、止跌区域或上涨初期，用于观察见底或后市转强的概率。",
+    "keywords": [
+      "看涨信号",
+      "见底信号"
+    ],
+    "tags": [
+      "看涨信号",
+      "见底信号",
+      "反转形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "上升和见底",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "平顶钳子线",
+    "title": "平顶钳子线",
+    "image": "/images/kline/平顶钳子线.png",
+    "description": "平顶钳子线被原始资料归入“下跌和滞涨”类，常见于涨势末端或高位滞涨区域，通常提示见顶或后市转弱。",
+    "keywords": [
+      "看跌信号",
+      "见顶信号"
+    ],
+    "tags": [
+      "看跌信号",
+      "见顶信号",
+      "反转形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "下跌和滞涨",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "弧形线",
+    "title": "弧形线",
+    "image": "/images/kline/弧形线.png",
+    "description": "弧形线被原始资料归入“上升和见底”类，更多出现在上涨过程中的整理或续涨阶段，通常用于观察后市继续看涨的概率。",
+    "keywords": [
+      "看涨信号",
+      "持续形态",
+      "多K线"
+    ],
+    "tags": [
+      "看涨信号",
+      "持续形态"
+    ],
+    "difficulty": "hard",
+    "hint": "先抓整体排列方向，再看是否有跳空、盘旋或加速。",
+    "category": "上升和见底",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "徐缓上升形",
+    "title": "徐缓上升形",
+    "image": "/images/kline/徐缓上升形.png",
+    "description": "徐缓上升形被原始资料归入“上升和见底”类，更多出现在上涨过程中的整理或续涨阶段，通常用于观察后市继续看涨的概率。",
+    "keywords": [
+      "看涨信号",
+      "持续形态",
+      "多K线"
+    ],
+    "tags": [
+      "看涨信号",
+      "持续形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先抓整体排列方向，再看是否有跳空、盘旋或加速。",
+    "category": "上升和见底",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "徐缓下降形",
+    "title": "徐缓下降形",
+    "image": "/images/kline/徐缓下降形.png",
+    "description": "徐缓下降形被原始资料归入“下跌和滞涨”类，更多出现在下跌延续或涨后转弱阶段，用于判断后市继续看跌的概率。",
+    "keywords": [
+      "看跌信号",
+      "持续形态",
+      "多K线"
+    ],
+    "tags": [
+      "看跌信号",
+      "持续形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先抓整体排列方向，再看是否有跳空、盘旋或加速。",
+    "category": "下跌和滞涨",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "揉搓线",
+    "title": "揉搓线",
+    "image": "/images/kline/揉搓线.png",
+    "description": "一正一反两根T字线组合，重点看长影线切换方向，常用于观察市场是否出现换手和转折。",
+    "keywords": [
+      "整理形态"
+    ],
+    "tags": [
+      "整理形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "整理",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "早晨之星",
+    "title": "早晨之星",
+    "image": "/images/kline/早晨之星.png",
+    "description": "早晨之星被原始资料归入“上升和见底”类，常见于下跌末端、止跌区域或上涨初期，用于观察见底或后市转强的概率。",
+    "keywords": [
+      "看涨信号",
+      "见底信号",
+      "阳线",
+      "反转形态"
+    ],
+    "tags": [
+      "看涨信号",
+      "见底信号",
+      "反转形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先阴后小实体再阳线，是典型底部反转三段式。",
+    "category": "上升和见底",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "早晨十字星",
+    "title": "早晨十字星",
+    "image": "/images/kline/早晨十字星.png",
+    "description": "早晨十字星被原始资料归入“上升和见底”类，常见于下跌末端、止跌区域或上涨初期，用于观察见底或后市转强的概率。",
+    "keywords": [
+      "看涨信号",
+      "见底信号",
+      "阳线",
+      "十字星"
+    ],
+    "tags": [
+      "看涨信号",
+      "见底信号",
+      "反转形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先看三根K线结构，再看中间那根十字线是否出现在跌势末端。",
+    "category": "上升和见底",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "旭日东升",
+    "title": "旭日东升",
+    "image": "/images/kline/旭日东升.png",
+    "description": "旭日东升被原始资料归入“上升和见底”类，常见于下跌末端、止跌区域或上涨初期，用于观察见底或后市转强的概率。",
+    "keywords": [
+      "看涨信号",
+      "见底信号",
+      "阳线"
+    ],
+    "tags": [
+      "看涨信号",
+      "见底信号",
+      "反转形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "上升和见底",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "曙光初现",
+    "title": "曙光初现",
+    "image": "/images/kline/曙光初现.png",
+    "description": "曙光初现被原始资料归入“上升和见底”类，常见于下跌末端、止跌区域或上涨初期，用于观察见底或后市转强的概率。",
+    "keywords": [
+      "看涨信号",
+      "见底信号",
+      "阳线"
+    ],
+    "tags": [
+      "看涨信号",
+      "见底信号",
+      "反转形态"
+    ],
+    "difficulty": "medium",
+    "hint": "重点看阳线收盘是否深入前一根阴线实体的一半以上。",
+    "category": "上升和见底",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "淡友反攻",
+    "title": "淡友反攻",
+    "image": "/images/kline/淡友反攻.png",
+    "description": "淡友反攻被原始资料归入“下跌和滞涨”类，常见于涨势末端或高位滞涨区域，通常提示见顶或后市转弱。",
+    "keywords": [
+      "看跌信号",
+      "见顶信号",
+      "阴线",
+      "反转形态"
+    ],
+    "tags": [
+      "看跌信号",
+      "见顶信号",
+      "反转形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "下跌和滞涨",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "稳步上升形",
+    "title": "稳步上升形",
+    "image": "/images/kline/稳步上升形.png",
+    "description": "稳步上升形被原始资料归入“上升和见底”类，更多出现在上涨过程中的整理或续涨阶段，通常用于观察后市继续看涨的概率。",
+    "keywords": [
+      "看涨信号",
+      "持续形态",
+      "多K线"
+    ],
+    "tags": [
+      "看涨信号",
+      "持续形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先抓整体排列方向，再看是否有跳空、盘旋或加速。",
+    "category": "上升和见底",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "空方尖兵",
+    "title": "空方尖兵",
+    "image": "/images/kline/空方尖兵.png",
+    "description": "空方尖兵被原始资料归入“下跌和滞涨”类，更多出现在下跌延续或涨后转弱阶段，用于判断后市继续看跌的概率。",
+    "keywords": [
+      "看跌信号",
+      "持续形态",
+      "阴线"
+    ],
+    "tags": [
+      "看跌信号",
+      "持续形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "下跌和滞涨",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "空方炮",
+    "title": "空方炮",
+    "image": "/images/kline/空方炮.png",
+    "description": "空方炮被原始资料归入“整理”类，方向需要结合出现位置、前后K线和趋势环境一起判断。",
+    "keywords": [
+      "整理形态",
+      "阴线"
+    ],
+    "tags": [
+      "整理形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "整理",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "穿头破脚",
+    "title": "穿头破脚",
+    "image": "/images/kline/穿头破脚.png",
+    "description": "后一根K线实体完全包住前一根实体，是典型吞没结构，放在趋势末端时信号更强。",
+    "keywords": [
+      "整理形态",
+      "反转形态",
+      "双K线"
+    ],
+    "tags": [
+      "整理形态"
+    ],
+    "difficulty": "hard",
+    "hint": "先比较两根K线的实体包容、并列或反包关系。",
+    "category": "整理",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "红三兵",
+    "title": "红三兵",
+    "image": "/images/kline/红三兵.png",
+    "description": "红三兵被原始资料归入“上升和见底”类，更多出现在上涨过程中的整理或续涨阶段，通常用于观察后市继续看涨的概率。",
+    "keywords": [
+      "看涨信号",
+      "持续形态",
+      "阳线",
+      "三K线"
+    ],
+    "tags": [
+      "看涨信号",
+      "持续形态"
+    ],
+    "difficulty": "medium",
+    "hint": "记忆点是三根连续创新高的小阳线。",
+    "category": "上升和见底",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "绵绵阴跌形",
+    "title": "绵绵阴跌形",
+    "image": "/images/kline/绵绵阴跌形.png",
+    "description": "绵绵阴跌形被原始资料归入“下跌和滞涨”类，更多出现在下跌延续或涨后转弱阶段，用于判断后市继续看跌的概率。",
+    "keywords": [
+      "看跌信号",
+      "持续形态",
+      "阴线"
+    ],
+    "tags": [
+      "看跌信号",
+      "持续形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "下跌和滞涨",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "螺旋桨",
+    "title": "螺旋桨",
+    "image": "/images/kline/螺旋桨.png",
+    "description": "实体很小而上下影线很长，表示盘中多空激烈争夺，位置决定其偏多还是偏空。",
+    "keywords": [
+      "整理形态",
+      "盘整"
+    ],
+    "tags": [
+      "整理形态"
+    ],
+    "difficulty": "easy",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "整理",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "跳空下降三颗星",
+    "title": "跳空下降三颗星",
+    "image": "/images/kline/跳空下降三颗星.png",
+    "description": "跳空下降三颗星被原始资料归入“上升和见底”类，常见于下跌末端、止跌区域或上涨初期，用于观察见底或后市转强的概率。",
+    "keywords": [
+      "看涨信号",
+      "见底信号",
+      "跳空缺口",
+      "三K线"
+    ],
+    "tags": [
+      "看涨信号",
+      "见底信号",
+      "反转形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先数清楚K线根数，再看中间过渡K线和最后确认K线。",
+    "category": "上升和见底",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "身怀六甲",
+    "title": "身怀六甲",
+    "image": "/images/kline/身怀六甲.png",
+    "description": "长实体包住小实体的经典孕线结构，常出现在趋势运行中，提示原有趋势可能放缓或反转。",
+    "keywords": [
+      "整理形态",
+      "反转形态",
+      "双K线"
+    ],
+    "tags": [
+      "整理形态"
+    ],
+    "difficulty": "hard",
+    "hint": "先比较两根K线的实体包容、并列或反包关系。",
+    "category": "整理",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "连续三阴线",
+    "title": "连续三阴线",
+    "image": "/images/kline/连续三阴线.png",
+    "description": "连续三阴线被原始资料归入“下跌和滞涨”类，更多出现在下跌延续或涨后转弱阶段，用于判断后市继续看跌的概率。",
+    "keywords": [
+      "看跌信号",
+      "持续形态",
+      "阴线",
+      "三K线"
+    ],
+    "tags": [
+      "看跌信号",
+      "持续形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先数清楚K线根数，再看中间过渡K线和最后确认K线。",
+    "category": "下跌和滞涨",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "连续跳空三阳线",
+    "title": "连续跳空三阳线",
+    "image": "/images/kline/连续跳空三阳线.png",
+    "description": "连续跳空三阳线被原始资料归入“下跌和滞涨”类，更多出现在下跌延续或涨后转弱阶段，用于判断后市继续看跌的概率。",
+    "keywords": [
+      "看跌信号",
+      "持续形态",
+      "阳线",
+      "跳空缺口"
+    ],
+    "tags": [
+      "看跌信号",
+      "持续形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "下跌和滞涨",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "连续跳空三阴线",
+    "title": "连续跳空三阴线",
+    "image": "/images/kline/连续跳空三阴线.png",
+    "description": "连续跳空三阴线被原始资料归入“上升和见底”类，常见于下跌末端、止跌区域或上涨初期，用于观察见底或后市转强的概率。",
+    "keywords": [
+      "看涨信号",
+      "见底信号",
+      "阴线",
+      "跳空缺口"
+    ],
+    "tags": [
+      "看涨信号",
+      "见底信号",
+      "反转形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "上升和见底",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "锤头线",
+    "title": "锤头线",
+    "image": "/images/kline/锤头线.png",
+    "description": "锤头线被原始资料归入“上升和见底”类，常见于下跌末端、止跌区域或上涨初期，用于观察见底或后市转强的概率。",
+    "keywords": [
+      "看涨信号",
+      "见底信号",
+      "反转形态",
+      "长下影"
+    ],
+    "tags": [
+      "看涨信号",
+      "见底信号",
+      "反转形态"
+    ],
+    "difficulty": "easy",
+    "hint": "先记住小实体加长下影，再判断它是否出现在跌势末端。",
+    "category": "上升和见底",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "镊子线",
+    "title": "镊子线",
+    "image": "/images/kline/镊子线.png",
+    "description": "两根或多根K线在高点或低点接近同一水平，常被用来确认阶段性阻力或支撑。",
+    "keywords": [
+      "整理形态",
+      "反转形态",
+      "双K线"
+    ],
+    "tags": [
+      "整理形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先比较两根K线的实体包容、并列或反包关系。",
+    "category": "整理",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "长十字",
+    "title": "长十字",
+    "image": "/images/kline/长十字.png",
+    "description": "长十字通常意味着震荡放大、分歧增强，若出现在趋势末端，常被视为转折观察点。",
+    "keywords": [
+      "整理形态",
+      "十字星",
+      "盘整"
+    ],
+    "tags": [
+      "整理形态"
+    ],
+    "difficulty": "easy",
+    "hint": "核心不是方向，而是开收接近与影线长短。",
+    "category": "整理",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "阳线跛脚",
+    "title": "阳线跛脚",
+    "image": "/images/kline/阳线跛脚.png",
+    "description": "阳线跛脚被原始资料归入“下跌和滞涨”类，更多出现在下跌延续或涨后转弱阶段，用于判断后市继续看跌的概率。",
+    "keywords": [
+      "看跌信号",
+      "持续形态",
+      "阳线"
+    ],
+    "tags": [
+      "看跌信号",
+      "持续形态"
+    ],
+    "difficulty": "hard",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "下跌和滞涨",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "高位并排阳线",
+    "title": "高位并排阳线",
+    "image": "/images/kline/高位并排阳线.png",
+    "description": "高位并排阳线被原始资料归入“上升和见底”类，更多出现在上涨过程中的整理或续涨阶段，通常用于观察后市继续看涨的概率。",
+    "keywords": [
+      "看涨信号",
+      "持续形态",
+      "阳线",
+      "跳空缺口"
+    ],
+    "tags": [
+      "看涨信号",
+      "持续形态"
+    ],
+    "difficulty": "hard",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "上升和见底",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "高开出逃形",
+    "title": "高开出逃形",
+    "image": "/images/kline/高开出逃形.png",
+    "description": "高开出逃形被原始资料归入“下跌和滞涨”类，常见于涨势末端或高位滞涨区域，通常提示见顶或后市转弱。",
+    "keywords": [
+      "看跌信号",
+      "见顶信号"
+    ],
+    "tags": [
+      "看跌信号",
+      "见顶信号",
+      "反转形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "下跌和滞涨",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "高档五阴线",
+    "title": "高档五阴线",
+    "image": "/images/kline/高档五阴线.png",
+    "description": "高档五阴线被原始资料归入“下跌和滞涨”类，常见于涨势末端或高位滞涨区域，通常提示见顶或后市转弱。",
+    "keywords": [
+      "看跌信号",
+      "见顶信号",
+      "阴线"
+    ],
+    "tags": [
+      "看跌信号",
+      "见顶信号",
+      "反转形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先看它出现的位置，再结合实体、影线和前后K线关系记忆。",
+    "category": "下跌和滞涨",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "高档盘旋形",
+    "title": "高档盘旋形",
+    "image": "/images/kline/高档盘旋形.png",
+    "description": "高档盘旋形被原始资料归入“整理”类，方向需要结合出现位置、前后K线和趋势环境一起判断。",
+    "keywords": [
+      "整理形态",
+      "多K线",
+      "盘整"
+    ],
+    "tags": [
+      "整理形态"
+    ],
+    "difficulty": "hard",
+    "hint": "先抓整体排列方向，再看是否有跳空、盘旋或加速。",
+    "category": "整理",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "黄昏之星",
+    "title": "黄昏之星",
+    "image": "/images/kline/黄昏之星.png",
+    "description": "黄昏之星被原始资料归入“下跌和滞涨”类，常见于涨势末端或高位滞涨区域，通常提示见顶或后市转弱。",
+    "keywords": [
+      "看跌信号",
+      "见顶信号",
+      "阴线",
+      "反转形态"
+    ],
+    "tags": [
+      "看跌信号",
+      "见顶信号",
+      "反转形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先阳后小实体再阴线，是顶部反转三段式。",
+    "category": "下跌和滞涨",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "黄昏十字星",
+    "title": "黄昏十字星",
+    "image": "/images/kline/黄昏十字星.png",
+    "description": "黄昏十字星被原始资料归入“下跌和滞涨”类，常见于涨势末端或高位滞涨区域，通常提示见顶或后市转弱。",
+    "keywords": [
+      "看跌信号",
+      "见顶信号",
+      "阴线",
+      "十字星"
+    ],
+    "tags": [
+      "看跌信号",
+      "见顶信号",
+      "反转形态"
+    ],
+    "difficulty": "medium",
+    "hint": "和早晨十字星相反，重点观察涨势末端的十字线与后续阴线。",
+    "category": "下跌和滞涨",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
+  },
+  {
+    "id": "黑三兵",
+    "title": "黑三兵",
+    "image": "/images/kline/黑三兵.png",
+    "description": "黑三兵被原始资料归入“下跌和滞涨”类，更多出现在下跌延续或涨后转弱阶段，用于判断后市继续看跌的概率。",
+    "keywords": [
+      "看跌信号",
+      "持续形态",
+      "三K线"
+    ],
+    "tags": [
+      "看跌信号",
+      "持续形态"
+    ],
+    "difficulty": "medium",
+    "hint": "先数清楚K线根数，再看中间过渡K线和最后确认K线。",
+    "category": "下跌和滞涨",
+    "createdAt": "2026-04-16",
+    "updatedAt": "2026-04-16"
   }
 ]
