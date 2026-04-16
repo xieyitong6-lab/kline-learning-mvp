@@ -66,7 +66,6 @@ export function PracticeClient() {
   const fillBlankQuestion = question.practice?.fillBlankQuestion;
   const titleOptions = nameQuestion?.options ?? buildTitleOptions(question.id);
   const blanks: PracticeBlank[] = fillBlankQuestion?.blanks ?? [];
-  const progressLabel = `${questionNumber} / ${allKlineItems.length}`;
 
   const resetQuestion = (nextQuestion: KlineItem) => {
     setQuestion(nextQuestion);
@@ -104,7 +103,11 @@ export function PracticeClient() {
         title: question.title,
         attemptedAt: new Date().toISOString(),
         titleCorrect: isTitleCorrect,
-        keywordStatus: allBlankCorrect ? "correct" : feedback.some((item) => item.correct) ? "partial" : "wrong",
+        keywordStatus: allBlankCorrect
+          ? "correct"
+          : feedback.some((item) => item.correct)
+            ? "partial"
+            : "wrong",
         selectedKeywords: feedback.map((item) => item.userAnswer).filter(Boolean),
       },
       isTitleCorrect && allBlankCorrect,
@@ -126,26 +129,31 @@ export function PracticeClient() {
           返回
         </Link>
         <p className="text-sm text-slate-600">当前题号 {questionNumber}</p>
-        <p className="text-sm text-slate-500">进度 {progressLabel}</p>
+        <p className="text-sm text-slate-500">
+          进度 {questionNumber} / {allKlineItems.length}
+        </p>
       </div>
 
-      <SectionCard className="p-5 md:p-6">
-        <div className="grid gap-6 lg:grid-cols-[0.55fr_0.45fr] lg:items-start">
-          <div className="space-y-5">
-            <div className="rounded-[28px] border border-slate-200 bg-slate-50 p-4">
-              <div className="rounded-[24px] bg-white p-4 shadow-sm">
-                <Image
-                  src={question.image}
-                  alt={question.title}
-                  width={720}
-                  height={480}
-                  className="h-auto w-full rounded-2xl border border-slate-100"
-                />
-              </div>
+      <div className="grid gap-6 lg:grid-cols-[0.48fr_0.52fr] lg:items-start">
+        <SectionCard className="p-5 md:p-6">
+          <div className="rounded-[28px] border border-slate-200 bg-slate-50 p-4">
+            <div className="rounded-[24px] bg-white p-4 shadow-sm">
+              <Image
+                src={question.image}
+                alt={question.title}
+                width={760}
+                height={560}
+                priority
+                className="h-auto w-full rounded-2xl border border-slate-100"
+              />
             </div>
+          </div>
+        </SectionCard>
 
+        <SectionCard className="p-5 md:p-6">
+          <div className="space-y-5">
             <div className="rounded-[24px] border border-slate-200 bg-white p-5">
-              <p className="text-sm font-semibold text-slate-900">题目 1：这是什么形态？</p>
+              <p className="text-sm font-semibold text-slate-900">题目1：这是什么形态？</p>
               <div className="mt-4 grid gap-3 sm:grid-cols-2">
                 {titleOptions.map((option) => (
                   <button
@@ -165,7 +173,9 @@ export function PracticeClient() {
             </div>
 
             <div className="rounded-[24px] border border-slate-200 bg-white p-5">
-              <p className="text-sm font-semibold text-slate-900">题目 2：根据该形态的结构描述完成填空</p>
+              <p className="text-sm font-semibold text-slate-900">
+                题目2：基于该形态资料中的 feature 原文完成填空
+              </p>
               <p className="mt-3 text-sm leading-7 text-slate-600">
                 {fillBlankQuestion?.intro ?? "请根据该形态资料中的特征原文完成填空。"}
               </p>
@@ -200,75 +210,74 @@ export function PracticeClient() {
                 )}
               </div>
             </div>
-          </div>
 
-          <div className="rounded-[28px] border border-slate-200 bg-white p-5">
-            {!submitted ? (
-              <div className="space-y-3">
-                <p className="text-sm font-semibold text-slate-900">反馈区</p>
-                <p className="text-sm leading-7 text-slate-500">提交前不显示答案。</p>
-              </div>
-            ) : (
-              <div className="space-y-5">
-                <div>
-                  <p className="text-sm font-semibold text-slate-900">名称识别</p>
-                  <p className={`mt-2 text-sm ${titleCorrect ? "text-emerald-700" : "text-rose-700"}`}>
-                    {titleCorrect ? "名称识别正确" : "名称识别错误"}
-                  </p>
-                  <p className="mt-1 text-sm text-slate-600">正确答案：{question.title}</p>
-                </div>
+            <div>
+              <button
+                onClick={handleSubmit}
+                disabled={submitted || !selectedTitle}
+                className="rounded-2xl bg-slate-950 px-6 py-3 text-sm font-medium text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:bg-slate-300"
+              >
+                提交答案
+              </button>
+            </div>
 
-                <div>
-                  <p className="text-sm font-semibold text-slate-900">填空反馈</p>
-                  <div className="mt-3 space-y-3">
-                    {blankFeedback.length > 0 ? (
-                      blankFeedback.map((item) => (
-                        <div key={item.id} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                          <p className="text-sm font-medium text-slate-900">{item.label}</p>
-                          <p className="mt-2 text-sm text-slate-600">
-                            你的答案：{item.userAnswer || "未填写"}
-                          </p>
-                          <p className="mt-1 text-sm text-slate-600">
-                            正确答案：{item.correctAnswers.join(" / ")}
-                          </p>
-                          <p className={`mt-1 text-sm ${item.correct ? "text-emerald-700" : "text-rose-700"}`}>
-                            {item.correct ? "判定：正确" : "判定：错误"}
-                          </p>
-                        </div>
-                      ))
-                    ) : (
-                      <p className="text-sm text-slate-400">当前题目没有填空反馈。</p>
-                    )}
+            {submitted && (
+              <div className="rounded-[24px] border border-slate-200 bg-white p-5">
+                <div className="space-y-5">
+                  <div>
+                    <p className="text-sm font-semibold text-slate-900">反馈</p>
+                    <p
+                      className={`mt-2 text-sm ${titleCorrect ? "text-emerald-700" : "text-rose-700"}`}
+                    >
+                      {titleCorrect ? "名称识别正确" : "名称识别错误"}
+                    </p>
+                    <p className="mt-1 text-sm text-slate-600">正确答案：{question.title}</p>
                   </div>
-                </div>
 
-                <div>
-                  <p className="text-sm font-semibold text-slate-900">解析</p>
-                  <p className="mt-2 whitespace-pre-line text-sm leading-7 text-slate-700">
-                    {fillBlankQuestion?.explanation || "当前资料没有解析原文。"}
-                  </p>
-                </div>
+                  <div>
+                    <p className="text-sm font-semibold text-slate-900">每个填空的判定</p>
+                    <div className="mt-3 space-y-3">
+                      {blankFeedback.length > 0 ? (
+                        blankFeedback.map((item) => (
+                          <div key={item.id} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                            <p className="text-sm font-medium text-slate-900">{item.label}</p>
+                            <p className="mt-2 text-sm text-slate-600">
+                              你的答案：{item.userAnswer || "未填写"}
+                            </p>
+                            <p className="mt-1 text-sm text-slate-600">
+                              正确答案：{item.correctAnswers.join(" / ")}
+                            </p>
+                            <p
+                              className={`mt-1 text-sm ${item.correct ? "text-emerald-700" : "text-rose-700"}`}
+                            >
+                              {item.correct ? "判定：正确" : "判定：错误"}
+                            </p>
+                          </div>
+                        ))
+                      ) : (
+                        <p className="text-sm text-slate-400">当前题目没有填空反馈。</p>
+                      )}
+                    </div>
+                  </div>
 
-                <button
-                  onClick={handleNextQuestion}
-                  className="rounded-2xl bg-slate-950 px-5 py-3 text-sm font-medium text-white transition hover:bg-slate-800"
-                >
-                  下一题
-                </button>
+                  <div>
+                    <p className="text-sm font-semibold text-slate-900">解析</p>
+                    <p className="mt-2 whitespace-pre-line text-sm leading-7 text-slate-700">
+                      {fillBlankQuestion?.explanation || "当前资料没有解析原文。"}
+                    </p>
+                  </div>
+
+                  <button
+                    onClick={handleNextQuestion}
+                    className="rounded-2xl bg-slate-950 px-5 py-3 text-sm font-medium text-white transition hover:bg-slate-800"
+                  >
+                    下一题
+                  </button>
+                </div>
               </div>
             )}
           </div>
-        </div>
-      </SectionCard>
-
-      <div>
-        <button
-          onClick={handleSubmit}
-          disabled={submitted || !selectedTitle}
-          className="rounded-2xl bg-slate-950 px-6 py-3 text-sm font-medium text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:bg-slate-300"
-        >
-          提交答案
-        </button>
+        </SectionCard>
       </div>
     </div>
   );
