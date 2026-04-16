@@ -41,7 +41,7 @@ function renderTemplate(template: string) {
       return (
         <span
           key={`${part}-${index}`}
-          className="mx-0.5 inline-flex min-w-8 items-center justify-center rounded border-b-2 border-[#87B5AC] px-1.5 py-0.5 text-xs font-medium text-[#7A9D95]"
+          className="mx-0.5 inline-flex min-w-8 items-center justify-center rounded border-b-2 border-[#6AB88A] px-1.5 py-0.5 text-xs font-medium text-[#4A8C6A]"
         >
           {part}
         </span>
@@ -128,15 +128,15 @@ export function PracticeClient() {
   return (
     <div className="space-y-4">
       {/* 顶部栏 */}
-      <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-[#E2EBE8] bg-white px-5 py-3 shadow-[0_1px_4px_rgba(45,90,78,0.06)]">
+      <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-white/55 bg-white/65 px-5 py-3 shadow-[0_2px_16px_rgba(45,90,60,0.07)] backdrop-blur">
         <Link
           href="/"
-          className="rounded-lg border border-[#C5DDD7] px-3 py-1.5 text-xs font-medium text-[#3D6B5E] transition-colors hover:bg-[#EBF4F1]"
+          className="rounded-lg border border-white/60 bg-white/50 px-3 py-1.5 text-xs font-medium text-[#2D5A40] backdrop-blur-sm transition-colors hover:bg-white/68"
         >
           ← 返回
         </Link>
-        <p className="text-sm font-semibold text-[#1A1A1A]">第 {questionNumber} 题</p>
-        <p className="text-xs text-[#87B5AC]">
+        <p className="text-sm font-semibold text-[#1A2C1E]">第 {questionNumber} 题</p>
+        <p className="text-xs text-[#6A9A7A]">
           {questionNumber} / {allKlineItems.length}
         </p>
       </div>
@@ -144,7 +144,7 @@ export function PracticeClient() {
       {/* 主内容区 */}
       <div className="grid gap-4 lg:grid-cols-[0.48fr_0.52fr] lg:items-start">
         {/* 左：图片 */}
-        <div className="overflow-hidden rounded-2xl border border-[#E2EBE8] bg-[#EBF4F1] shadow-[0_1px_4px_rgba(45,90,78,0.06)]">
+        <div className="overflow-hidden rounded-2xl border border-white/55 bg-white/80 shadow-[0_4px_24px_rgba(45,90,60,0.08)] backdrop-blur-sm">
           <Image
             src={question.image}
             alt={question.title}
@@ -161,19 +161,19 @@ export function PracticeClient() {
             {step === "name" && (
               <div className="space-y-5">
                 <div>
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-[#87B5AC]">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-[#6AB88A]">
                     题目一
                   </p>
-                  <p className="mt-1.5 text-sm font-medium text-[#1A1A1A]">这是什么形态？</p>
+                  <p className="mt-1.5 text-sm font-medium text-[#1A2C1E]">这是什么形态？</p>
                   <div className="mt-4 grid gap-2 sm:grid-cols-2">
                     {titleOptions.map((option) => (
                       <button
                         key={option}
                         onClick={() => setSelectedTitle(option)}
-                        className={`rounded-lg border px-4 py-3 text-left text-sm transition-colors ${
+                        className={`rounded-lg border px-4 py-3 text-left text-sm transition-all ${
                           selectedTitle === option
-                            ? "border-[#5B9080] bg-[#5B9080] text-white"
-                            : "border-[#E2EBE8] bg-white text-[#3A3A3A] hover:border-[#B8D8D0] hover:bg-[#EBF4F1]"
+                            ? "border-[#4A8C6A] bg-[#4A8C6A] text-white shadow-[0_2px_10px_rgba(74,140,106,0.30)]"
+                            : "border-white/60 bg-white/60 text-[#3D5A46] hover:border-[#A8D5B8] hover:bg-white/80"
                         }`}
                       >
                         {option}
@@ -185,7 +185,7 @@ export function PracticeClient() {
                 <button
                   onClick={handleNextStep}
                   disabled={!selectedTitle}
-                  className="rounded-lg bg-[#5B9080] px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#4A7A6C] disabled:cursor-not-allowed disabled:opacity-40"
+                  className="rounded-lg bg-[#4A8C6A] px-5 py-2.5 text-sm font-medium text-white shadow-[0_2px_12px_rgba(74,140,106,0.35)] transition-all hover:bg-[#3D7A5A] hover:shadow-[0_4px_16px_rgba(74,140,106,0.40)] disabled:cursor-not-allowed disabled:opacity-40 disabled:shadow-none"
                 >
                   下一步
                 </button>
@@ -195,15 +195,15 @@ export function PracticeClient() {
             {step === "fill" && (
               <div className="space-y-5">
                 <div>
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-[#87B5AC]">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-[#6AB88A]">
                     题目二
                   </p>
-                  <p className="mt-1.5 text-sm font-medium text-[#1A1A1A]">根据特征填空</p>
-                  <p className="mt-2 text-sm leading-6 text-[#7A9D95]">
+                  <p className="mt-1.5 text-sm font-medium text-[#1A2C1E]">根据特征填空</p>
+                  <p className="mt-2 text-sm leading-6 text-[#6A9A7A]">
                     {fillBlankQuestion?.intro ?? "请根据该形态资料中的特征原文完成填空。"}
                   </p>
 
-                  <div className="mt-3 rounded-lg bg-[#EBF4F1] px-4 py-3.5 text-sm leading-8 text-[#3D6B5E]">
+                  <div className="mt-3 rounded-xl border border-white/50 bg-white/40 px-4 py-3.5 text-sm leading-8 text-[#3D5A46] backdrop-blur-sm">
                     {fillBlankQuestion?.template
                       ? renderTemplate(fillBlankQuestion.template)
                       : "当前资料尚未录入可用的填空模板。"}
@@ -213,7 +213,7 @@ export function PracticeClient() {
                     {blanks.length > 0 ? (
                       blanks.map((blank) => (
                         <label key={blank.id} className="block">
-                          <p className="text-xs text-[#7A9D95]">{blank.label}</p>
+                          <p className="text-xs text-[#6A9A7A]">{blank.label}</p>
                           <input
                             value={blankAnswers[blank.id] ?? ""}
                             onChange={(event) =>
@@ -223,19 +223,19 @@ export function PracticeClient() {
                               }))
                             }
                             placeholder={blank.placeholder ?? `请输入${blank.label}`}
-                            className="mt-1.5 w-full rounded-lg border border-[#D4ECE7] bg-white px-3.5 py-2.5 text-sm text-[#1A1A1A] outline-none transition focus:border-[#5B9080] focus:ring-2 focus:ring-[#5B9080]/10 placeholder:text-[#B8D8D0]"
+                            className="mt-1.5 w-full rounded-lg border border-white/60 bg-white/90 px-3.5 py-2.5 text-sm text-[#1A2C1E] outline-none transition focus:border-[#4A8C6A] focus:bg-white focus:ring-2 focus:ring-[#4A8C6A]/12 placeholder:text-[#A8C8B4]"
                           />
                         </label>
                       ))
                     ) : (
-                      <p className="text-sm text-[#B8D8D0]">当前资料尚未生成填空题。</p>
+                      <p className="text-sm text-[#8ABCA0]">当前资料尚未生成填空题。</p>
                     )}
                   </div>
                 </div>
 
                 <button
                   onClick={handleSubmit}
-                  className="rounded-lg bg-[#5B9080] px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#4A7A6C]"
+                  className="rounded-lg bg-[#4A8C6A] px-5 py-2.5 text-sm font-medium text-white shadow-[0_2px_12px_rgba(74,140,106,0.35)] transition-all hover:bg-[#3D7A5A] hover:shadow-[0_4px_16px_rgba(74,140,106,0.40)]"
                 >
                   提交
                 </button>
@@ -246,21 +246,21 @@ export function PracticeClient() {
               <div className="space-y-5">
                 <div className="space-y-4">
                   <div>
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-[#87B5AC]">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-[#6AB88A]">
                       名称识别
                     </p>
                     <p
                       className={`mt-1.5 text-sm font-medium ${
-                        titleCorrect ? "text-[#3D6B5E]" : "text-rose-600"
+                        titleCorrect ? "text-[#2D5A40]" : "text-rose-600"
                       }`}
                     >
                       {titleCorrect ? "✓ 回答正确" : "✗ 回答错误"}
                     </p>
-                    <p className="mt-0.5 text-sm text-[#7A9D95]">正确答案：{question.title}</p>
+                    <p className="mt-0.5 text-sm text-[#6A9A7A]">正确答案：{question.title}</p>
                   </div>
 
                   <div>
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-[#87B5AC]">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-[#6AB88A]">
                       填空反馈
                     </p>
                     <div className="mt-2 space-y-2">
@@ -268,22 +268,22 @@ export function PracticeClient() {
                         blankFeedback.map((item) => (
                           <div
                             key={item.id}
-                            className={`rounded-lg border p-3.5 ${
+                            className={`rounded-xl border p-3.5 ${
                               item.correct
-                                ? "border-[#B8D8D0] bg-[#EBF4F1]"
-                                : "border-rose-200 bg-rose-50"
+                                ? "border-[#A8D5B8]/60 bg-white/50"
+                                : "border-rose-200/70 bg-rose-50/70"
                             }`}
                           >
-                            <p className="text-xs font-medium text-[#4A5568]">{item.label}</p>
-                            <p className="mt-1.5 text-sm text-[#4A5568]">
+                            <p className="text-xs font-medium text-[#3D5A46]">{item.label}</p>
+                            <p className="mt-1.5 text-sm text-[#3D5A46]">
                               你的答案：{item.userAnswer || "未填写"}
                             </p>
-                            <p className="mt-0.5 text-sm text-[#4A5568]">
+                            <p className="mt-0.5 text-sm text-[#3D5A46]">
                               正确答案：{item.correctAnswers.join(" / ")}
                             </p>
                             <p
                               className={`mt-1 text-xs font-medium ${
-                                item.correct ? "text-[#2D5A4E]" : "text-rose-700"
+                                item.correct ? "text-[#2D5A40]" : "text-rose-700"
                               }`}
                             >
                               {item.correct ? "判定：正确" : "判定：错误"}
@@ -291,16 +291,16 @@ export function PracticeClient() {
                           </div>
                         ))
                       ) : (
-                        <p className="text-sm text-[#B8D8D0]">当前题目没有填空反馈。</p>
+                        <p className="text-sm text-[#8ABCA0]">当前题目没有填空反馈。</p>
                       )}
                     </div>
                   </div>
 
                   <div>
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-[#87B5AC]">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-[#6AB88A]">
                       解析
                     </p>
-                    <p className="mt-1.5 whitespace-pre-line text-sm leading-7 text-[#4A5568]">
+                    <p className="mt-1.5 whitespace-pre-line text-sm leading-7 text-[#3D5A46]">
                       {fillBlankQuestion?.explanation || "当前资料没有解析原文。"}
                     </p>
                   </div>
@@ -308,7 +308,7 @@ export function PracticeClient() {
 
                 <button
                   onClick={handleNextQuestion}
-                  className="rounded-lg bg-[#5B9080] px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#4A7A6C]"
+                  className="rounded-lg bg-[#4A8C6A] px-5 py-2.5 text-sm font-medium text-white shadow-[0_2px_12px_rgba(74,140,106,0.35)] transition-all hover:bg-[#3D7A5A] hover:shadow-[0_4px_16px_rgba(74,140,106,0.40)]"
                 >
                   下一题
                 </button>

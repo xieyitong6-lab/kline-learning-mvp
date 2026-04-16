@@ -32,18 +32,18 @@ export function OverviewPanel() {
         {metricLabels.map((metric) => (
           <div
             key={metric.key}
-            className="rounded-xl bg-[#F0F6F4] px-4 py-4"
+            className="rounded-xl border border-white/50 bg-white/45 px-4 py-4 backdrop-blur-sm"
           >
-            <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-[#87B5AC]">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-[#6AB88A]">
               {metric.label}
             </p>
-            <p className="mt-2.5 font-mono text-2xl font-semibold text-[#2D5A4E]">
+            <p className="mt-2.5 font-mono text-2xl font-semibold text-[#2D5A40]">
               {progress[metric.key]}
             </p>
           </div>
         ))}
-        <div className="rounded-xl bg-[#5B9080] px-4 py-4">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-[#A8D5C8]">
+        <div className="rounded-xl bg-[#4A8C6A] px-4 py-4 shadow-[0_2px_12px_rgba(74,140,106,0.30)]">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-[#A8D5C0]">
             正确率
           </p>
           <p className="mt-2.5 font-mono text-2xl font-semibold text-white">

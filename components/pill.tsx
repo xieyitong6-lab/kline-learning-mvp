@@ -12,10 +12,10 @@ export function Pill({ children, tone = "default" }: PillProps) {
     <span
       className={cn(
         "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium",
-        tone === "default" && "border-[#C5DDD7] bg-[#EBF4F1] text-[#3D6B5E]",
-        tone === "success" && "border-[#B8D8D0] bg-[#EBF4F1] text-[#2D5A4E]",
-        tone === "warning" && "border-amber-200 bg-amber-50 text-amber-700",
-        tone === "danger" && "border-rose-200 bg-rose-50 text-rose-600",
+        tone === "default" && "border-[#A8D5B8]/60 bg-white/60 text-[#3D6B5E]",
+        tone === "success" && "border-[#A8D5B8]/60 bg-[#4A8C6A]/10 text-[#2D5A40]",
+        tone === "warning" && "border-amber-200/70 bg-amber-50/80 text-amber-700",
+        tone === "danger" && "border-rose-200/70 bg-rose-50/80 text-rose-600",
       )}
     >
       {children}

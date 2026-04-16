@@ -18,17 +18,17 @@ export function SectionCard({
   return (
     <section
       className={cn(
-        "rounded-2xl border border-[#E2EBE8] bg-white p-6 shadow-[0_1px_4px_rgba(45,90,78,0.06)]",
+        "rounded-2xl border border-white/55 bg-white/78 p-6 shadow-[0_4px_24px_rgba(45,90,60,0.08)] backdrop-blur",
         className,
       )}
     >
       {(title || description) && (
         <div className="mb-5">
           {title && (
-            <h2 className="text-sm font-semibold text-[#1A1A1A]">{title}</h2>
+            <h2 className="text-sm font-semibold text-[#1A2C1E]">{title}</h2>
           )}
           {description && (
-            <p className="mt-1.5 text-sm text-[#7A9D95]">{description}</p>
+            <p className="mt-1.5 text-sm text-[#6A9A7A]">{description}</p>
           )}
         </div>
       )}
