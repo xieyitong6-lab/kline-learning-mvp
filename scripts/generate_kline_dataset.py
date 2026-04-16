@@ -107,6 +107,108 @@ SPECIAL_HINTS = {
     "三只乌鸦": "记忆点是三根连续走低的阴线，多出现在涨后转弱阶段。",
 }
 
+SPECIAL_FEATURES = {
+    "早晨十字星": [
+        "多出现在下跌途中或下跌末端。",
+        "由阴线、十字线、阳线三根K线组成。",
+        "第三根阳线实体深入第一根阴线实体之内。",
+    ],
+    "早晨之星": [
+        "多出现在下跌趋势中。",
+        "由大阴线、小实体K线、大阳线三根K线组成。",
+        "第三根阳线通常需要明显收回前一根阴线实体。",
+    ],
+    "曙光初现": [
+        "多出现在下跌趋势中。",
+        "由一阴一阳两根K线组成。",
+        "第二根阳线实体通常深入前一根阴线实体一半以上。",
+    ],
+    "乌云盖顶": [
+        "多出现在涨势中或高位滞涨区。",
+        "由一阳一阴两根K线组成。",
+        "第二根阴线实体明显深入前一根阳线实体内部。",
+    ],
+    "黄昏十字星": [
+        "多出现在上涨趋势末端。",
+        "由阳线、十字线、阴线三根K线组成。",
+        "第三根阴线实体深入第一根阳线实体之内。",
+    ],
+    "黄昏之星": [
+        "多出现在上涨趋势末端。",
+        "由大阳线、小实体K线、大阴线三根K线组成。",
+        "第三根阴线通常需要明显收回前一根阳线实体。",
+    ],
+    "锤头线": [
+        "常出现在下跌途中或下跌末端。",
+        "实体较小，下影线明显长于实体。",
+        "通常上影线很短或几乎没有。",
+    ],
+    "倒锤头线": [
+        "常出现在下跌途中或下跌末端。",
+        "实体较小，上影线明显长于实体。",
+        "下影线通常较短或几乎没有。",
+    ],
+    "红三兵": [
+        "多出现在上涨初期或盘整后突破阶段。",
+        "由三根连续创新高的阳线组成。",
+        "若三根阳线收盘都接近最高点，信号更强。",
+    ],
+    "三只乌鸦": [
+        "多出现在上涨后转弱阶段。",
+        "由三根连续走低的阴线组成。",
+        "若每根阴线都接近最低点收盘，空头信号更强。",
+    ],
+    "身怀六甲": [
+        "可出现在上涨或下跌趋势中。",
+        "由一长一短两根实体组成。",
+        "第二根小实体完全处于第一根长实体之内。",
+    ],
+    "穿头破脚": [
+        "可出现在上涨或下跌趋势中。",
+        "后一根K线实体完整包住前一根实体。",
+        "放在趋势末端时，反转参考价值更高。",
+    ],
+    "T字": [
+        "开盘价、收盘价和最高价接近。",
+        "下影线较长，通常说明下探后被拉回。",
+        "出现在跌势末端时更值得重点观察。",
+    ],
+    "倒T字": [
+        "开盘价、收盘价和最低价接近。",
+        "上影线较长，通常说明上冲后回落。",
+        "出现在涨势末端时更值得重点观察。",
+    ],
+}
+
+SPECIAL_MEANINGS = {
+    "早晨十字星": "典型的底部反转信号，若同时伴随缩量止跌或支撑位出现，后市看涨概率更高。",
+    "早晨之星": "底部转强信号，虽然通常弱于早晨十字星，但在跌势末端同样有较强参考价值。",
+    "曙光初现": "属于见底转强信号，阳线回收阴线实体越多，后市转强的可能性越大。",
+    "乌云盖顶": "属于顶部转弱信号，阴线深入阳线实体越深，后市转弱概率通常越高。",
+    "黄昏十字星": "典型的顶部反转信号，若出现在放量上涨后高位，见顶意义更强。",
+    "黄昏之星": "顶部转弱信号，通常弱于黄昏十字星，但在高位仍有较强警示作用。",
+    "锤头线": "下跌末端出现时常被视为止跌信号，若后续有阳线确认，见底意义更强。",
+    "倒锤头线": "下跌末端出现时说明买盘开始尝试反攻，需要后续阳线确认才能增强可靠性。",
+    "红三兵": "多头持续推进信号，常被视为上涨行情展开或确认的一种表现。",
+    "三只乌鸦": "空头持续压制信号，常被视为涨势结束或跌势展开的预警。",
+    "身怀六甲": "意味着原趋势节奏可能放缓，若出现在关键位置，常是反转前的过渡形态。",
+    "穿头破脚": "属于典型吞没反转结构，后者吞没前者越充分，反转参考价值越高。",
+}
+
+SPECIAL_NOTES = {
+    "早晨十字星": "又称希望十字星，若与支撑位共振，信号更可靠。",
+    "早晨之星": "第二根K线不一定是十字线，也可以是小阴线或小阳线。",
+    "曙光初现": "通常被视为弱于旭日东升、强于好友反攻的底部信号。",
+    "乌云盖顶": "若第二根阴线仅浅浅回落，信号会明显弱化。",
+    "黄昏十字星": "第二根十字线越独立、第三根阴线越强，见顶意义越高。",
+    "黄昏之星": "若第二根只是小实体而非十字线，强度一般弱于黄昏十字星。",
+    "锤头线": "单独出现不等于立即反转，最好结合位置、成交量和后续确认K线一起看。",
+    "倒锤头线": "与射击之星形态接近，关键区别在于它出现的位置在跌势末端。",
+    "红三兵": "若前三根阳线实体越来越短，需防止上涨动能衰减。",
+    "三只乌鸦": "若已连续大跌后才出现，反而要防止过度杀跌后的短线反抽。",
+    "加速度线": "加速走势往往意味着情绪极端，趋势虽然强，但同样要警惕快速反转。",
+}
+
 
 def get_signal_and_category(title: str) -> tuple[str, str, list[str]]:
     if title in BULLISH_BOTTOM:
@@ -173,6 +275,72 @@ def infer_description(title: str, signal: str, category: str, tags: list[str]) -
     return f"{title}被原始资料归入“{category}”类，方向需要结合出现位置、前后K线和趋势环境一起判断。"
 
 
+def infer_feature(title: str, tags: list[str]) -> list[str]:
+    if title in SPECIAL_FEATURES:
+        return SPECIAL_FEATURES[title]
+
+    keywords = infer_keywords(title, tags)
+    features: list[str] = []
+
+    if "三K线" in keywords:
+        features.append("该形态通常由三根K线构成，重点观察中间过渡K线与最后确认K线。")
+    elif "双K线" in keywords:
+        features.append("该形态通常由两根K线构成，重点看实体包容、并列或反包关系。")
+    elif "多K线" in keywords:
+        features.append("该形态通常由多根K线构成，重点看整体排列方向与节奏变化。")
+    else:
+        features.append("该形态可单独出现，也可能与前后K线共同构成更完整的判断结构。")
+
+    if "跳空缺口" in keywords:
+        features.append("形态内部常带有跳空缺口，缺口是否回补会影响后续强弱判断。")
+    if "长上影" in keywords:
+        features.append("上影线相对突出，说明上方抛压或冲高回落特征明显。")
+    if "长下影" in keywords:
+        features.append("下影线相对突出，说明下探后有承接，价格被拉回的特征明显。")
+    if "十字星" in keywords:
+        features.append("开收盘价接近，代表多空短暂平衡，方向需要结合位置判断。")
+    if "盘整" in keywords:
+        features.append("往往伴随实体较小或波动收窄，适合放在整理语境下理解。")
+
+    if not any(token in title for token in ["跳空", "缺口", "十字", "T字", "一字", "螺旋桨"]):
+        features.append("观察时优先看它出现在上涨末端、下跌末端还是趋势中继位置。")
+
+    return features[:4]
+
+
+def infer_meaning(title: str, signal: str, tags: list[str]) -> str:
+    if title in SPECIAL_MEANINGS:
+        return SPECIAL_MEANINGS[title]
+
+    if signal == "bullish":
+        if "反转形态" in tags:
+            return "整体偏向底部转强或止跌回升信号，若后续出现放量阳线确认，参考价值更高。"
+        return "整体偏向上涨延续信号，更适合放在多头趋势或突破后的中继整理语境下理解。"
+
+    if signal == "bearish":
+        if "见顶信号" in tags:
+            return "整体偏向顶部转弱信号，若出现在高位放量滞涨区，后市看跌意义通常更强。"
+        return "整体偏向下跌延续信号，常用于判断空头趋势是否仍在继续展开。"
+
+    return "整体属于整理或中性信号，方向并不固定，需要结合趋势位置、量能和后续确认K线判断。"
+
+
+def infer_note(title: str, signal: str, tags: list[str]) -> str:
+    if title in SPECIAL_NOTES:
+        return SPECIAL_NOTES[title]
+
+    keywords = infer_keywords(title, tags)
+    if "反转形态" in tags:
+        return "反转形态最怕脱离位置单独解读，建议同时观察前序趋势、量能和下一根确认K线。"
+    if "持续形态" in tags:
+        return "持续形态的关键不是单根K线强弱，而是它是否维持了原趋势的排列和节奏。"
+    if "整理形态" in tags:
+        return "整理类形态方向弹性较大，单独信号通常有限，更适合结合上下文一起使用。"
+    if "跳空缺口" in keywords:
+        return "若后续快速回补缺口，原本的强弱判断往往会明显减弱。"
+    return "实战中不要只背名称，最好把出现位置、K线根数和确认方式一起记住。"
+
+
 def infer_hint(title: str, tags: list[str]) -> str:
     if title in SPECIAL_HINTS:
         return SPECIAL_HINTS[title]
@@ -209,6 +377,9 @@ def main() -> None:
                 "title": title,
                 "image": f"/images/kline/{image_path.name}",
                 "description": infer_description(title, signal, category, tags),
+                "feature": infer_feature(title, tags),
+                "meaning": infer_meaning(title, signal, tags),
+                "note": infer_note(title, signal, tags),
                 "keywords": infer_keywords(title, tags),
                 "tags": tags,
                 "difficulty": infer_difficulty(title),

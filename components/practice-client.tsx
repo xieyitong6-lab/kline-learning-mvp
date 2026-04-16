@@ -213,8 +213,21 @@ export function PracticeClient() {
                   <div className="rounded-2xl bg-slate-50 p-4">
                     <p className="font-semibold text-slate-900">解析说明</p>
                     <p className="mt-2">{question.description}</p>
+                    {question.feature && question.feature.length > 0 && (
+                      <div className="mt-3 space-y-1 text-slate-700">
+                        {question.feature.map((point) => (
+                          <p key={point}>• {point}</p>
+                        ))}
+                      </div>
+                    )}
+                    <p className="mt-3 text-slate-800">
+                      技术含义：{question.meaning ?? "请结合前序趋势与后续确认K线综合判断。"}
+                    </p>
                     <p className="mt-2 text-amber-800">
                       记忆提示：{question.hint ?? "从实体与影线开始拆解。"}
+                    </p>
+                    <p className="mt-2 text-slate-600">
+                      备注：{question.note ?? "单独记住名字不够，最好把位置和确认方式一起记住。"}
                     </p>
                   </div>
                 </div>

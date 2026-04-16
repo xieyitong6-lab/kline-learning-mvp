@@ -7,6 +7,9 @@ export interface KlineItem {
   title: string;
   image: string;
   description: string;
+  feature?: string[];
+  meaning?: string;
+  note?: string;
   keywords: string[];
   tags?: string[];
   difficulty?: Difficulty;

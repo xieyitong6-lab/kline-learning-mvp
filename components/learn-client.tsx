@@ -44,6 +44,14 @@ export function LearnClient() {
           </div>
           <div className="space-y-4">
             <div className="rounded-[24px] bg-slate-50 p-4">
+              <p className="text-sm font-medium text-slate-500">特征拆解</p>
+              <div className="mt-3 space-y-2 text-sm leading-7 text-slate-700">
+                {(item.feature ?? []).map((point) => (
+                  <p key={point}>• {point}</p>
+                ))}
+              </div>
+            </div>
+            <div className="rounded-[24px] bg-slate-50 p-4">
               <p className="text-sm font-medium text-slate-500">关键词拆解</p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {item.keywords.map((keyword) => (
@@ -54,9 +62,18 @@ export function LearnClient() {
               </div>
             </div>
             <div className="rounded-[24px] bg-amber-50 p-4">
+              <p className="text-sm font-medium text-amber-800">技术含义</p>
+              <p className="mt-3 text-sm leading-7 text-amber-900">
+                {item.meaning ?? item.description}
+              </p>
+            </div>
+            <div className="rounded-[24px] bg-white p-4 ring-1 ring-slate-200">
               <p className="text-sm font-medium text-amber-800">记忆提示</p>
               <p className="mt-3 text-sm leading-7 text-amber-900">
                 {item.hint ?? "从实体大小和影线特征开始记忆。"}
+              </p>
+              <p className="mt-3 border-t border-slate-200 pt-3 text-sm leading-7 text-slate-600">
+                备注：{item.note ?? "先结合趋势位置理解，再去记名称和图形。"}
               </p>
             </div>
             <div className="grid gap-3 sm:grid-cols-3">
