@@ -11,12 +11,21 @@ export interface KlineItem {
   meaning?: string;
   note?: string;
   keywords: string[];
+  practiceTemplate?: string;
+  blanks?: PracticeBlank[];
   tags?: string[];
   difficulty?: Difficulty;
   hint?: string;
   category?: string;
   createdAt?: string;
   updatedAt?: string;
+}
+
+export interface PracticeBlank {
+  id: string;
+  prompt: string;
+  answer: string;
+  placeholder?: string;
 }
 
 export interface PracticeRecord {

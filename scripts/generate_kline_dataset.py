@@ -75,293 +75,330 @@ BEARISH_CONTINUATION = {
     "连续三阴线",
 }
 
-SPECIAL_DESCRIPTIONS = {
-    "大阳线": "实体较长的单根阳线，可出现在上涨、整理或止跌后的启动阶段，通常代表买方力量较强。",
-    "大阴线": "实体较长的单根阴线，可出现在下跌启动、跌势延续或上涨后的转弱阶段，通常代表卖方力量较强。",
-    "小阳线": "实体较小的阳线，单独出现时信号有限，更适合结合前后K线位置和组合关系一起判断。",
-    "小阴线": "实体较小的阴线，常出现在整理或趋势中的短暂回撤阶段，需要结合整体走势判断强弱。",
-    "十字": "开盘价与收盘价接近，代表多空短暂平衡，出现在不同位置时可能对应不同方向的转折。",
-    "长十字": "长十字通常意味着震荡放大、分歧增强，若出现在趋势末端，常被视为转折观察点。",
-    "螺旋桨": "实体很小而上下影线很长，表示盘中多空激烈争夺，位置决定其偏多还是偏空。",
-    "一字": "开盘、收盘、最高、最低几乎重合，通常意味着价格被强力锁定，常见于极端强弱状态。",
-    "T字": "T字线下影明显、收盘回到高位附近，若出现在跌势末端，通常有止跌观察价值。",
-    "倒T字": "倒T字线上影明显、收盘回到低位附近，若出现在涨势末端，往往提示上方抛压。",
-    "身怀六甲": "长实体包住小实体的经典孕线结构，常出现在趋势运行中，提示原有趋势可能放缓或反转。",
-    "穿头破脚": "后一根K线实体完全包住前一根实体，是典型吞没结构，放在趋势末端时信号更强。",
-    "揉搓线": "一正一反两根T字线组合，重点看长影线切换方向，常用于观察市场是否出现换手和转折。",
-    "镊子线": "两根或多根K线在高点或低点接近同一水平，常被用来确认阶段性阻力或支撑。",
-    "尽头线": "大K线后跟随很小的实体，常出现在趋势尾声，提示原趋势动能衰减。",
-    "加速度线": "价格运行速度明显加快，往往意味着趋势进入末端冲刺或恐慌阶段，需要警惕反向波动。",
+
+EXACT_KEYWORDS = {
+    "大阳线": ["大阳线"],
+    "大阴线": ["大阴线"],
+    "小阳线": ["小阳线"],
+    "小阴线": ["小阴线"],
+    "十字": ["十字线"],
+    "长十字": ["十字线", "上影线", "下影线"],
+    "T字": ["十字线", "下影线", "长下影"],
+    "倒T字": ["十字线", "上影线", "长上影"],
+    "一字": ["十字线"],
+    "螺旋桨": ["十字线", "上影线", "下影线"],
+    "早晨十字星": ["大阴线", "十字线", "大阳线", "三K线"],
+    "早晨之星": ["大阴线", "小阴线", "大阳线", "三K线"],
+    "好友反攻": ["大阴线", "大阳线", "双K线"],
+    "曙光初现": ["大阴线", "大阳线", "双K线"],
+    "旭日东升": ["大阴线", "大阳线", "双K线"],
+    "锤头线": ["小阳线", "下影线", "长下影"],
+    "倒锤头线": ["小阳线", "上影线", "长上影"],
+    "平底钳子线": ["双K线", "并列", "下影线"],
+    "塔形底": ["大阴线", "小阳线", "大阳线", "多K线"],
+    "圆底": ["小阳线", "小阴线", "多K线"],
+    "红三兵": ["小阳线", "三K线"],
+    "三只乌鸦": ["大阴线", "三K线"],
+    "黄昏十字星": ["大阳线", "十字线", "大阴线", "三K线"],
+    "黄昏之星": ["大阳线", "小阳线", "大阴线", "三K线"],
+    "淡友反攻": ["大阳线", "大阴线", "双K线"],
+    "乌云盖顶": ["大阳线", "大阴线", "双K线"],
+    "倾盆大雨": ["大阳线", "大阴线", "双K线"],
+    "下降覆盖线": ["大阳线", "大阴线", "多K线"],
+    "平顶钳子线": ["双K线", "并列", "上影线"],
+    "塔形顶": ["大阳线", "小阴线", "大阴线", "多K线"],
+    "圆顶": ["小阳线", "小阴线", "多K线"],
+    "身怀六甲": ["双K线", "包容", "小阳线"],
+    "穿头破脚": ["双K线", "包容", "大阳线", "大阴线"],
 }
 
-SPECIAL_HINTS = {
-    "早晨十字星": "先看三根K线结构，再看中间那根十字线是否出现在跌势末端。",
-    "黄昏十字星": "和早晨十字星相反，重点观察涨势末端的十字线与后续阴线。",
-    "早晨之星": "先阴后小实体再阳线，是典型底部反转三段式。",
-    "黄昏之星": "先阳后小实体再阴线，是顶部反转三段式。",
-    "锤头线": "先记住小实体加长下影，再判断它是否出现在跌势末端。",
-    "倒锤头线": "重点区分长上影和小实体，位置在跌势末端时更有参考价值。",
-    "乌云盖顶": "看第二根阴线是否深入前一根阳线实体内部。",
-    "曙光初现": "重点看阳线收盘是否深入前一根阴线实体的一半以上。",
-    "红三兵": "记忆点是三根连续创新高的小阳线。",
-    "三只乌鸦": "记忆点是三根连续走低的阴线，多出现在涨后转弱阶段。",
-}
 
-SPECIAL_FEATURES = {
+EXACT_FEATURES = {
     "早晨十字星": [
-        "多出现在下跌途中或下跌末端。",
-        "由阴线、十字线、阳线三根K线组成。",
-        "第三根阳线实体深入第一根阴线实体之内。",
+        "出现在下跌途中。",
+        "由3根K线组成，第一根为阴线，第二根为十字线，第三根为阳线。",
+        "第三根K线实体深入到第一根K线实体之内。",
     ],
     "早晨之星": [
-        "多出现在下跌趋势中。",
-        "由大阴线、小实体K线、大阳线三根K线组成。",
-        "第三根阳线通常需要明显收回前一根阴线实体。",
-    ],
-    "曙光初现": [
-        "多出现在下跌趋势中。",
-        "由一阴一阳两根K线组成。",
-        "第二根阳线实体通常深入前一根阴线实体一半以上。",
-    ],
-    "乌云盖顶": [
-        "多出现在涨势中或高位滞涨区。",
-        "由一阳一阴两根K线组成。",
-        "第二根阴线实体明显深入前一根阳线实体内部。",
-    ],
-    "黄昏十字星": [
-        "多出现在上涨趋势末端。",
-        "由阳线、十字线、阴线三根K线组成。",
-        "第三根阴线实体深入第一根阳线实体之内。",
-    ],
-    "黄昏之星": [
-        "多出现在上涨趋势末端。",
-        "由大阳线、小实体K线、大阴线三根K线组成。",
-        "第三根阴线通常需要明显收回前一根阳线实体。",
-    ],
-    "锤头线": [
-        "常出现在下跌途中或下跌末端。",
-        "实体较小，下影线明显长于实体。",
-        "通常上影线很短或几乎没有。",
-    ],
-    "倒锤头线": [
-        "常出现在下跌途中或下跌末端。",
-        "实体较小，上影线明显长于实体。",
-        "下影线通常较短或几乎没有。",
-    ],
-    "红三兵": [
-        "多出现在上涨初期或盘整后突破阶段。",
-        "由三根连续创新高的阳线组成。",
-        "若三根阳线收盘都接近最高点，信号更强。",
-    ],
-    "三只乌鸦": [
-        "多出现在上涨后转弱阶段。",
-        "由三根连续走低的阴线组成。",
-        "若每根阴线都接近最低点收盘，空头信号更强。",
-    ],
-    "身怀六甲": [
-        "可出现在上涨或下跌趋势中。",
-        "由一长一短两根实体组成。",
-        "第二根小实体完全处于第一根长实体之内。",
-    ],
-    "穿头破脚": [
-        "可出现在上涨或下跌趋势中。",
-        "后一根K线实体完整包住前一根实体。",
-        "放在趋势末端时，反转参考价值更高。",
-    ],
-    "T字": [
-        "开盘价、收盘价和最高价接近。",
-        "下影线较长，通常说明下探后被拉回。",
-        "出现在跌势末端时更值得重点观察。",
-    ],
-    "倒T字": [
-        "开盘价、收盘价和最低价接近。",
-        "上影线较长，通常说明上冲后回落。",
-        "出现在涨势末端时更值得重点观察。",
+        "出现在下跌途中。",
+        "由3根K线组成，第一根为阴线，第二根为小阴线或小阳线，第三根为阳线。",
+        "第三根K线实体深入到第一根K线实体之内。",
     ],
     "好友反攻": [
-        "多出现在下跌行情或下跌末端区域。",
+        "出现在下跌行情中。",
         "由一阴一阳两根K线组成。",
-        "先出现大阴线，随后低开后走强，阳线收盘接近前一根阴线收盘价。",
+        "先是一根大阴线，接着跳低开盘，结果收了一根中阳线或大阳线，收盘在前一根K线收盘价相同或相近的位置上。",
+    ],
+    "曙光初现": [
+        "出现在下跌趋势中。",
+        "由一阴一阳两根K线组成。",
+        "先是一根大阴线或中阴线，接着出现一根大阳线或中阳线，阳线实体深入到阴线实体的二分之一以上处。",
     ],
     "旭日东升": [
-        "多出现在下跌趋势中。",
+        "出现在下跌趋势中。",
         "由一阴一阳两根K线组成。",
-        "第二根高开阳线收盘已高于前一根阴线开盘价，力度通常强于曙光初现。",
+        "先是一根大阴线或中阴线，接着出现一根高开的大阳线或中阳线，阳线收盘价已高于前一根阴线的开盘价。",
+    ],
+    "锤头线": [
+        "出现在下跌途中。",
+        "阳线或阴线实体很小，下影线大于或等于实体的两倍。",
+        "一般无上影线，少数略有一点上影线。",
+    ],
+    "倒锤头线": [
+        "出现在下跌途中。",
+        "阳线或阴线实体很小，上影线大于或等于实体的两倍。",
+        "一般无下影线，少数会有一点。",
     ],
     "平底钳子线": [
-        "多出现在下跌趋势中。",
+        "在下跌趋势中出现。",
         "由两根或两根以上K线组成。",
-        "几根K线最低价基本处在同一水平位置上，形成明显支撑。",
+        "最低价处在同一水平位置上。",
     ],
     "塔形底": [
-        "多出现在下跌途中或下跌末端。",
-        "前段通常是一根较长阴线，中间夹杂一串小实体K线。",
-        "最后以一根较强阳线完成反包或确认，整体结构像塔形底部。",
+        "出现在下跌途中。",
+        "先是一根大阴线或中阴线，后为一连串的小阴小阳线。",
+        "最后出现一根大阳线或中阳线。",
     ],
     "圆底": [
-        "通常出现在跌势末端。",
-        "股价运行轨迹呈圆弧形缓慢抬升。",
-        "弧底内部多是小阴小阳线，最后往往伴随向上跳空或突破确认。",
+        "在跌势中出现。",
+        "股价形成一个圆弧底。",
+        "圆弧内的K线多为小阴小阳线，最后以向上跳空缺口确认。",
+    ],
+    "黄昏十字星": [
+        "出现在涨势中。",
+        "由三根K线组成，第一根为阳线，第二根为十字线，第三根为阴线。",
+        "第三根K线实体深入到第一根K线实体之内。",
+    ],
+    "黄昏之星": [
+        "出现在涨势中。",
+        "与黄昏十字星相似，区别在于第二根K线是小阴线或小阳线。",
+        "第三根K线实体深入到第一根K线实体之内。",
     ],
     "淡友反攻": [
-        "多出现在上涨趋势末端。",
+        "出现在涨势中。",
         "由一阳一阴两根K线组成。",
-        "先出现大阳线，随后高开回落形成阴线，收盘价接近前一根阳线收盘价。",
+        "先出现一根大阳线，接着跳高开盘，拉出一根中阴线或大阴线，其收盘价与前者相同或相近。",
+    ],
+    "乌云盖顶": [
+        "出现在涨势中。",
+        "由一根中阳线或大阳线和一根中阴线或大阴线组成。",
+        "阴线已深入到阳线实体二分之一以下处。",
     ],
     "倾盆大雨": [
-        "多出现在涨势中或高位滞涨区。",
-        "由一根较长阳线和一根较长阴线构成。",
-        "第二根阴线收盘通常跌破前一根阳线开盘价，转弱力度强于乌云盖顶。",
+        "出现在涨势中。",
+        "先是一根大阳线或中阳线，接着出现一根低开的大阴线或中阴线。",
+        "收盘价低于阳线开盘价。",
+    ],
+    "三只乌鸦": [
+        "出现在涨势中。",
+        "由三根阴线组成，阴线多为大阴线或中阴线。",
+        "每次均以跳高开盘，最后以下跌收盘。",
     ],
     "下降覆盖线": [
-        "多出现在上涨行情中。",
-        "整体由四根K线构成，内部带有一次穿头破脚后的反复覆盖。",
-        "后续阴线再度深入前一根阳线实体，说明上方抛压持续增强。",
+        "在上涨行情中出现。",
+        "由四根K线组成，前两根K线构成一个穿头破脚形态。",
+        "之后又出现一根中阴线或小阴线，阴线实体已深入到前一根阳线实体之中。",
     ],
     "平顶钳子线": [
-        "多出现在上涨趋势中。",
-        "由两根或两根以上K线组成。",
-        "几根K线最高价处在同一水平位置上，形成明显压力。",
+        "在上涨趋势中出现。",
+        "由两根或两根以上的K线组成。",
+        "最高价处于同一水平位置。",
     ],
     "塔形顶": [
-        "多出现在上涨途中或高位区域。",
-        "前段通常是一根较长阳线，中间夹杂一串小实体K线。",
-        "最后以一根较强阴线确认转弱，整体结构像塔形顶部。",
+        "出现在上涨趋势中。",
+        "先是一根大阳线或中阳线，后为一连串的小阳线或小阴线。",
+        "最后出现一根大阴线或中阴线。",
     ],
     "圆顶": [
-        "通常出现在涨势末端。",
-        "股价运行轨迹呈圆弧形缓慢走弱。",
-        "弧顶内部多是小阴小阳线，最终通常以向下跳空或跌破支撑确认。",
+        "在上涨趋势中出现。",
+        "股价形成一个圆弧顶。",
+        "圆弧内的K线多为小阳线或小阴线，最后以向下跳空缺口确认。",
     ],
 }
 
-SPECIAL_MEANINGS = {
-    "早晨十字星": "典型的底部反转信号，若同时伴随缩量止跌或支撑位出现，后市看涨概率更高。",
-    "早晨之星": "底部转强信号，虽然通常弱于早晨十字星，但在跌势末端同样有较强参考价值。",
-    "曙光初现": "属于见底转强信号，阳线回收阴线实体越多，后市转强的可能性越大。",
-    "乌云盖顶": "属于顶部转弱信号，阴线深入阳线实体越深，后市转弱概率通常越高。",
-    "黄昏十字星": "典型的顶部反转信号，若出现在放量上涨后高位，见顶意义更强。",
-    "黄昏之星": "顶部转弱信号，通常弱于黄昏十字星，但在高位仍有较强警示作用。",
-    "锤头线": "下跌末端出现时常被视为止跌信号，若后续有阳线确认，见底意义更强。",
-    "倒锤头线": "下跌末端出现时说明买盘开始尝试反攻，需要后续阳线确认才能增强可靠性。",
-    "红三兵": "多头持续推进信号，常被视为上涨行情展开或确认的一种表现。",
-    "三只乌鸦": "空头持续压制信号，常被视为涨势结束或跌势展开的预警。",
-    "身怀六甲": "意味着原趋势节奏可能放缓，若出现在关键位置，常是反转前的过渡形态。",
-    "穿头破脚": "属于典型吞没反转结构，后者吞没前者越充分，反转参考价值越高。",
-    "好友反攻": "属于底部反攻型信号，说明空头继续下压受阻，但整体强度一般弱于曙光初现。",
-    "旭日东升": "属于较强的底部反转信号，阳线越高、回收前阴线实体越充分，转强意义越大。",
-    "平底钳子线": "属于阶段性止跌信号，若后续出现放量阳线确认，往往意味着支撑有效。",
-    "塔形底": "属于底部反转结构，前阴后阳的力度反差越明显，见底参考价值越高。",
-    "圆底": "属于较缓慢的底部构筑信号，一旦向上突破被确认，中期转强意义通常较好。",
-    "淡友反攻": "属于顶部转弱信号，但通常弱于乌云盖顶，更适合当作高位警示而非单独定论。",
-    "倾盆大雨": "属于较强的顶部转弱信号，若出现在放量长阳后，短线见顶意味通常更明显。",
-    "下降覆盖线": "属于顶部转弱延伸结构，说明多头尝试反弹但未能扭转上方卖压。",
-    "平顶钳子线": "属于阶段性见顶或遇阻信号，越接近历史压力位，参考价值通常越高。",
-    "塔形顶": "属于顶部反转结构，前阳后阴的力度切换越明显，见顶意义越强。",
-    "圆顶": "属于较缓慢的顶部构筑信号，一旦向下确认破位，中期转弱意义通常较强。",
-}
 
-SPECIAL_NOTES = {
-    "早晨十字星": "又称希望十字星，若与支撑位共振，信号更可靠。",
-    "早晨之星": "第二根K线不一定是十字线，也可以是小阴线或小阳线。",
-    "曙光初现": "通常被视为弱于旭日东升、强于好友反攻的底部信号。",
-    "乌云盖顶": "若第二根阴线仅浅浅回落，信号会明显弱化。",
-    "黄昏十字星": "第二根十字线越独立、第三根阴线越强，见顶意义越高。",
-    "黄昏之星": "若第二根只是小实体而非十字线，强度一般弱于黄昏十字星。",
-    "锤头线": "单独出现不等于立即反转，最好结合位置、成交量和后续确认K线一起看。",
-    "倒锤头线": "与射击之星形态接近，关键区别在于它出现的位置在跌势末端。",
-    "红三兵": "若前三根阳线实体越来越短，需防止上涨动能衰减。",
-    "三只乌鸦": "若已连续大跌后才出现，反而要防止过度杀跌后的短线反抽。",
-    "加速度线": "加速走势往往意味着情绪极端，趋势虽然强，但同样要警惕快速反转。",
-    "好友反攻": "它更像是止跌尝试而不是强势反转，最好等待后续阳线继续确认。",
-    "旭日东升": "常被视为强于曙光初现的底部组合，尤其适合放在急跌后的反抽判断中观察。",
-    "平底钳子线": "若仅有最低价接近但没有后续上攻确认，支撑意义会明显打折。",
-    "塔形底": "中间横向整理时间越充分、末端阳线越强，底部信号通常越可靠。",
-    "圆底": "圆底构筑时间往往较长，不适合用短线节奏去理解它的意义。",
-    "淡友反攻": "如果第二根阴线只是轻微回落而没有明显走弱，信号强度会偏弱。",
-    "倾盆大雨": "如果前一轮上涨已经过度加速，这类形态出现后更要防止快速回撤。",
-    "下降覆盖线": "这类组合不算最直观，建议和穿头破脚一起对照记忆。",
-    "平顶钳子线": "如果形成平顶的位置恰好叠加前高或缺口压力，见顶意义通常更强。",
-    "塔形顶": "中间小K线越多、末端阴线越强，塔形顶的参考价值通常越高。",
-    "圆顶": "圆顶和圆底一样偏慢节奏，确认通常滞后，但一旦成形，中期意义较强。",
+EXACT_NOTES = {
+    "早晨十字星": "又称希望十字星。",
+    "早晨之星": "又称希望之星，信号不如早晨十字星强。",
+    "好友反攻": "转势信号不如曙光初现强。",
+    "曙光初现": "阳线实体深入到阴线实体的部分越多，转势信号越强。",
+    "旭日东升": "信号强于曙光初现；阳线实体高出阴线实体部分越多，转势信号越强。",
+    "锤头线": "实体与下影线的比例越悬殊，越有参考价值。如与早晨之星同时出现，见底信号更加可靠。",
+    "倒锤头线": "实体与上影线比例越悬殊，信号越强。如与早晨之星同时出现，见底信号更加可靠。",
+    "平底钳子线": "需要后续阳线确认，支撑意义才更可靠。",
+    "塔形底": "中间整理越充分，末端阳线越强，底部信号越可靠。",
+    "圆底": "与形态理论圆形底有区别。",
+    "黄昏十字星": "信号不如黄昏十字星弱这一类说法不适用，关键看第二根十字线是否独立。",
+    "黄昏之星": "信号不如黄昏十字星强。",
+    "淡友反攻": "转势信号不如乌云盖顶强。",
+    "乌云盖顶": "阴线深入阳线实体部分越多，转势信号越强。",
+    "倾盆大雨": "强于乌云盖顶；实体低于阳线越多，信号越强。",
+    "三只乌鸦": "又称暴跌三杰。",
+    "下降覆盖线": "见顶信号强于穿头破脚。",
+    "平顶钳子线": "若叠加前高压力位，参考价值更强。",
+    "塔形顶": "中间小K线越多、末端阴线越强，顶部信号越可靠。",
+    "圆顶": "与形态理论圆形顶有一定区别。",
 }
 
 
-def get_signal_and_category(title: str) -> tuple[str, str, list[str]]:
-    if title in BULLISH_BOTTOM:
-        return "bullish", "上升和见底", ["看涨信号", "见底信号", "反转形态"]
-    if title in BULLISH_CONTINUATION:
-        return "bullish", "上升和见底", ["看涨信号", "持续形态"]
-    if title in BEARISH_TOP:
-        return "bearish", "下跌和滞涨", ["看跌信号", "见顶信号", "反转形态"]
-    if title in BEARISH_CONTINUATION:
-        return "bearish", "下跌和滞涨", ["看跌信号", "持续形态"]
-    return "neutral", "整理", ["整理形态"]
+EXACT_BLANKS = {
+    "早晨十字星": {
+        "template": "按图形完成结构化描述填空。",
+        "blanks": [
+            {"id": "count", "prompt": "该形态由 [ ] 根K线组成。", "answer": "3"},
+            {"id": "second", "prompt": "第二根K线为 [ ]。", "answer": "十字线"},
+            {"id": "third", "prompt": "第三根K线为 [ ]。", "answer": "阳线"},
+        ],
+    },
+    "早晨之星": {
+        "template": "按图形完成结构化描述填空。",
+        "blanks": [
+            {"id": "count", "prompt": "该形态由 [ ] 根K线组成。", "answer": "3"},
+            {"id": "first", "prompt": "第一根K线为 [ ]。", "answer": "阴线"},
+            {"id": "second", "prompt": "第二根K线通常为 [ ]。", "answer": "小阴线或小阳线"},
+            {"id": "third", "prompt": "第三根K线为 [ ]。", "answer": "阳线"},
+        ],
+    },
+    "曙光初现": {
+        "template": "按图形完成结构化描述填空。",
+        "blanks": [
+            {"id": "count", "prompt": "该形态由 [ ] 根K线组成。", "answer": "2"},
+            {"id": "first", "prompt": "第一根K线通常为 [ ]。", "answer": "大阴线或中阴线"},
+            {"id": "second", "prompt": "第二根K线通常为 [ ]。", "answer": "大阳线或中阳线"},
+            {"id": "depth", "prompt": "阳线实体深入阴线实体的 [ ] 以上。", "answer": "二分之一"},
+        ],
+    },
+    "乌云盖顶": {
+        "template": "按图形完成结构化描述填空。",
+        "blanks": [
+            {"id": "count", "prompt": "该形态由 [ ] 根K线组成。", "answer": "2"},
+            {"id": "first", "prompt": "第一根K线通常为 [ ]。", "answer": "大阳线或中阳线"},
+            {"id": "second", "prompt": "第二根K线通常为 [ ]。", "answer": "大阴线或中阴线"},
+            {"id": "depth", "prompt": "阴线实体深入阳线实体 [ ] 以下。", "answer": "二分之一"},
+        ],
+    },
+    "黄昏十字星": {
+        "template": "按图形完成结构化描述填空。",
+        "blanks": [
+            {"id": "count", "prompt": "该形态由 [ ] 根K线组成。", "answer": "3"},
+            {"id": "second", "prompt": "第二根K线为 [ ]。", "answer": "十字线"},
+            {"id": "third", "prompt": "第三根K线为 [ ]。", "answer": "阴线"},
+        ],
+    },
+    "黄昏之星": {
+        "template": "按图形完成结构化描述填空。",
+        "blanks": [
+            {"id": "count", "prompt": "该形态由 [ ] 根K线组成。", "answer": "3"},
+            {"id": "first", "prompt": "第一根K线为 [ ]。", "answer": "阳线"},
+            {"id": "second", "prompt": "第二根K线通常为 [ ]。", "answer": "小阴线或小阳线"},
+            {"id": "third", "prompt": "第三根K线为 [ ]。", "answer": "阴线"},
+        ],
+    },
+    "锤头线": {
+        "template": "按图形完成结构化描述填空。",
+        "blanks": [
+            {"id": "body", "prompt": "该形态的实体较 [ ]。", "answer": "小"},
+            {"id": "shadow", "prompt": "该形态重点观察 [ ]。", "answer": "下影线"},
+            {"id": "ratio", "prompt": "下影线通常 [ ] 实体的两倍。", "answer": "大于或等于"},
+        ],
+    },
+    "倒锤头线": {
+        "template": "按图形完成结构化描述填空。",
+        "blanks": [
+            {"id": "body", "prompt": "该形态的实体较 [ ]。", "answer": "小"},
+            {"id": "shadow", "prompt": "该形态重点观察 [ ]。", "answer": "上影线"},
+            {"id": "ratio", "prompt": "上影线通常 [ ] 实体的两倍。", "answer": "大于或等于"},
+        ],
+    },
+    "三只乌鸦": {
+        "template": "按图形完成结构化描述填空。",
+        "blanks": [
+            {"id": "count", "prompt": "该形态由 [ ] 根K线组成。", "answer": "3"},
+            {"id": "type", "prompt": "这三根K线多为 [ ]。", "answer": "阴线"},
+            {"id": "open", "prompt": "每次通常以 [ ] 开盘。", "answer": "跳高"},
+        ],
+    },
+}
 
 
-def infer_keywords(title: str, tags: list[str]) -> list[str]:
-    exact_keywords = {
-        "大阳线": ["大阳线"],
-        "大阴线": ["大阴线"],
-        "小阳线": ["小阳线"],
-        "小阴线": ["小阴线"],
-        "十字": ["十字线"],
-        "长十字": ["十字线", "上影线", "下影线"],
-        "T字": ["十字线", "下影线", "长下影"],
-        "倒T字": ["十字线", "上影线", "长上影"],
-        "一字": ["十字线"],
-        "螺旋桨": ["十字线", "上影线", "下影线"],
-        "早晨十字星": ["大阴线", "十字线", "大阳线", "三K线"],
-        "早晨之星": ["大阴线", "小阴线", "大阳线", "三K线"],
-        "好友反攻": ["大阴线", "大阳线", "双K线"],
-        "曙光初现": ["大阴线", "大阳线", "双K线"],
-        "旭日东升": ["大阴线", "大阳线", "双K线"],
-        "锤头线": ["小阳线", "下影线", "长下影"],
-        "倒锤头线": ["小阳线", "上影线", "长上影"],
-        "平底钳子线": ["双K线", "并列", "下影线"],
-        "塔形底": ["大阴线", "小阳线", "大阳线", "多K线"],
-        "圆底": ["小阳线", "小阴线", "多K线"],
-        "红三兵": ["小阳线", "三K线"],
-        "三只乌鸦": ["大阴线", "三K线"],
-        "黄昏十字星": ["大阳线", "十字线", "大阴线", "三K线"],
-        "黄昏之星": ["大阳线", "小阳线", "大阴线", "三K线"],
-        "淡友反攻": ["大阳线", "大阴线", "双K线"],
-        "乌云盖顶": ["大阳线", "大阴线", "双K线"],
-        "倾盆大雨": ["大阳线", "大阴线", "双K线"],
-        "下降覆盖线": ["大阳线", "大阴线", "多K线"],
-        "平顶钳子线": ["双K线", "并列", "上影线"],
-        "塔形顶": ["大阳线", "小阴线", "大阴线", "多K线"],
-        "圆顶": ["小阳线", "小阴线", "多K线"],
-        "身怀六甲": ["双K线", "包容", "小阳线"],
-        "穿头破脚": ["双K线", "包容", "大阳线", "大阴线"],
-    }
+def get_signal_and_category(title: str) -> tuple[str, str]:
+    if title in BULLISH_BOTTOM or title in BULLISH_CONTINUATION:
+        return "bullish", "上升和见底"
+    if title in BEARISH_TOP or title in BEARISH_CONTINUATION:
+        return "bearish", "下跌和滞涨"
+    return "neutral", "整理"
 
-    if title in exact_keywords:
-        return exact_keywords[title]
+
+def infer_description(title: str, signal: str, category: str) -> str:
+    if signal == "bullish":
+        return f"{title}归入“{category}”类。"
+    if signal == "bearish":
+        return f"{title}归入“{category}”类。"
+    return f"{title}归入“{category}”类。"
+
+
+def infer_feature(title: str) -> list[str]:
+    if title in EXACT_FEATURES:
+        return EXACT_FEATURES[title]
+
+    keywords = infer_keywords(title)
+    features: list[str] = []
+
+    if "三K线" in keywords:
+        features.append("由三根K线组成。")
+    elif "双K线" in keywords:
+        features.append("由两根K线组成。")
+    elif "多K线" in keywords:
+        features.append("由多根K线组成。")
+    else:
+        features.append("可单独出现，也可与前后K线构成组合。")
+
+    if "大阳线" in keywords:
+        features.append("结构中包含较长阳线。")
+    if "大阴线" in keywords:
+        features.append("结构中包含较长阴线。")
+    if "十字线" in keywords:
+        features.append("结构中包含十字线。")
+    if "上影线" in keywords or "长上影" in keywords:
+        features.append("图形重点在上影线。")
+    if "下影线" in keywords or "长下影" in keywords:
+        features.append("图形重点在下影线。")
+    if "跳空缺口" in keywords:
+        features.append("结构中带有跳空缺口。")
+
+    return features[:3]
+
+
+def infer_note(title: str) -> str:
+    if title in EXACT_NOTES:
+        return EXACT_NOTES[title]
+    return "请结合出现位置和前后K线一起判断。"
+
+
+def infer_keywords(title: str) -> list[str]:
+    if title in EXACT_KEYWORDS:
+        return EXACT_KEYWORDS[title]
 
     keywords: list[str] = []
-
-    if any(token in title for token in ["阳", "红三兵", "旭日", "曙光", "早晨", "多方"]):
-        keywords.append("大阳线" if any(token in title for token in ["大", "旭日", "曙光"]) else "小阳线")
-    if any(token in title for token in ["阴", "乌鸦", "乌云", "黄昏", "淡友", "空方"]):
-        keywords.append("大阴线" if any(token in title for token in ["大", "乌云", "黄昏", "乌鸦"]) else "小阴线")
-    if "十字" in title or title in {"T字", "倒T字"}:
+    if "阳" in title:
+        keywords.append("小阳线")
+    if "阴" in title:
+        keywords.append("小阴线")
+    if "十字" in title:
         keywords.append("十字线")
-    if any(token in title for token in ["跳空", "缺口", "并排"]):
-        keywords.append("跳空缺口")
+    if "锤头" in title:
+        keywords.extend(["下影线", "长下影"])
+    if "倒锤" in title:
+        keywords.extend(["上影线", "长上影"])
     if any(token in title for token in ["三", "乌鸦", "三兵", "三部曲", "三颗星"]):
         keywords.append("三K线")
     if any(token in title for token in ["并排", "反攻", "镊子", "盖顶", "破脚", "六甲"]):
         keywords.append("双K线")
     if any(token in title for token in ["盘旋", "步曲", "部曲", "冉冉", "徐缓", "稳步", "不止", "弧形", "连续", "加速度", "圆底", "圆顶", "塔形"]):
         keywords.append("多K线")
-    if any(token in title for token in ["锤头", "T字"]):
-        keywords.append("长下影")
-        keywords.append("下影线")
-    if any(token in title for token in ["倒锤", "倒T", "上升抵抗", "上升受阻", "尽头"]):
-        keywords.append("长上影")
-        keywords.append("上影线")
-    if any(token in title for token in ["镊子", "并排"]):
+    if any(token in title for token in ["跳空", "缺口"]):
+        keywords.append("跳空缺口")
+    if any(token in title for token in ["并排", "镊子"]):
         keywords.append("并列")
     if any(token in title for token in ["六甲", "破脚"]):
         keywords.append("包容")
@@ -370,115 +407,61 @@ def infer_keywords(title: str, tags: list[str]) -> list[str]:
     for keyword in keywords:
         if keyword not in deduped:
             deduped.append(keyword)
-
     return deduped[:4] if deduped else ["多K线"]
-
-
-def infer_description(title: str, signal: str, category: str, tags: list[str]) -> str:
-    if title in SPECIAL_DESCRIPTIONS:
-        return SPECIAL_DESCRIPTIONS[title]
-
-    if signal == "bullish":
-        if "反转形态" in tags:
-            return f"{title}被原始资料归入“{category}”类，常见于下跌末端、止跌区域或上涨初期，用于观察见底或后市转强的概率。"
-        return f"{title}被原始资料归入“{category}”类，更多出现在上涨过程中的整理或续涨阶段，通常用于观察后市继续看涨的概率。"
-
-    if signal == "bearish":
-        if "见顶信号" in tags:
-            return f"{title}被原始资料归入“{category}”类，常见于涨势末端或高位滞涨区域，通常提示见顶或后市转弱。"
-        return f"{title}被原始资料归入“{category}”类，更多出现在下跌延续或涨后转弱阶段，用于判断后市继续看跌的概率。"
-
-    return f"{title}被原始资料归入“{category}”类，方向需要结合出现位置、前后K线和趋势环境一起判断。"
-
-
-def infer_feature(title: str, tags: list[str]) -> list[str]:
-    if title in SPECIAL_FEATURES:
-        return SPECIAL_FEATURES[title]
-
-    keywords = infer_keywords(title, tags)
-    features: list[str] = []
-
-    if "三K线" in keywords:
-        features.append("该形态通常由三根K线构成，重点观察中间过渡K线与最后确认K线。")
-    elif "双K线" in keywords:
-        features.append("该形态通常由两根K线构成，重点看实体包容、并列或反包关系。")
-    elif "多K线" in keywords:
-        features.append("该形态通常由多根K线构成，重点看整体排列方向与节奏变化。")
-    else:
-        features.append("该形态可单独出现，也可能与前后K线共同构成更完整的判断结构。")
-
-    if "跳空缺口" in keywords:
-        features.append("形态内部常带有跳空缺口，缺口是否回补会影响后续强弱判断。")
-    if "长上影" in keywords:
-        features.append("上影线相对突出，说明上方抛压或冲高回落特征明显。")
-    if "长下影" in keywords:
-        features.append("下影线相对突出，说明下探后有承接，价格被拉回的特征明显。")
-    if "十字星" in keywords:
-        features.append("开收盘价接近，代表多空短暂平衡，方向需要结合位置判断。")
-    if "盘整" in keywords:
-        features.append("往往伴随实体较小或波动收窄，适合放在整理语境下理解。")
-
-    if not any(token in title for token in ["跳空", "缺口", "十字", "T字", "一字", "螺旋桨"]):
-        features.append("观察时优先看它出现在上涨末端、下跌末端还是趋势中继位置。")
-
-    return features[:4]
-
-
-def infer_meaning(title: str, signal: str, tags: list[str]) -> str:
-    if title in SPECIAL_MEANINGS:
-        return SPECIAL_MEANINGS[title]
-
-    if signal == "bullish":
-        if "反转形态" in tags:
-            return "整体偏向底部转强或止跌回升信号，若后续出现放量阳线确认，参考价值更高。"
-        return "整体偏向上涨延续信号，更适合放在多头趋势或突破后的中继整理语境下理解。"
-
-    if signal == "bearish":
-        if "见顶信号" in tags:
-            return "整体偏向顶部转弱信号，若出现在高位放量滞涨区，后市看跌意义通常更强。"
-        return "整体偏向下跌延续信号，常用于判断空头趋势是否仍在继续展开。"
-
-    return "整体属于整理或中性信号，方向并不固定，需要结合趋势位置、量能和后续确认K线判断。"
-
-
-def infer_note(title: str, signal: str, tags: list[str]) -> str:
-    if title in SPECIAL_NOTES:
-        return SPECIAL_NOTES[title]
-
-    keywords = infer_keywords(title, tags)
-    if "反转形态" in tags:
-        return "反转形态最怕脱离位置单独解读，建议同时观察前序趋势、量能和下一根确认K线。"
-    if "持续形态" in tags:
-        return "持续形态的关键不是单根K线强弱，而是它是否维持了原趋势的排列和节奏。"
-    if "整理形态" in tags:
-        return "整理类形态方向弹性较大，单独信号通常有限，更适合结合上下文一起使用。"
-    if "跳空缺口" in keywords:
-        return "若后续快速回补缺口，原本的强弱判断往往会明显减弱。"
-    return "实战中不要只背名称，最好把出现位置、K线根数和确认方式一起记住。"
-
-
-def infer_hint(title: str, tags: list[str]) -> str:
-    if title in SPECIAL_HINTS:
-        return SPECIAL_HINTS[title]
-
-    keywords = infer_keywords(title, tags)
-    if "三K线" in keywords:
-        return "先数清楚K线根数，再看中间过渡K线和最后确认K线。"
-    if "双K线" in keywords:
-        return "先比较两根K线的实体包容、并列或反包关系。"
-    if "十字星" in keywords:
-        return "核心不是方向，而是开收接近与影线长短。"
-    if "多K线" in keywords:
-        return "先抓整体排列方向，再看是否有跳空、盘旋或加速。"
-    return "先看它出现的位置，再结合实体、影线和前后K线关系记忆。"
 
 
 def infer_difficulty(title: str) -> str:
     if title in {"大阳线", "大阴线", "小阳线", "小阴线", "十字", "长十字", "T字", "倒T字", "锤头线", "倒锤头线", "一字", "螺旋桨"}:
         return "easy"
-    if any(token in title for token in ["三部曲", "盘旋", "抵抗", "不止", "加速度", "跛脚", "并排", "身怀六甲", "穿头破脚", "尽头", "弧形"]):
+    if any(token in title for token in ["三部曲", "盘旋", "抵抗", "不止", "加速度", "跛脚", "并排", "身怀六甲", "穿头破脚", "弧形", "塔形", "圆底", "圆顶"]):
         return "hard"
     return "medium"
+
+
+def infer_tags(title: str, signal: str) -> list[str]:
+    tags: list[str] = []
+    if signal == "bullish":
+        tags.append("看涨")
+    elif signal == "bearish":
+        tags.append("看跌")
+    else:
+        tags.append("整理")
+
+    if title in BULLISH_BOTTOM:
+        tags.append("见底")
+    if title in BEARISH_TOP:
+        tags.append("见顶")
+    return tags
+
+
+def infer_practice(title: str, feature: list[str], keywords: list[str]) -> tuple[str, list[dict[str, str]]]:
+    if title in EXACT_BLANKS:
+        item = EXACT_BLANKS[title]
+        return item["template"], item["blanks"]
+
+    prompts: list[dict[str, str]] = []
+    if "三K线" in keywords:
+        prompts.append({"id": "count", "prompt": "该形态由 [ ] 根K线组成。", "answer": "3"})
+    elif "双K线" in keywords:
+        prompts.append({"id": "count", "prompt": "该形态由 [ ] 根K线组成。", "answer": "2"})
+    elif "多K线" in keywords:
+        prompts.append({"id": "count", "prompt": "该形态由 [ ] 根K线组成。", "answer": "多"})
+
+    if any(keyword in keywords for keyword in ["大阳线", "中阳线", "小阳线"]):
+        prompts.append({"id": "yang", "prompt": "该形态结构中包含 [ ]。", "answer": next(keyword for keyword in ["大阳线", "中阳线", "小阳线"] if keyword in keywords)})
+    if any(keyword in keywords for keyword in ["大阴线", "中阴线", "小阴线"]):
+        prompts.append({"id": "yin", "prompt": "该形态结构中包含 [ ]。", "answer": next(keyword for keyword in ["大阴线", "中阴线", "小阴线"] if keyword in keywords)})
+    if "十字线" in keywords:
+        prompts.append({"id": "cross", "prompt": "该形态结构中包含 [ ]。", "answer": "十字线"})
+    if "上影线" in keywords or "长上影" in keywords:
+        prompts.append({"id": "upper", "prompt": "图形重点观察 [ ]。", "answer": "上影线"})
+    if "下影线" in keywords or "长下影" in keywords:
+        prompts.append({"id": "lower", "prompt": "图形重点观察 [ ]。", "answer": "下影线"})
+
+    if not prompts:
+        prompts.append({"id": "feature", "prompt": "该形态的结构记忆点是 [ ]。", "answer": feature[0].replace("。", "")})
+
+    return "按图形完成结构化描述填空。", prompts[:4]
 
 
 def main() -> None:
@@ -486,20 +469,26 @@ def main() -> None:
 
     for image_path in sorted(IMAGE_DIR.glob("*.png"), key=lambda item: item.stem):
         title = image_path.stem
-        signal, category, tags = get_signal_and_category(title)
+        signal, category = get_signal_and_category(title)
+        feature = infer_feature(title)
+        keywords = infer_keywords(title)
+        practice_template, blanks = infer_practice(title, feature, keywords)
+
         records.append(
             {
                 "id": title,
                 "title": title,
                 "image": f"/images/kline/{image_path.name}",
-                "description": infer_description(title, signal, category, tags),
-                "feature": infer_feature(title, tags),
-                "meaning": infer_meaning(title, signal, tags),
-                "note": infer_note(title, signal, tags),
-                "keywords": infer_keywords(title, tags),
-                "tags": tags,
+                "description": infer_description(title, signal, category),
+                "feature": feature,
+                "note": infer_note(title),
+                "meaning": "",
+                "keywords": keywords,
+                "practiceTemplate": practice_template,
+                "blanks": blanks,
+                "tags": infer_tags(title, signal),
                 "difficulty": infer_difficulty(title),
-                "hint": infer_hint(title, tags),
+                "hint": "",
                 "category": category,
                 "createdAt": "2026-04-16",
                 "updatedAt": "2026-04-16",

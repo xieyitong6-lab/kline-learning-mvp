@@ -7,11 +7,17 @@ import { useSearchParams } from "next/navigation";
 
 import { Pill } from "@/components/pill";
 import { SectionCard } from "@/components/section-card";
-import { DEFAULT_KEYWORD_POOL } from "@/lib/constants";
-import { evaluateKeywords } from "@/lib/keyword-evaluator";
 import { recordPracticeAttempt } from "@/lib/storage";
 import { allKlineItems, buildTitleOptions, getKlineById } from "@/lib/summary";
-import type { KlineItem, KeywordEvaluationResult } from "@/types/kline";
+import type { KlineItem } from "@/types/kline";
+
+type BlankFeedback = {
+  id: string;
+  prompt: string;
+  userAnswer: string;
+  correctAnswer: string;
+  correct: boolean;
+};
 
 function getNextQuestion(forcedId?: string | null): KlineItem {
   if (forcedId) {
@@ -26,78 +32,89 @@ export function PracticeClient() {
   const presetId = searchParams.get("id");
 
   const [question, setQuestion] = useState<KlineItem>(() => getNextQuestion(presetId));
+  const [step, setStep] = useState<1 | 2>(1);
   const [selectedTitle, setSelectedTitle] = useState("");
-  const [selectedKeywords, setSelectedKeywords] = useState<string[]>([]);
-  const [extraKeywordInput, setExtraKeywordInput] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  const [titleChecked, setTitleChecked] = useState(false);
   const [titleCorrect, setTitleCorrect] = useState(false);
-  const [keywordResult, setKeywordResult] = useState<KeywordEvaluationResult | null>(null);
+  const [blankAnswers, setBlankAnswers] = useState<Record<string, string>>({});
+  const [submitted, setSubmitted] = useState(false);
+  const [blankFeedback, setBlankFeedback] = useState<BlankFeedback[]>([]);
 
   const titleOptions = useMemo(() => buildTitleOptions(question.id), [question.id]);
+  const blanks = question.blanks ?? [];
 
-  const handleKeywordToggle = (keyword: string) => {
-    setSelectedKeywords((current) =>
-      current.includes(keyword)
-        ? current.filter((item) => item !== keyword)
-        : [...current, keyword],
-    );
+  const resetForQuestion = (nextQuestion: KlineItem) => {
+    setQuestion(nextQuestion);
+    setStep(1);
+    setSelectedTitle("");
+    setTitleChecked(false);
+    setTitleCorrect(false);
+    setBlankAnswers({});
+    setSubmitted(false);
+    setBlankFeedback([]);
   };
 
-  const handleSubmit = () => {
-    const inputKeywords = extraKeywordInput
-      .split(/[,，]/)
-      .map((item) => item.trim())
-      .filter(Boolean);
-    const combinedKeywords = Array.from(new Set([...selectedKeywords, ...inputKeywords]));
-    const result = evaluateKeywords(combinedKeywords, question.keywords);
-    const isTitleCorrect = selectedTitle === question.title;
-    const isFullyCorrect = isTitleCorrect && result.status === "correct";
+  const submitTitleStep = () => {
+    const correct = selectedTitle === question.title;
+    setTitleChecked(true);
+    setTitleCorrect(correct);
+    setStep(2);
+  };
 
+  const submitBlankStep = () => {
+    const feedback = blanks.map((blank) => {
+      const userAnswer = (blankAnswers[blank.id] ?? "").trim();
+      const correctAnswer = blank.answer.trim();
+      return {
+        id: blank.id,
+        prompt: blank.prompt,
+        userAnswer,
+        correctAnswer,
+        correct: userAnswer === correctAnswer,
+      };
+    });
+
+    const blanksAllCorrect = feedback.every((item) => item.correct);
+    setBlankFeedback(feedback);
     setSubmitted(true);
-    setTitleCorrect(isTitleCorrect);
-    setKeywordResult(result);
 
     recordPracticeAttempt(
       {
         id: question.id,
         title: question.title,
         attemptedAt: new Date().toISOString(),
-        titleCorrect: isTitleCorrect,
-        keywordStatus: result.status,
-        selectedKeywords: combinedKeywords,
+        titleCorrect,
+        keywordStatus: blanksAllCorrect ? "correct" : feedback.some((item) => item.correct) ? "partial" : "wrong",
+        selectedKeywords: feedback.map((item) => item.userAnswer).filter(Boolean),
       },
-      isFullyCorrect,
+      titleCorrect && blanksAllCorrect,
     );
   };
 
   const handleNextQuestion = () => {
-    setQuestion(getNextQuestion(null));
-    setSelectedTitle("");
-    setSelectedKeywords([]);
-    setExtraKeywordInput("");
-    setSubmitted(false);
-    setTitleCorrect(false);
-    setKeywordResult(null);
+    resetForQuestion(getNextQuestion(null));
   };
 
+  const resultLabel = !submitted
+    ? ""
+    : blankFeedback.every((item) => item.correct)
+      ? "正确"
+      : blankFeedback.some((item) => item.correct)
+        ? "部分正确"
+        : "错误";
+
   return (
-    <div className="grid gap-6 xl:grid-cols-[minmax(0,1.2fr)_380px]">
-      <SectionCard className="overflow-hidden p-0">
-        <div className="border-b border-slate-200 px-6 py-5">
-          <div className="flex flex-wrap items-center gap-3">
-            <Pill>{question.category ?? "单根K线"}</Pill>
-            <Pill tone="warning">{question.difficulty ?? "easy"}</Pill>
-            <Pill>随机练习</Pill>
-          </div>
-          <h2 className="mt-4 text-3xl font-semibold text-slate-950">看图识别 + 关键词记忆</h2>
-          <p className="mt-3 text-sm leading-7 text-slate-600">
-            先判断形态名称，再选择或补充关键词。只有“名称正确且关键词全部命中”才记为答对。
-          </p>
-        </div>
-        <div className="grid gap-6 p-6 lg:grid-cols-[minmax(0,1fr)_320px]">
-          <div className="space-y-6">
-            <div className="rounded-[28px] bg-[radial-gradient(circle_at_top,_rgba(250,204,21,0.16),_transparent_55%),linear-gradient(180deg,#fff7ed_0%,#f8fafc_100%)] p-5">
-              <div className="rounded-[24px] border border-white/80 bg-white p-4 shadow-inner">
+    <div className="space-y-5">
+      <SectionCard className="p-5 md:p-6">
+        <div className="grid gap-6 lg:grid-cols-[minmax(340px,0.95fr)_minmax(360px,1.05fr)] lg:items-start">
+          <div className="space-y-4">
+            <div className="flex flex-wrap gap-2">
+              <Pill>{question.category ?? "练习题"}</Pill>
+              {question.difficulty && <Pill tone="warning">{question.difficulty}</Pill>}
+              <Pill>{step === 1 ? "步骤一" : "步骤二"}</Pill>
+            </div>
+            <div className="rounded-[28px] border border-slate-100 bg-[linear-gradient(180deg,#fff7ed_0%,#ffffff_100%)] p-4">
+              <div className="rounded-[24px] border border-slate-100 bg-white p-4 shadow-inner">
                 <Image
                   src={question.image}
                   alt={question.title}
@@ -107,133 +124,128 @@ export function PracticeClient() {
                 />
               </div>
             </div>
-
-            <div className="rounded-[28px] border border-slate-200 bg-slate-50 p-5">
-              <p className="text-sm font-medium text-slate-500">题型 1：识别形态名称</p>
-              <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                {titleOptions.map((option) => (
-                  <button
-                    key={option}
-                    onClick={() => setSelectedTitle(option)}
-                    disabled={submitted}
-                    className={`rounded-2xl border px-4 py-3 text-left transition ${
-                      selectedTitle === option
-                        ? "border-slate-900 bg-slate-950 text-white"
-                        : "border-slate-200 bg-white text-slate-700 hover:border-slate-300"
-                    } ${submitted ? "cursor-default opacity-90" : ""}`}
-                  >
-                    {option}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div className="rounded-[28px] border border-slate-200 bg-slate-50 p-5">
-              <p className="text-sm font-medium text-slate-500">题型 2：关键词辅助记忆</p>
-              <p className="mt-2 text-sm leading-7 text-slate-600">
-                这里的关键词不是“看涨/看跌”这种结果词，而是对当前形态的构成拆解，比如“大阳线、小阴线、上影线、下影线”。
-              </p>
-              <div className="mt-4 flex flex-wrap gap-3">
-                {DEFAULT_KEYWORD_POOL.map((keyword) => (
-                  <button
-                    key={keyword}
-                    onClick={() => handleKeywordToggle(keyword)}
-                    disabled={submitted}
-                    className={`rounded-full border px-4 py-2 text-sm font-medium transition ${
-                      selectedKeywords.includes(keyword)
-                        ? "border-teal-700 bg-teal-700 text-white"
-                        : "border-slate-200 bg-white text-slate-700 hover:border-teal-300 hover:text-teal-700"
-                    }`}
-                  >
-                    {keyword}
-                  </button>
-                ))}
-              </div>
-              <label className="mt-4 block text-sm text-slate-500">
-                补充填写关键词（可选，支持中英文逗号）
-                <input
-                  value={extraKeywordInput}
-                  onChange={(event) => setExtraKeywordInput(event.target.value)}
-                  disabled={submitted}
-                  placeholder="例如：大阳线，下影线"
-                  className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-800 outline-none transition focus:border-slate-400"
-                />
-              </label>
-            </div>
           </div>
 
           <div className="space-y-4">
-            <SectionCard
-              title="答题操作"
-              description="提交后会立即反馈，并自动写入今日统计和错题本。"
-              className="bg-slate-950 text-white"
-            >
-              <button
-                onClick={handleSubmit}
-                disabled={submitted || !selectedTitle}
-                className="w-full rounded-2xl bg-white px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:bg-slate-300"
-              >
-                提交答案
-              </button>
-              <button
-                onClick={handleNextQuestion}
-                className="mt-3 w-full rounded-2xl border border-slate-700 px-4 py-3 text-sm font-medium text-white transition hover:border-slate-500 hover:bg-slate-900"
-              >
-                下一题
-              </button>
-              <Link
-                href="/mistakes"
-                className="mt-3 block rounded-2xl border border-slate-700 px-4 py-3 text-center text-sm font-medium text-slate-200 transition hover:border-slate-500 hover:bg-slate-900"
-              >
-                打开错题本
-              </Link>
-            </SectionCard>
-
-            {submitted && keywordResult && (
+            {step === 1 && (
               <SectionCard
-                title={titleCorrect && keywordResult.status === "correct" ? "回答正确" : "答题反馈"}
-                description="这里只保留名称判断和关键词判定结果。"
+                title="第一步：看图识别形态名称"
+                description="先只做名称识别，不混入其他辅助模块。"
               >
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {titleOptions.map((option) => (
+                    <button
+                      key={option}
+                      onClick={() => setSelectedTitle(option)}
+                      className={`rounded-2xl border px-4 py-3 text-left text-sm transition ${
+                        selectedTitle === option
+                          ? "border-slate-900 bg-slate-950 text-white"
+                          : "border-slate-200 bg-white text-slate-700 hover:border-slate-300"
+                      }`}
+                    >
+                      {option}
+                    </button>
+                  ))}
+                </div>
+
+                <button
+                  onClick={submitTitleStep}
+                  disabled={!selectedTitle}
+                  className="mt-5 rounded-2xl bg-slate-950 px-5 py-3 text-sm font-medium text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:bg-slate-300"
+                >
+                  提交名称答案
+                </button>
+              </SectionCard>
+            )}
+
+            {step === 2 && (
+              <SectionCard
+                title="第二步：结构化描述填空"
+                description="根据图形与资料内容完成字段填空，辅助记忆形态结构。"
+              >
+                <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700">
+                  名称判断：
+                  {titleChecked
+                    ? titleCorrect
+                      ? "正确"
+                      : `错误，正确答案是「${question.title}」`
+                    : "未提交"}
+                </div>
+
+                <div className="mt-4 space-y-4">
+                  {question.practiceTemplate && (
+                    <p className="text-sm leading-7 text-slate-600">{question.practiceTemplate}</p>
+                  )}
+
+                  {blanks.map((blank) => (
+                    <label key={blank.id} className="block">
+                      <p className="text-sm leading-7 text-slate-700">{blank.prompt}</p>
+                      <input
+                        value={blankAnswers[blank.id] ?? ""}
+                        onChange={(event) =>
+                          setBlankAnswers((current) => ({
+                            ...current,
+                            [blank.id]: event.target.value,
+                          }))
+                        }
+                        disabled={submitted}
+                        placeholder={blank.placeholder ?? "请输入"}
+                        className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-slate-400"
+                      />
+                    </label>
+                  ))}
+                </div>
+
+                <div className="mt-5 flex flex-wrap gap-3">
+                  <button
+                    onClick={submitBlankStep}
+                    disabled={submitted}
+                    className="rounded-2xl bg-slate-950 px-5 py-3 text-sm font-medium text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:bg-slate-300"
+                  >
+                    提交填空答案
+                  </button>
+                  <button
+                    onClick={handleNextQuestion}
+                    className="rounded-2xl border border-slate-200 bg-white px-5 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
+                  >
+                    下一题
+                  </button>
+                  <Link
+                    href="/mistakes"
+                    className="rounded-2xl border border-amber-200 bg-amber-50 px-5 py-3 text-sm font-medium text-amber-800 transition hover:bg-amber-100"
+                  >
+                    错题本
+                  </Link>
+                </div>
+              </SectionCard>
+            )}
+
+            {submitted && (
+              <SectionCard title="答题反馈" description="只保留名称判断和填空判定结果。">
                 <div className="space-y-4 text-sm leading-7 text-slate-700">
-                  <div>
-                    <p className="font-semibold text-slate-900">名称判断</p>
-                    <p>{titleCorrect ? "名称识别正确。" : `名称识别错误，正确答案是「${question.title}」。`}</p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-slate-900">关键词判定</p>
-                    <p>
-                      当前结果：
-                      {keywordResult.status === "correct"
-                        ? "全部命中"
-                        : keywordResult.status === "partial"
-                          ? "部分正确"
-                          : "错误"}
-                    </p>
-                    <p>你选中了：{keywordResult.selected.join("、") || "未选择"}</p>
-                    <p>正确答案：{keywordResult.correct.join("、") || "无"}</p>
-                    <p>漏掉关键词：{keywordResult.missed.join("、") || "无"}</p>
-                  </div>
-                  <div className="rounded-2xl bg-slate-50 p-4">
-                    <p className="font-semibold text-slate-900">拆解参考</p>
-                    <p className="mt-2">这个形态在当前题库中被拆成：{question.keywords.join("、")}。</p>
-                    <p className="mt-2 text-amber-800">记忆提示：{question.hint ?? "从实体与影线开始拆解。"}</p>
+                  <p>
+                    名称判断：
+                    {titleCorrect ? "正确" : `错误，正确答案是「${question.title}」`}
+                  </p>
+                  <p>填空结果：{resultLabel}</p>
+
+                  <div className="space-y-3">
+                    {blankFeedback.map((item, index) => (
+                      <div key={item.id} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                        <p className="font-medium text-slate-900">第 {index + 1} 空</p>
+                        <p className="mt-2 text-slate-700">{item.prompt}</p>
+                        <p className="mt-2">你的答案：{item.userAnswer || "未填写"}</p>
+                        <p>正确答案：{item.correctAnswer}</p>
+                        <p className={item.correct ? "text-emerald-700" : "text-rose-700"}>
+                          判定：{item.correct ? "正确" : "错误"}
+                        </p>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </SectionCard>
             )}
           </div>
-        </div>
-      </SectionCard>
-
-      <SectionCard
-        title="练习说明"
-        description="MVP 规则保持简单透明，方便后续扩展到更多题型。"
-      >
-        <div className="space-y-4 text-sm leading-7 text-slate-600">
-          <p>1. 每道题固定围绕一条 K 线资料展开。</p>
-          <p>2. 识别题使用选择题，关键词题使用点选为主、输入为辅。</p>
-          <p>3. 关键词仅做精确匹配，输入内容会自动 trim、按逗号拆分并去重。</p>
-          <p>4. 全部命中判定为正确；部分命中判定为部分正确；完全未命中判定为错误。</p>
         </div>
       </SectionCard>
     </div>
